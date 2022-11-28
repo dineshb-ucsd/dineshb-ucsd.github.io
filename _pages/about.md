@@ -7,18 +7,47 @@ redirect_from:
   - /about.html
 ---
 
-I am an Assistant Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. I lead [WCSNG](https://wcsng.ucsd.edu) Wireless Communication, Sensing, and Networking Group at UC San Diego.
+I am Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. Our group [WCSNG](https://wcsng.ucsd.edu) designs systems for Wireless Communication, Computing, Sensing, and Networking at UC San Diego. 
 
-My research vision is to design and prototype performant systems for sensing, computing, communicating, and securing information in our connected world. My research has aimed to solve fundamental and near-impossible problems throughout my career, which has often led to new areas of research and commercialization. My research group continues to work on the same philosophy of solving fundamental problems, impacting next-generation communication, robotics, and autonomous systems to everyday life ([WCSNG](https://wcsng.ucsd.edu)).
+The vision for our research is to design and prototype performant systems for communicating, sensing, computing, and securing information in our connected world, solving real-world problems. Our research has aimed to solve fundamental questions, which has often led to new areas of research and commercialization. 
+
+[WCSNG](https://wcsng.ucsd.edu) group consists of highly interdisciplinary engineers, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of computing, signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop science and algorithms and their real-world implementation and prototypes in our impact areas. 
+
+Our broad impact areas are vision/perception systems, sensing systems, wireless communications, computing systems, and wireless networking. WCSNG group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry for researchers in computing, communication, and sensing. 
+
+<!-- 
+I am an Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. I lead [WCSNG](https://wcsng.ucsd.edu) Wireless Communication + , Sensing, and Networking Group at UC San Diego. 
+
+My research vision is to design and prototype performant systems for sensing, computing, communicating, and securing information in our connected world, solving real-world problems. 
+
+Our research has aimed to solve fundamental and near-impossible problems throughout my career, which has often led to new areas of research and commercialization. 
+
+([WCSNG](https://wcsng.ucsd.edu)) group continues to work on the same philosophy of solving fundamental problems, impacting next-generation communication, robotics, and autonomous systems to everyday life. 
+
+WCSNG group is highly interdisciplinary, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop theory and algorithms with their implementation and prototypes in our impact areas. 
+
+
+Our impact areas are in the broad areas of vision/perception systems, sensing systems, wireless communications, wireless networking. My group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry to researchers in communication and sensing. 
+
+ -->
+
+
 
 Apply to WCSNG Group 
 -----
 
-My group is highly interdisciplinary, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop theory and algorithms with their implementation and prototypes in our impact areas. 
-Our impact areas are in the broad areas of vision/perception systems, sensing systems, wireless communications, wireless networking.
-My group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry to researchers in communication and sensing. 
+If you are a potential student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the PhD students or postdocs. 
 
-If you are a potential student, researcher or postdoc and interested in working with me or [my group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the PhD students or postdocs. 
+I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But please do email me with your resume and specific interest in the lab. 
+
+For Ph.D. applications, please apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, please choose communication theory and systems and mention my name. Please choose systems and networking for the CSE Ph.D. program and mention my name.  
+
+
+Office hours 
+--
+
+Atkinson Hall 4308, 9500 Gilman Dr., UC San Diego  
+Mondays 3 pm to 4 pm or by Appointment
 
 Projects 
 ----- 
