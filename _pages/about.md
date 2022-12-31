@@ -36,11 +36,11 @@ Our impact areas are in the broad areas of vision/perception systems, sensing sy
 Apply to WCSNG Group 
 -----
 
-If you are a potential student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the PhD students or postdocs. 
+If you are an exceptional student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
 
-I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But please do email me with your resume and specific interest in the lab. 
+I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But you can choose to email me with your resume and specific interest in the lab.  
 
-For Ph.D. applications, please apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, please choose communication theory and systems and mention my name. Please choose systems and networking for the CSE Ph.D. program and mention my name.  
+For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both your application.  
 
 
 Office hours 

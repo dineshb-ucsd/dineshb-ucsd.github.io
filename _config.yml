@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Dinesh Bharadia" 
 title_separator          : "-"
 name                     : &name "Dinesh Bharadia"
-description              : &description "Assitant Professor "
+description              : &description "Associate Professor "
 url                      : https://dineshb-ucsd.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "dineshb-ucsd/dineshb-ucsd.github.io"
@@ -85,7 +85,7 @@ analytics:
 author:
   name             : "Dinesh Bharadia"
   avatar           : "WebpageNewPic.jpg"
-  bio              : "Assitant Professor"
+  bio              : "Associate Professor"
   location         : "San Diego, CA"
   employer         :
   dblp             : "https://dblp.org/pid/52/10159.html"
