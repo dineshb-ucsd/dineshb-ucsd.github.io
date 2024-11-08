@@ -31,10 +31,7 @@ Our impact areas are in the broad areas of vision/perception systems, sensing sy
 
  -->
 
-
-
-Apply to WCSNG Group 
------
+## Apply to WCSNG Group 
 
 If you are an exceptional student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
 
@@ -43,14 +40,24 @@ I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I
 For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both your application.  
 
 
-Office hours 
---
+## Office hours
 
-Atkinson Hall 4308, 9500 Gilman Dr., UC San Diego  
-Mondays 3 pm to 4 pm or by Appointment
+By Appointment only
 
-Projects 
------ 
+### Email Response from Me
+
+#### Step 1: Send Me an Email  
+I typically respond to emails within **2 days**. If you haven't received a response from me within this time frame, it's likely that your email got lost in a sea of unread messages. 
+
+#### Step 2: If No Response After N=3 Days, email me again   
+If you haven't heard back within **N days**, please **follow up** by sending another email after **N+1 days**. Update **N = N + 1** each time you follow up. This helps ensure that I don't miss your message, my mailbox doesn't explode.
+
+#### Expert Tip: I check my email in the morning and evening and try to respond to all emails at once. 
+
+
+## Projects 
+
+the list of projects below are outdated -- I strongly *recommend* to check out [WCSNG](https://wcsng.ucsd.edu)
 
 
 - Sensing and Localization using wireless and sound signals for robotics, everyday devices, users and many-more applications.
@@ -104,8 +111,7 @@ Projects
 
 A more detailed list of projects and on-going research can be found at [WCSNG publications](https://wcsng.ucsd.edu/publications).
 
-Selected Awards & Honors
------
+## Selected Awards & Honors
 
 - [Forbes 30 under 30 Science Category World-wide](https://www.forbes.com/profile/dinesh-bharadia/?sh=126aa061c41f): Forbes recognizes 30 young scientists and engineers anywhere in the world under the age of 30, who have made outstanding contributions to science and technology. 
 - [Marconi Young Scholar Award](https://www.marconisociety.org/press/marconi-society-honors-dinesh-bharadia-with-paul-baran-young-scholar-award/): Marconi Society recognizes outstanding young scientists and engineers anywhere in the world. 
@@ -115,6 +121,7 @@ Selected Awards & Honors
 - [Michael Dukakis Leadership Award](http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/): Recognizes outstanding young leaders in CyberSecurity.
 - Awarded Sarah and Thomas Kailath Stanford Graduate Fellowship to pursue MS-PhD in the field of Electrical Engineering
 - Awarded Best Student in Electrical Engineering at IIT Kanpur by Prime Minister of India
+  
 {% comment %}
 this is commented out... 
 
@@ -129,8 +136,8 @@ this is commented out...
 #- Awarded K. N. Saluja Scholarship, IIT Kanpur 
 {% endcomment %}
 
-News 
--------
+## News 
+
 - Dec 2020: Two papers on backscatter communication and backscatter Force semsing got accepted at NSDI'21. Congrats Manideep and Agrim!
 - Sept 2020: Another backscatter paper in circuits conference ISSCC'21. Congrats Manideep and team!
 - Sept 2020: Two papers got accepted at Sensys'20. Congrats Kshitiz and Yeswanth!
@@ -144,8 +151,8 @@ News
 <a href='https://wcsng.ucsd.edu/allnews.html'>... See all News </a>
 
 
-Selected Press and Media Coverage 
------
+## Selected Press and Media Coverage 
+
 - Marconi Young Scholar Award was covered by numerous news outlets [detailed by Anand Parthasarathy](Marconi_link.pdf), [NDTV](http://www.ndtv.com/indians-abroad/indian-born-massachusetts-institute-of-technology-researcher-dinesh-bharadia-wins-us-award-1458666), [Times of India](http://timesofindia.indiatimes.com/nri/nri-achievers/Indian-born-MIT-researcher-bags-award-for-his-contribution-to-radio-waves/articleshow/54331113.cms), [Stanford News](https://ee.stanford.edu/news/award-student/10-28-2016/dinesh-bharadia-phd-’16-receives-marconi-young-scholar-award), [so on](https://www.google.com/search?&q=news%3A%2Bdinesh%2Bbharadia%2Bmarconi%2Baward&oq=news%3A%2Bdinesh%2Bbharadia%2Bmarconi%2Baward)
 - MIT TR35 Award was covered by [Press release](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/), [CSAIL News](http://www.csail.mit.edu/researcher_named_to_tech_reviews_2016_under_35_list%20), [MIT TR35 Talk](http://events.technologyreview.com/video/watch/dinesh-bharadia-mit-csail-innovator/), [India New England](http://indianewengland.com/2016/09/four-indian-americans-one-indian-35-innovators-35-list-mit-technology-review/) , [Skill Outlook](http://skilloutlook.com/2016/09/16/dinesh-bharadia-ex-iitian-features-among-mits-global-35-innovators-35/),[India Eagle](http://www.indianeagle.com/travelbeats/list-of-innovators-under-35-on-mit-technology-review-2016/), [so on](https://www.google.com/search?&q=news:+dinesh+bharadia+35+under+35)
 - HitchHike (IoT Connectivity) was covered by [Stanford News](http://news.stanford.edu/2016/11/16/miniature-wifi-device-developed-supplies-missing-link-internet-things/ ), 
@@ -167,8 +174,8 @@ Selected Press and Media Coverage
 [Digital Trends](http://www.digitaltrends.com/virtual-reality/mit-movr-wireless/)
 - SpotFi: Indoor Localization was covered by [MIT Tech. Review](https://www.technologyreview.com/s/542561/wi-fi-trick-gives-devices-super-accurate-indoor-location-fixes/)
 
-Short Bio
------ 
+## Short Bio
+ 
 I have been at UC San Diego as a faculty since January 2018. My group has diverse focus from computer vision, deep learning to wireless communication, sensing and networking. We build from theory to practice technologies which have impact on robotics, autonomous systems and day-to-day life. 
 
 Previously, I worked as postdoctoral associate at MIT CSAIL, focusing on data-center networking and wireless sensing. I received my Ph.D. at Stanford University for my work on full-duplex radios, which were considered near impossible to build, basically enabling radios to transmit and receive simultaneously on the same frequency. From 2013 to 2015, I took a leave of absence from my Ph.D. to commercialize research on the practical full-duplex radio at Kumu Networks, which underwent successful field trials with tier 1 network providers worldwide – Deutsche Telekom and SK Telecom and is now being commercially deployed. 
@@ -176,8 +183,7 @@ Previously, I worked as postdoctoral associate at MIT CSAIL, focusing on data-ce
 Before joining Stanford, I received my bachelor's degree in Electrical Engineering from the Indian Institute of Technology, Kanpur in 2010. I was awarded a gold medal at IIT Kanpur for graduating at the top of the class of 2010 in Electrical Engineering. 
 
 
-Broader Industry Impact 
------
+## Broader Industry Impact 
 
 - Full Duplex 
 Our research on full-duplex radios has translated into a commercial venture [Kumu Networks](http://www.kumunetworks.com). I worked as a Principal Scientist at Kumu Networks for nearly two years to commercialize this research and bring it to the rest of the world. 
