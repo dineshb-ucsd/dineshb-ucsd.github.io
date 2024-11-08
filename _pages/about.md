@@ -33,18 +33,18 @@ Our impact areas are in the broad areas of vision/perception systems, sensing sy
 
 ## Apply to WCSNG Group 
 
-If you are an exceptional student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
+If you are an exceptional student, researcher, or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
 
 I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But you can choose to email me with your resume and specific interest in the lab.  
 
-For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both your application.  
+For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both of your applications.  
 
 
 ## Office hours
 
 By Appointment only
 
-### Email Response from Me
+### How to get an Email Response from Me
 
 #### Step 1: Send Me an Email  
 I typically respond to emails within **2 days**. If you haven't received a response from me within this time frame, it's likely that your email got lost in a sea of unread messages. 
