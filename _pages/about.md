@@ -21,7 +21,6 @@ The [WCSNG](https://wcsng.ucsd.edu) (Wireless Communications Sensing and Network
 
 **Office Address** :FAH 2303
 
-
 <!-- 
 I am an Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. I lead [WCSNG](https://wcsng.ucsd.edu) Wireless Communication + , Sensing, and Networking Group at UC San Diego. 
 
