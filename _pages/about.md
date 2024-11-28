@@ -57,8 +57,9 @@ If you haven't heard back within **N days**, please **follow up** by sending ano
 
 ## Projects 
 
-the list of projects below are outdated -- I strongly *recommend* to check out [WCSNG](https://wcsng.ucsd.edu)
+I strongly *recommend* checking out [WCSNG](https://wcsng.ucsd.edu). The list of projects should be available at the 
 
+<!-- 
 
 - Sensing and Localization using wireless and sound signals for robotics, everyday devices, users and many-more applications.
   + [Indoor Localization](https://wcsng.ucsd.edu/localization.html): Developing privacy preserving self-localization for users, user devices, robots and even smart sound devices. 
@@ -110,6 +111,8 @@ the list of projects below are outdated -- I strongly *recommend* to check out [
   + Full Duplex radios: [Sigcomm'13](https://dl.acm.org/doi/10.1145/2486001.2486033), [NSDI'14](), [Sigcomm'14](), [Sigcomm'15](), [Sigcomm'16]()
 
 A more detailed list of projects and on-going research can be found at [WCSNG publications](https://wcsng.ucsd.edu/publications).
+
+-->
 
 ## Selected Awards & Honors
 
