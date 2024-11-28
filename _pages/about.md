@@ -11,9 +11,16 @@ I am Associate Professor in the ECE department with an affiliate appointment wit
 
 The vision for our research is to design and prototype performant systems for communicating, sensing, computing, and securing information in our connected world, solving real-world problems. Our research has aimed to solve fundamental questions, which has often led to new areas of research and commercialization. 
 
-[WCSNG](https://wcsng.ucsd.edu) group consists of highly interdisciplinary engineers, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of computing, signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop science and algorithms and their real-world implementation and prototypes in our impact areas. 
-
 Our broad impact areas are vision/perception systems, sensing systems, wireless communications, computing systems, and wireless networking. WCSNG group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry for researchers in computing, communication, and sensing. 
+
+To reserach across these topics, [WCSNG](https://wcsng.ucsd.edu) group consists of highly interdisciplinary engineers, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of computing, signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop science, algorithms and their real-world implementation and prototypes in our impact areas. 
+
+The [WCSNG](https://wcsng.ucsd.edu) (Wireless Communications Sensing and Networking Group) is a diverse research team that brings together experts from various engineering disciplines to tackle complex real-world challenges. Our group comprises electrical engineers, data scientists, computer scientists, and mechanical engineers, working collaboratively at the intersection of networking, computing, signal processing, circuits, computer vision, machine learning, and artificial intelligence. Our unique combination of theoretical innovation, practical application and prototyping allows us to address complex problems in fields such as robotics, autonomous systems, and everyday devices. 
+
+**Office hours** : Monday 2-3 pm (except Holidays), otherwise by appointment only. 
+
+**Office Address** :FAH 2303
+
 
 <!-- 
 I am an Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. I lead [WCSNG](https://wcsng.ucsd.edu) Wireless Communication + , Sensing, and Networking Group at UC San Diego. 
@@ -33,17 +40,12 @@ Our impact areas are in the broad areas of vision/perception systems, sensing sy
 
 ## Apply to WCSNG Group 
 
-If you are an exceptional student, researcher, or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
+If you are an exceptional student, researcher, or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. You can choose to email me with your resume and specific interest in the lab. 
 
-I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But you can choose to email me with your resume and specific interest in the lab.  
+I have multiple openings for the Fall 2025 Ph.D. program. For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both of your applications. **In addition to that, please submit this form: https://forms.gle/uDeK9f9pwmgKhwCf6 -- only for PhD applicants.**   
 
-For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both of your applications.  
-
-
-## Office hours
-
-By Appointment only
-
+For 2025 Summer Internships, please submit this form: https://forms.gle/M2ifCW4n4ngpoM7t9. We typically start reviewing early Janurary. For all UCSD students, please apply to the SRIP program as mark as first priority. 
+ 
 ### How to get an Email Response from Me
 
 #### Step 1: Send Me an Email  
