@@ -57,7 +57,7 @@ If you haven't heard back within **N days**, please **follow up** by sending ano
 
 ## Projects 
 
-I strongly *recommend* checking out [WCSNG](https://wcsng.ucsd.edu). The list of projects should be available at the 
+A more detailed list of projects and ongoing research can be found at [WCSNG publications](https://wcsng.ucsd.edu/publications). I strongly *recommend* checking out [WCSNG](https://wcsng.ucsd.edu).
 
 <!-- 
 
@@ -110,8 +110,6 @@ I strongly *recommend* checking out [WCSNG](https://wcsng.ucsd.edu). The list of
 - Radio- Interferometry: 
   + Full Duplex radios: [Sigcomm'13](https://dl.acm.org/doi/10.1145/2486001.2486033), [NSDI'14](), [Sigcomm'14](), [Sigcomm'15](), [Sigcomm'16]()
 
-A more detailed list of projects and on-going research can be found at [WCSNG publications](https://wcsng.ucsd.edu/publications).
-
 -->
 
 ## Selected Awards & Honors
@@ -123,7 +121,7 @@ A more detailed list of projects and on-going research can be found at [WCSNG pu
   - [MIT TR35 Talk](http://events.technologyreview.com/video/watch/dinesh-bharadia-mit-csail-innovator/), [Press release](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/)
 - [Michael Dukakis Leadership Award](http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/): Recognizes outstanding young leaders in CyberSecurity.
 - Awarded Sarah and Thomas Kailath Stanford Graduate Fellowship to pursue MS-PhD in the field of Electrical Engineering
-- Awarded Best Student in Electrical Engineering at IIT Kanpur by Prime Minister of India
+- Awarded Best Student in Electrical Engineering at IIT Kanpur by the Prime Minister of India
   
 {% comment %}
 this is commented out... 
@@ -141,11 +139,51 @@ this is commented out...
 
 ## News 
 
-- Dec 2020: Two papers on backscatter communication and backscatter Force semsing got accepted at NSDI'21. Congrats Manideep and Agrim!
-- Sept 2020: Another backscatter paper in circuits conference ISSCC'21. Congrats Manideep and team!
+- Oct 2024: EdgeRIC demos and tutorial presented at srsRAN Workshop 2024. Congratulations Ish, Ushasi, Ali, Sushila, and Archana! <a href="https://edgeric.github.io/oaic-workshop-2024.html">EdgeRIC demos and tutorial presented at srsRAN Workshop 2024</a>
+
+- Sep 2024: WCSNG welcomes 3 new PhD students - Ali, Golnaz and Pushkal! <a href="https://wcsng.ucsd.edu/team/">WCSNG welcomes 3 new PhD students - Ali, Golnaz and Pushkal!</a>
+
+- Jul 2024: Dinesh and Ish co-charing <a href="https://wcsng.ucsd.edu/open-ai-ran-2024/">Mobicom Open-AI-RAN 2024</a> workshop.
+
+- Jun 2024: WCSNG has 5 PhD Graduates in 2024. Congrats Ish, Aditya, Raghav, Manideep, and Kshitiz! <a href="https://wcsng.ucsd.edu/allnews.html">WCSNG has 5 PhD Graduates in 2024</a>
+
+- Mar 2024: BeamArmor published in Hotmobile'24 with a live demo! Check it out <a href="https://wcsng.ucsd.edu/open-ai-ran-2024/">here</a>. Congrats Ish and Frederik!
+
+- Mar 2024: EdgeRIC is presented at NSDI'24 by Ushasi. Check out the paper <a href="https://www.usenix.org/conference/nsdi24/presentation/ko">here</a>. Congrats Ushasi and team!
+
+- Nov 2023: Dinesh is co-charing <a href="https://wcsng.ucsd.edu/mmNets2023/">Mobicom mmNets 2023</a> workshop at Madrid, Spain, with Ish and Roshan as publicity co-chairs.
+
+- July 2023: Crescendo - a sweep spectrum sensor that guarantees high signal fidelity will be presented at MobiCom'23. Congratulations Raghav and Kevin!
+- May 2023: Ish and Rohith presented two papers at Infocom'23 in New York and IEEE SnP'23 in San Francisco. Read news articles on <a href="https://today.ucsd.edu/story/uc-san-diego-researchers-present-new-wireless-system-for-greater-5g-access">mmFlexible</a> and <a href="https://today.ucsd.edu/story/team-develops-new-attacker-device-to-improve-autonomous-car-safety">mmSpoof</a>.
+- Apr 2023: Roshan has successfully defended his Final Ph.D. thesis. Congrats Roshan, starting a position as Assistant Professor at Suny Buffalo, NY. 
+- Mar 2023: Ish is chairing <a href="http://wcsng.ucsd.edu/s3/">Mobicom S3 2023</a> workshop
+- Mar 2023: Best Poster Runner-up - Hotmobile 2023 goes to <a href="https://wcsng.ucsd.edu/dpa/">Towards Flexible Frequency-dependent mmWave Multi-Beamforming</a>. Congrats Ish and Rohith!
+- Jan 2023: "Mobicom'23 accepted GreenMO and IMWUT'23 accepted WiFoceSticker. Congrats Agrim and team!"
+- Jan 2023: "Hotmobile'23 accepted paper on MIRAGE - privacy fo user location. Congrats Roshan, Aditya, and Wei!"
+- Dec 2022: Infocom'23 paper on <a href="https://wcsng.ucsd.edu/dpa/">Delay Phased array (DPA)</a> - an innovative antenna array design for flexible, sustainable, and frequency-dependent multi-beam operations. Congrats Ish, Rohith, and Raghav!
+- Dec 2022: "IEEE SnP'23 paper on mmSpoof- spoofing automotive radars using mmWave reflect array. Congrats Rohith, Ish, and Kshitiz!"
+- Nov 2022: "Dinesh announced his tenureship: I received a formal letter that I am tenured with acceleration. In large part, it is less of my success, but it is our shared success. I am delighted to have an opportunity to work with everyone here!"
+- Oct 2022: Raghav Subbaraman presented <a href="https://github.com/ucsdwcsng/bsma_lora">BSMA</a> at MobiCom 2022 in Sydney!
+- Sep 2022: Ish Jain and Raghav Subbaraman won <a href="https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-north-america">Qualcomm Innovation Fellowship 2022</a>.
+
+- June 2022: 1st International Workshop on AI Perception at CVPR 2022 is live. See more details <a href="https://wcsng.ucsd.edu/waip">here</a>.
+
+- May 2022: BLE security paper is out. See more details <a href="https://wcsng.ucsd.edu/ble-privacy/">here</a>. Congrats Hadi!
+
+- Apr 2022: WiFi localization and mapping paper <a href="https://wcsng.ucsd.edu/p2slam/">P2SLAM</a> accepted at IEEE Robotics and Automation'22. P2SLAM dataset is also released. Congrats Aditya Arun!
+- Dec 2021: Agrim got an invite from GetMobile'22 on his NSDI'21 paper on <a href="https://dl.acm.org/doi/abs/10.1145/3511285.3511296">Sensing and localizing contact forces with signal reflections</a>. Congrats Agrim!
+- Dec 2021: SCISRS $6M IARPA grant to secure wireless data communication (partner with JASR systems and Noise lab, UCSD). <a href="https://jacobsschool.ucsd.edu/news/release/3357">See news</a>.
+- Sep 2021: Scott Zhao, undergraduate researcher at WCSNG, presented his paper ULoc at IMWUT'21. Watch a demo <a href="https://wcsng.ucsd.edu/uloc/">ULoc- a cm-accurate, low-latency, and power-efficient UWB tag localization system</a>.
+- June 2021: Ish was awarded winner of the 3MT competition at student workshop SMS, Mobisys'21. Congratulations Ish!
+- May 2021 Congratulations Ish! paper accepted at Siggcomm'21 on <a href="https://wcsng.ucsd.edu/mmreliable">mmReliable</a> (enabling reliable mmWave links).
+- Mar 2021 Manideep presented <a href="https://wcsng.ucsd.edu/syncscatter/">SyncScatter- Enabling WiFi like synchronization and range for WiFi backscatter Communication</a> at NSDI'21
+- Mar 2021: Agrim presented <a href="https://wcsng.ucsd.edu/force_sensing/">WiForce- Wireless Sensing and Localization of Contact Forces on a Space Continuum</a> at NSDI'21
+- Dec 2020: Two papers on backscatter communication and backscatter Force sensing got accepted at NSDI'21. Congrats Manideep and Agrim!
+- Sept 2020: IEEE Journal of Solid-State Circuits (JSSC) accepted <a href="">A Low-Power Backscatter Modulation System Communicating Across Tens of Meters with Standards-Compliant Wi-Fi Transceivers. </a> Congrats Mani, Chi and team!
 - Sept 2020: Two papers got accepted at Sensys'20. Congrats Kshitiz and Yeswanth!
 - Sept 2020: IEEE Journal of Solid State Circuits (JSSC) accepted: A Low-Power Backscatter Modulation System Communicating Across Tens of Meters with Standards-Compliant Wi-Fi Transceivers. Congrats Mani, Chi and team!
 - July 2020: mmNets workshop (Mobicom'20) paper accepted <a href="https://wcsng.ucsd.edu/mmobile/">mMobile- Building a mmWave testbed to evaluate and address mobility effects. </a> Congrats Ish and team!
+- June 2020: WCSNG is opensourcing largest available, real-world indoor Location labelled WiFi CSI dataset, <a href="https://wcsng.ucsd.edu/wild/">WILD</a> for non-profit research purposes.
 - June 2020: ECCV'20 paper got accepted on <a href="https://arxiv.org/pdf/2007.14511.pdf">S3Net- Semantic-Aware Self-Supervised Depth Estimation with Monocular Videos and Synthetic Data.</a> Congrats Inderjot and team!
 - June 2020: WCSNG is opensourcing largest available, real-world indoor Location labelled WiFi CSI dataset, <a href="https://wcsng.ucsd.edu/wild/">WILD</a> for non-profit research purposes.
 - June 2020: <a href="https://wcsng.ucsd.edu/bluble/">BluBLE</a>, our Covid-19 app is in news  <a href="bit.ly/2OxZ7P6">here</a>.
