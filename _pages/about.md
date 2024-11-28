@@ -41,9 +41,9 @@ Our impact areas are in the broad areas of vision/perception systems, sensing sy
 
 If you are an exceptional student, researcher, or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. You can choose to email me with your resume and specific interest in the lab. 
 
-I have multiple openings for the Fall 2025 Ph.D. program. For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both of your applications. **In addition to that, please submit this form: https://forms.gle/uDeK9f9pwmgKhwCf6 -- only for PhD applicants.**   
+I have multiple openings for the Fall 2025 Ph.D. program. For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both of your applications. **In addition to that, please submit this [form](https://forms.gle/uDeK9f9pwmgKhwCf6) -- only for PhD applicants.**   
 
-For 2025 Summer Internships, please submit this form: https://forms.gle/M2ifCW4n4ngpoM7t9. We typically start reviewing early Janurary. For all UCSD students, please apply to the SRIP program as mark as first priority. 
+For 2025 Summer Internships, please submit this [form](https://forms.gle/M2ifCW4n4ngpoM7t9). We typically start reviewing early Janurary. For all UCSD students, please apply to the SRIP program as mark as first priority. 
  
 ### How to get an Email Response from Me
 
@@ -54,7 +54,6 @@ I typically respond to emails within **2 days**. If you haven't received a respo
 If you haven't heard back within **N days**, please **follow up** by sending another email after **N+1 days**. Update **N = N + 1** each time you follow up. This helps ensure that I don't miss your message, my mailbox doesn't explode.
 
 #### Expert Tip: I check my email in the morning and evening and try to respond to all emails at once. 
-
 
 ## Projects 
 
@@ -113,16 +112,27 @@ A more detailed list of projects and ongoing research can be found at [WCSNG pub
 
 ## Selected Awards & Honors
 
+- Klein Gilhousen Chancellor's Endowed Chair 2023
+
+- Qualcomm Innovation Fellowship 2020 and 2022 
+
 - [Forbes 30 under 30 Science Category World-wide](https://www.forbes.com/profile/dinesh-bharadia/?sh=126aa061c41f): Forbes recognizes 30 young scientists and engineers anywhere in the world under the age of 30, who have made outstanding contributions to science and technology. 
+
 - [Marconi Young Scholar Award](https://www.marconisociety.org/press/marconi-society-honors-dinesh-bharadia-with-paul-baran-young-scholar-award/): Marconi Society recognizes outstanding young scientists and engineers anywhere in the world. 
   - [Video by Marconi Society](https://vimeo.com/192170090), [detailed Press Coverage by Anand Parthasarathy](/files/Marconi_link.pdf)
+
 - [MIT TR35 Award](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/): World's [ Top 35 Innovators](https://www.technologyreview.com/lists/innovators-under-35/2016/) Under the Age of 35. Technology Review describes, ``[His radio could be a godsend for telecom companies and consumers.](/files/TR35.pdf )''
   - [MIT TR35 Talk](http://events.technologyreview.com/video/watch/dinesh-bharadia-mit-csail-innovator/), [Press release](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/)
+
 - [Michael Dukakis Leadership Award](http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/): Recognizes outstanding young leaders in CyberSecurity.
+
+{% comment %}
+
+missing service component, funding awards, 
+
 - Awarded Sarah and Thomas Kailath Stanford Graduate Fellowship to pursue MS-PhD in the field of Electrical Engineering
 - Awarded Best Student in Electrical Engineering at IIT Kanpur by the Prime Minister of India
   
-{% comment %}
 this is commented out... 
 
 - Secured Highest CGPA within Electrical Engineering students and Second highest CGPA across all disciplines at IIT Kanpur, 2010 
