@@ -101,11 +101,9 @@ A more detailed list of projects and ongoing research can be found at [WCSNG pub
 - Communication and Sensing with Smart Surfaces:  
   + Smart Surfaces: [ScatterMIMO - Mobicom'20](https://wcsng.ucsd.edu/scattermimo/) 
   
-<!-- 
 - Cloud and Edge Computing: 
   + [Numfabric-Sigcomm'16] 
   + [ISER'20]
- -->
 
 - Radio- Interferometry: 
   + Full Duplex radios: [Sigcomm'13](https://dl.acm.org/doi/10.1145/2486001.2486033), [NSDI'14](), [Sigcomm'14](), [Sigcomm'15](), [Sigcomm'16]()
