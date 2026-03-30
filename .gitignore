@@ -4,3 +4,12 @@ images/posts/*.pdf
 images/posts/*.sty
 _source/*_cache
 .Rproj.user
+.DS_Store
+.ipynb_checkpoints/
+20260319 - Digital Accessibility Overview and Strategy.pdf
+code-base.md
+portfolio/
+publications_backup/
+_publications/Untitled.ipynb
+files/teaching/ece-257b/Lectures/257B_Spring18_Lec1.pdf
+_includes/archive-single_backup.html

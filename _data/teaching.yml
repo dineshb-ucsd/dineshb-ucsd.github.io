@@ -1,0 +1,23 @@
+ece_157a:
+  short_title: "ECE 157A"
+  title: "ECE 157A: Wireless Communications Laboratory"
+  term: "UC San Diego | Spring 2025 planner"
+  summary: "Hands-on digital communications with SDRs, labs, and mini-projects spanning modulation, synchronization, detection, channels, and OFDM."
+  resources_url: "/files/teaching/ece-157a/ECE_157A_schedule_25.pdf"
+  resources_label: "Spring 2025 planner"
+  nav_key: "teaching_ece_157a"
+
+ece_157b:
+  short_title: "ECE 157B"
+  title: "ECE 157B: Wireless Sensing Laboratory"
+  term: "UC San Diego | Spring 2020 archive"
+  summary: "Wireless sensing through practical experiments on breathing, heart-rate, FMCW ranging, localization, and multi-user inference."
+  nav_key: "teaching_ece_157b"
+
+ece_257b:
+  short_title: "ECE 257B"
+  title: "ECE 257B: Principles of Wireless Communication"
+  term: "UC San Diego | Spring 2024 archive"
+  summary: "Modern wireless systems across communication theory, MIMO, RF sensing, localization, and research-driven projects."
+  piazza_url: "https://piazza.com/ucsd/winter2024/ece257b"
+  nav_key: "teaching_ece_257b"

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% assign teaching_nav = page.teaching_nav | default: "teaching_courses" %}
+
+<div id="main" role="main">
+  <aside class="sidebar sticky course-sidebar">
+    <div class="course-sidebar__block">
+      <p class="course-sidebar__eyebrow">Navigate</p>
+      <h2 class="course-sidebar__course">Teaching</h2>
+      <p class="course-sidebar__term">Current course hubs and archived class material.</p>
+    </div>
+
+    <div class="course-sidebar__nav">
+      {% include nav_list nav=teaching_nav %}
+    </div>
+  </aside>
+
+  <article class="page page--course-nav">
+    <div class="page__inner-wrap">
+      <header class="course-page__header course-page__header--teaching">
+        <p class="course-page__eyebrow">Teaching</p>
+        <h1 class="course-page__title">{{ page.title }}</h1>
+        {% if page.lede %}
+          <p class="course-page__summary">{{ page.lede }}</p>
+        {% endif %}
+      </header>
+
+      <section class="page__content course-page__content" itemprop="text">
+        {{ content }}
+      </section>
+    </div>
+  </article>
+</div>

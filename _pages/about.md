@@ -1,284 +1,276 @@
 ---
 permalink: /
-excerpt: "About me"
-author_profile: true
-redirect_from: 
+title: "Dinesh Bharadia"
+excerpt: "Associate Professor at UC San Diego working on wireless communication, sensing, networking, and autonomous perception systems."
+layout: home
+author_profile: false
+redirect_from:
   - /about/
   - /about.html
 ---
 
-I am Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. Our group [WCSNG](https://wcsng.ucsd.edu) designs systems for Wireless Communication, Computing, Sensing, and Networking at UC San Diego. 
-
-The vision for our research is to design and prototype performant systems for communicating, sensing, computing, and securing information in our connected world, solving real-world problems. Our research has aimed to solve fundamental questions, which has often led to new areas of research and commercialization. 
-
-[WCSNG](https://wcsng.ucsd.edu) group consists of highly interdisciplinary engineers, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of computing, signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop science and algorithms and their real-world implementation and prototypes in our impact areas. 
-
-Our broad impact areas are vision/perception systems, sensing systems, wireless communications, computing systems, and wireless networking. WCSNG group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry for researchers in computing, communication, and sensing. 
-
-<!-- 
-I am an Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego. I lead [WCSNG](https://wcsng.ucsd.edu) Wireless Communication + , Sensing, and Networking Group at UC San Diego. 
-
-My research vision is to design and prototype performant systems for sensing, computing, communicating, and securing information in our connected world, solving real-world problems. 
-
-Our research has aimed to solve fundamental and near-impossible problems throughout my career, which has often led to new areas of research and commercialization. 
-
-([WCSNG](https://wcsng.ucsd.edu)) group continues to work on the same philosophy of solving fundamental problems, impacting next-generation communication, robotics, and autonomous systems to everyday life. 
-
-WCSNG group is highly interdisciplinary, spanning electrical engineers, data scientists, computer scientists, and mechanical engineers, and works at the intersection of signal processing, circuits, computer vision, machine learning, and artificial intelligence. We develop theory and algorithms with their implementation and prototypes in our impact areas. 
-
-
-Our impact areas are in the broad areas of vision/perception systems, sensing systems, wireless communications, wireless networking. My group has curated and created various open-source datasets and tools that enable reproducible research and eases barriers to entry to researchers in communication and sensing. 
-
- -->
-
-
-
-Apply to WCSNG Group 
------
-
-If you are an exceptional student, researcher or postdoc and interested in working with [the group](https://wcsng.ucsd.edu/publications), drop me an email (`dineshb at ucsd dot edu`) and/or reach out to the existing PhD students or postdocs. 
-
-I have multiple openings for the Fall 2023 Ph.D. program. I won't promise that I will respond to your email. But you can choose to email me with your resume and specific interest in the lab.  
-
-For Ph.D. applications, apply to the ECE Ph.D. program and CSE Ph.D. program (our application process allows the application to both ECE and CSE without additional fees). For the ECE Ph.D. program, choose communication theory and systems, and for the CSE Ph.D. program choose systems and networking and mention my name for both your application.  
-
-
-Office hours 
---
-
-Atkinson Hall 4308, 9500 Gilman Dr., UC San Diego  
-Mondays 3 pm to 4 pm or by Appointment
-
-Projects 
------ 
-
-
-- Sensing and Localization using wireless and sound signals for robotics, everyday devices, users and many-more applications.
-  + [Indoor Localization](https://wcsng.ucsd.edu/localization.html): Developing privacy preserving self-localization for users, user devices, robots and even smart sound devices. 
-    * Publications: [BLoc -- CoNExT'18](https://wcsng.ucsd.edu/bloc/), [Wideo -- NSDI'15](https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/joshi), [SSLIDE -- ICCASP'21](./files/papers/sslide.pdf), [SpotFi -- Sigcomm'15](./files/papers/SpotFi.pdf).
-  + Low-power and Low Latency Localization -- Next generation Localization would enable safety for Industrial IoT 4.0 with Smart Manufacturing, Warehouse and Private 5G. 
-    * Publications:  [ULoc -- Ubicomp'21](https://wcsng.ucsd.edu/uloc), [BLoc -- CoNExt'18](https://wcsng.ucsd.edu/bloc/).
-  + Deployable Wireless Localization: Wireless Localization, specifically WiFi/BLE leveraging existing infrastructure has been studied for two decades without any deployments. We have developed autonomous robots that enable simultaneous mapping of environment and infrastructure and deep-learning powered localization systems, enabling easy to deploy location services. 
-    * Publications: [LocAP-NSDI'20](https://wcsng.ucsd.edu/locap/), [DLoc-Mobicom'20](https://wcsng.ucsd.edu/dloc), [SpotFi-Sigcomm'15](http://wcsng.ucsd.edu/files/sigcomm15-spotfi.pdf) and [BLoc-CoNEXT’18](https://wcsng.ucsd.edu/bloc/). 
-
-- Communication and power delivery for IoT and everyday devices 
-  + [Ultra-Low power WiFi communication for IoTs](https://wcsng.ucsd.edu/ubiquitousIoT/): Enabling IoT devices to communicate with existing WiFi/BLE infrastructure at >1000x lower power. 
-    * Publications:  [ISSCC'22], [SyncScatter-NSDI'21], [ISSCC'21] and [ISSCC'20], [JSSC'20], [BackFi-Sigcomm'15](https://dl.acm.org/doi/10.1145/2785956.2787490), [HitchHike-Sensys'16](https://dl.acm.org/doi/10.1145/2994551.2994565), [FreeRider-CoNext'17](https://dl.acm.org/doi/10.1145/3143361.3143374).
-  + Wireless Power Transfer: On the other hand, we are developing solutions to provide wireless power of milli-watts of power sufficient to power-up WiFi and BLE directly. 
-    * Publication: [Capttery-Mobisys'19](https://dl.acm.org/doi/10.1145/3307334.3326077)
-
-- Extending the Sensing abilities of Wireless
-  + Force Sensing: 
-  + Securing our physical spaces: With ever evolving mini-drones and delivery drones, it is eminent to learn of devices in our environment and vice-versa for the Amazon's of the world to perform remote secure delivery. 
-    * Publications: [Drone-scale Sensys'20](./files/papers/sensys20-dronescale.pdf)
-
-- Spectrum Sensing and Wireless sensing driven communication: 
-  + Sweep-Sensing 5 GHz in a milli-second: Sensing the entire spectrum with high-resolution and dynamic range in time, frequency and space (wide-area) in cost efficient is need of the day and near-impossible. Such sensing would enable highly efficient communication, securing our communications and preserving our privacy. 
-    * Publications:[SweepSense-NSDI'19](https://github.com/ucsdsysnet/SweepSense/tree/master) and [GetMobile'20]
-  + Shipping the sensed spectrum data: Accurate spectrum sensing  with just a single sensor generates 800 Mbps, which cannot be shipped in real-time. Enabling >1000x compression and shipping only necessary information.
-    * Publications: [SparSDR-Mobisys'19](https://wcsng.ucsd.edu/sparsdr/) 
-  + Application of sensing -- privacy attacks: All our user devices has bluetooth enabling advertisement, proximity and continuity protocols. Our work shows this comes at the expense of users privacy, requires hardware re-design. 
-    * Publications: [BLE-Attack -- IEEE Security and Privacy'22](https://wcsng.ucsd.edu/privacy)
-
-- Autonomous Sensing and Perception: 
-  + Perception in bad-weather: Radar based [Pointilism-Sensys'20](https://wcsng.ucsd.edu/pointillism/)
-  + Enabling Cameras to perceive the depth: [S3Net-ECCV'20](https://arxiv.org/pdf/2007.14511.pdf), [SigNet-CVPR'19](https://openaccess.thecvf.com/content_CVPR_2019/html/Meng_SIGNet_Semantic_Instance_Aided_Unsupervised_3D_Geometry_Perception_CVPR_2019_paper.html) 
-
-- Reliable xG communications: mm-wave and beyond
-  + Traditional mm-wave connectivity is unreliable at best (providing connectivity .5\% of times), due to directional nature of these links. Our work attempts to invalidate this premise, by creating multi-beam, providing both high throughput and reliability. 
-    * mmreliable , mmobile 
-  + Indoor mm-wave connectivity in indoor suffers from unrealible communications. We developed relaying based un-thered indoor connectivity showing AR and VR usecase. 
-    * Publications:  [HotNets'16](), [MoVR-NSDI'17](https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/abari)
-
-- Communication and Sensing with Smart Surfaces:  
-  + Smart Surfaces: [ScatterMIMO - Mobicom'20](https://wcsng.ucsd.edu/scattermimo/) 
-  
-<!-- 
-- Cloud and Edge Computing: 
-  + [Numfabric-Sigcomm'16] 
-  + [ISER'20]
- -->
-
-- Radio- Interferometry: 
-  + Full Duplex radios: [Sigcomm'13](https://dl.acm.org/doi/10.1145/2486001.2486033), [NSDI'14](), [Sigcomm'14](), [Sigcomm'15](), [Sigcomm'16]()
-
-A more detailed list of projects and on-going research can be found at [WCSNG publications](https://wcsng.ucsd.edu/publications).
-
-Selected Awards & Honors
------
-
-- [Forbes 30 under 30 Science Category World-wide](https://www.forbes.com/profile/dinesh-bharadia/?sh=126aa061c41f): Forbes recognizes 30 young scientists and engineers anywhere in the world under the age of 30, who have made outstanding contributions to science and technology. 
-- [Marconi Young Scholar Award](https://www.marconisociety.org/press/marconi-society-honors-dinesh-bharadia-with-paul-baran-young-scholar-award/): Marconi Society recognizes outstanding young scientists and engineers anywhere in the world. 
-  - [Video by Marconi Society](https://vimeo.com/192170090), [detailed Press Coverage by Anand Parthasarathy](/files/Marconi_link.pdf)
-- [MIT TR35 Award](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/): World's [ Top 35 Innovators](https://www.technologyreview.com/lists/innovators-under-35/2016/) Under the Age of 35. Technology Review describes, ``[His radio could be a godsend for telecom companies and consumers.](/files/TR35.pdf )''
-  - [MIT TR35 Talk](http://events.technologyreview.com/video/watch/dinesh-bharadia-mit-csail-innovator/), [Press release](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/)
-- [Michael Dukakis Leadership Award](http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/): Recognizes outstanding young leaders in CyberSecurity.
-- Awarded Sarah and Thomas Kailath Stanford Graduate Fellowship to pursue MS-PhD in the field of Electrical Engineering
-- Awarded Best Student in Electrical Engineering at IIT Kanpur by Prime Minister of India
-{% comment %}
-this is commented out... 
-
-- Secured Highest CGPA within Electrical Engineering students and Second highest CGPA across all disciplines at IIT Kanpur, 2010 
-
-#- Awarded Tokyo-IIT Scholarship by University of Tokyo 
-
-#- Awarded Academic Excellence consecutively for the year 2006-07, 2007-08, 2008-09, at IIT Kanpur} 
-
-#- Awarded Biswanath Jha Memorial Scholarship, IIT Kanpur  
-
-#- Awarded K. N. Saluja Scholarship, IIT Kanpur 
-{% endcomment %}
-
-News 
--------
-- Dec 2020: Two papers on backscatter communication and backscatter Force semsing got accepted at NSDI'21. Congrats Manideep and Agrim!
-- Sept 2020: Another backscatter paper in circuits conference ISSCC'21. Congrats Manideep and team!
-- Sept 2020: Two papers got accepted at Sensys'20. Congrats Kshitiz and Yeswanth!
-- Sept 2020: IEEE Journal of Solid State Circuits (JSSC) accepted: A Low-Power Backscatter Modulation System Communicating Across Tens of Meters with Standards-Compliant Wi-Fi Transceivers. Congrats Mani, Chi and team!
-- July 2020: mmNets workshop (Mobicom'20) paper accepted <a href="https://wcsng.ucsd.edu/mmobile/">mMobile- Building a mmWave testbed to evaluate and address mobility effects. </a> Congrats Ish and team!
-- June 2020: ECCV'20 paper got accepted on <a href="https://arxiv.org/pdf/2007.14511.pdf">S3Net- Semantic-Aware Self-Supervised Depth Estimation with Monocular Videos and Synthetic Data.</a> Congrats Inderjot and team!
-- June 2020: WCSNG is opensourcing largest available, real-world indoor Location labelled WiFi CSI dataset, <a href="https://wcsng.ucsd.edu/wild/">WILD</a> for non-profit research purposes.
-- June 2020: <a href="https://wcsng.ucsd.edu/bluble/">BluBLE</a>, our Covid-19 app is in news  <a href="bit.ly/2OxZ7P6">here</a>.
-- June 2020: ScatterMIMO- our smart reflecting surface that can double the WiFi throughput is in <a href="https://bit.ly/2R3r3vy">UCSD news</a> and <a href="https://www.hackster.io/news/scattermimo-smart-surface-runs-for-a-year-on-a-button-cell-doubles-wi-fi-speeds-8ea4f374cc59">Hackster.io</a>
--  Apr 2020:  WCSNG developed <a href="https://wcsng.ucsd.edu/bluble/">BluBLE</a>, a smartphone app that provides personal risk indicator with Covid-19. It monitors the surrounding using Bluetooth signal while preserving privacy. In news at <a href="https://techxplore.com/news/2020-07-bluble-covid-accurate-contact.html">Techxplore</a>.
-<a href='https://wcsng.ucsd.edu/allnews.html'>... See all News </a>
-
-
-Selected Press and Media Coverage 
------
-- Marconi Young Scholar Award was covered by numerous news outlets [detailed by Anand Parthasarathy](Marconi_link.pdf), [NDTV](http://www.ndtv.com/indians-abroad/indian-born-massachusetts-institute-of-technology-researcher-dinesh-bharadia-wins-us-award-1458666), [Times of India](http://timesofindia.indiatimes.com/nri/nri-achievers/Indian-born-MIT-researcher-bags-award-for-his-contribution-to-radio-waves/articleshow/54331113.cms), [Stanford News](https://ee.stanford.edu/news/award-student/10-28-2016/dinesh-bharadia-phd-’16-receives-marconi-young-scholar-award), [so on](https://www.google.com/search?&q=news%3A%2Bdinesh%2Bbharadia%2Bmarconi%2Baward&oq=news%3A%2Bdinesh%2Bbharadia%2Bmarconi%2Baward)
-- MIT TR35 Award was covered by [Press release](https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/), [CSAIL News](http://www.csail.mit.edu/researcher_named_to_tech_reviews_2016_under_35_list%20), [MIT TR35 Talk](http://events.technologyreview.com/video/watch/dinesh-bharadia-mit-csail-innovator/), [India New England](http://indianewengland.com/2016/09/four-indian-americans-one-indian-35-innovators-35-list-mit-technology-review/) , [Skill Outlook](http://skilloutlook.com/2016/09/16/dinesh-bharadia-ex-iitian-features-among-mits-global-35-innovators-35/),[India Eagle](http://www.indianeagle.com/travelbeats/list-of-innovators-under-35-on-mit-technology-review-2016/), [so on](https://www.google.com/search?&q=news:+dinesh+bharadia+35+under+35)
-- HitchHike (IoT Connectivity) was covered by [Stanford News](http://news.stanford.edu/2016/11/16/miniature-wifi-device-developed-supplies-missing-link-internet-things/ ), 
-[ACM TechNews](http://cacm.acm.org/news/210000-miniature-wi-fi-device-supplies-missing-link-for-the-internet-of-things/fulltext),
-[ECN](https://www.ecnmag.com/news/2016/11/miniature-wifi-device-developed-stanford-engineers-supplies-missing-link-internet-things),
-[Science Blog](https://scienceblog.com/490143/miniature-wifi-device-supplies-missing-link-internet-things/), 
-[Pace Today](https://pacetoday.com.au/wifi-device-supplies-missing-link-iot/),
- [North Dallas Gazette](http://northdallasgazette.com/2016/11/19/postage-size-wifi-might-make-internet-things-reality),
-[New Electronics](http://www.newelectronics.co.uk/electronics-news/low-power-wifi-device-to-translate-radio-waves/148386/),
-[RFID Journal](http://www.rfidjournal.com/articles/view?15280), 
-[ NFC World ](http://www.nfcworld.com/2016/11/24/348685/us-researchers-claim-discovery-missing-link-internet-things/)
-- Full-duplex radio was covered by [Wall Street Journal](http://www.wsj.com/articles/SB10001424052702304441404579121681779205144), 
-[CNBC](http://www.cnbc.com/2014/06/16/disruptors-in-2014-kumu-networks.html), 
-[MIT Tech. Review](https://www.technologyreview.com/s/541856/trick-that-doubles-wireless-data-capacity-stands-up-in-cell-network-tests/), 
-[TechCrunch](http://techcrunch.com/2016/01/20/kumu-networks-nabs-25m-from-cisco-and-big-carriers-for-breakthrough-wireless-tech/), 
-[Fierce Wireless](http://www.fiercewireless.com/story/report-verizon-helps-invest-25m-kumu-networks-5g-network-tech/2016-01-20)
-- Wireless Virtual Reality was covered by [ MIT news](http://news.mit.edu/2016/enabling-wireless-virtual-reality-1114), 
-[WIRED](https://www.wired.com/2016/11/mit-figured-way-make-vr-go-wireless/), [ Firstpost ](http://tech.firstpost.com/news-analysis/mit-develops-technology-for-wireless-virtual-reality-headsets-350217.html), [TechCrunch](https://techcrunch.com/2016/11/14/mits-new-movr-system-makes-wireless-vr-possible-with-any-headset/), [circuit breaker](http://www.theverge.com/circuitbreaker/2016/11/28/13763912/mit-radio-transmission-millimeter-wave-wireless-vr), [University Herald](http://www.universityherald.com/articles/50156/20161117/wireless-virtual-reality-headsets-by-mit-opening-vr-applications-beyond-gaming-video.htm),
-[Digital Trends](http://www.digitaltrends.com/virtual-reality/mit-movr-wireless/)
-- SpotFi: Indoor Localization was covered by [MIT Tech. Review](https://www.technologyreview.com/s/542561/wi-fi-trick-gives-devices-super-accurate-indoor-location-fixes/)
-
-Short Bio
------ 
-I have been at UC San Diego as a faculty since January 2018. My group has diverse focus from computer vision, deep learning to wireless communication, sensing and networking. We build from theory to practice technologies which have impact on robotics, autonomous systems and day-to-day life. 
-
-Previously, I worked as postdoctoral associate at MIT CSAIL, focusing on data-center networking and wireless sensing. I received my Ph.D. at Stanford University for my work on full-duplex radios, which were considered near impossible to build, basically enabling radios to transmit and receive simultaneously on the same frequency. From 2013 to 2015, I took a leave of absence from my Ph.D. to commercialize research on the practical full-duplex radio at Kumu Networks, which underwent successful field trials with tier 1 network providers worldwide – Deutsche Telekom and SK Telecom and is now being commercially deployed. 
-
-Before joining Stanford, I received my bachelor's degree in Electrical Engineering from the Indian Institute of Technology, Kanpur in 2010. I was awarded a gold medal at IIT Kanpur for graduating at the top of the class of 2010 in Electrical Engineering. 
-
-
-Broader Industry Impact 
------
-
-- Full Duplex 
-Our research on full-duplex radios has translated into a commercial venture [Kumu Networks](http://www.kumunetworks.com). I worked as a Principal Scientist at Kumu Networks for nearly two years to commercialize this research and bring it to the rest of the world. 
-
-At Kumu Networks, I led the technology (both architecture and algorithm design) for in-band full duplex radios to build a commercial product. The product completed successful field trials with major Tier 1 network providers -- [ Deutsche Telekom ](https://www.telekom.com/media/company/288612) and [SK Telecom](http://telecoms.com/423101/skt-and-kumu-show-off-full-duplex-5g-tech/) and is now being commercially deployed. To this date, it is the only successful commercial demonstration of full duplex radios. 
-
-Due to its proven commercial viability and promise, full duplex is now actively being designed into next-generation wireless standards. Both 5G cellular and next-generation WiFi standards are incorporating full duplex or self-interference cancellation technology in various forms.
-
-{% comment %}
-
-
-Selected Projects
------ 
-
-- /List of publication at  [https://scholar.google.com/citations?user=5SjaXJsAAAAJ&hl=en Google Scholar] and [http://dblp.uni-trier.de/pers/hd/b/Bharadia:Dinesh DBLP]./ 
-
-- Book Chapter on full duplex radios in [http://media.wiley.com/product_data/excerpt/34/11189798/1118979834-6.pdf Towards 5G book] published by [http://www.wiley.com/WileyCDA/WileyTitle/productCd-1118979834.html Wiley] 
-
-- /List of [https://www.google.com/?tbm=pts&gws_rd=ssl\#q=dinesh+bharadia&tbm=pts&start=0 patents] provided by Google search and [http://patents.justia.com/inventor/dinesh-bharadia patents] provided by justia /
-
-- [./publications.pdf Publications and Patents in PDF form] 
-
-
-#- [./papers/sensys16_back_comm.pdf HitchHike: Practical Backscatter using Commodity WiFi] \n
-#   Pengyu Zhang (Co-primary), Dinesh Bharadia (Co-primary), Kiran Joshi, Sachin Katti \n
-#   SenSys 2016 \n
-
-
-#== Updates  
-
-#- \[November 2016\] Awarded [http://marconisociety.org/marconi-society-honors-dinesh-bharadia-with-paul-baran-young-scholar-award/ Marconi Young Scholar Award]: Marconi Society recognizes outstanding young scientists and engineers anywhere in the world.\n#
-
-#- \[November 2016\] Paper titled, "[./papers/sensys16_back_comm.pdf HitchHike: Practical Backscatter using Commodity WiFi]" accepted to  [http://conferences.sigcomm.org/hotnets/2016/program.html SENSYS 2016]\n#
-
-#- \[October 2016\] Paper titled, "[./papers/p162-abari.pdf Cutting the Cord in Virtual Reality]" accepted to  [http://conferences.sigcomm.org/hotnets/2016/program.html HOTNETS 2016]\n#
-
-#- \[September 2016\] Awarded [https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/ MIT TR35]: World's [https://www.technologyreview.com/lists/innovators-under-35/2016/
-# Top 35 Innovators] Under the Age of 35.
-
-#- Papers [http://delivery.acm.org/10.1145/2940000/2934890/p188-nagaraj.pdf NUMFabric] and [http://delivery.acm.org/10.1145/2960000/2959072/p611-zhang.pdf  Enabling Backscatter Communication among Commodity WiFi Radios]" accepted to  [http://conferences.sigcomm.org/sigcomm/2016/program.php SIGCOMM 2016]\n#
-
-#- \[August 2016\] Papers [http://delivery.acm.org/10.1145/2940000/2934890/p188-nagaraj.pdf NUMFabric] and [http://delivery.acm.org/10.1145/2960000/2959072/p611-zhang.pdf  Enabling Backscatter Communication among Commodity WiFi Radios]" accepted to  [http://conferences.sigcomm.org/sigcomm/2016/program.php SIGCOMM 2016]\n#
-
-#- \[April 2016\] Graduate with Ph.D. from Stanford, started post doc at MIT CSAIL with Prof. Alizadeh.
-
-#- \[November 2015\] Ph.D. thesis Defended with amazing committee members, Prof. Paulraj, Prof. Tse, Prof. Katti, Prof. Prabhakar and Prof. Tsachy  \n#
-
-#- \[August 2015\] Papers [http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p283.pdf BackFi] and [http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p269.pdf SpotFi]" accepted to  [http://conferences.sigcomm.org/sigcomm/2015/program.php SIGCOMM 2015]\n#
-
-#- \[March 2015\] Back to Ph.D. program at Stanford \n
-
-#- \[ December 2014 \] Paper titled, "WiDeo: Fine-grained Device-free Motion Tracing using RF Backscatter" accepted to NSDI 2015. [http://people.csail.mit.edu/dineshb/comm292-bharadia.pdf pdf ] \n  
-#- \[ April 2014 \] Paper titled, "FastForward: fast and constructive full duplex relays" accepted to NSDI 2014. [http://people.csail.mit.edu/dineshb/comm292-bharadia.pdf pdf ] \n  
-#- \[ December 2013 \] Paper titled, "Full Duplex MIMO radios" accepted to NSDI 2014. [http://people.csail.mit.edu/dineshb/comm292-bharadia.pdf pdf ] \n  
-#- \[July 2013\] Leave of Absence from Ph.D. to work as Principal Scientist at [http://www.kumunetworks.com Kumu Networks] to Commercialize full duplex radios
-#- \[April 2013\] Paper titled, "Full Duplex radios" accepted to SIGCOMM 2013. [http://people.csail.mit.edu/dineshb/comm292-bharadia.pdf pdf ] \n  
-#- \[June 2012 \] Paper at BMC bioinformatics titled, "QualComp: a new lossy compressor for quality scores based on rate distortion theory" [http://www.biomedcentral.com/1471-2105/14/187/ link ] \n  
-#- \[September 2011 \] Invited paper at Allerton \n  
-#- \[June 2011 \] Paper titled, "Practical, Real, Time Full Duplex radios" accepted to Mobicomm 2011. [http://people.csail.mit.edu/dineshb/comm292-bharadia.pdf pdf ] \n  
-#- \[September 2010 \] Started MS-PhD program at stanford
-#
-#
-#
-#
-
-
-Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
-
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
-
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-
-Site-wide configuration
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
-
-Create content & metadata
-------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
-
-**Markdown generator**
-
-I have also created [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the academicpages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
-
-How to edit your site's GitHub repository
-------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
-
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
-
-For more info
-------
-More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
-{% endcomment %}
-
+{% include base_path %}
+{% assign recent_publications = site.publications | sort: "date" | reverse %}
+{% assign wcsng = site.data.wcsng %}
+{% assign wcsng_research = site.data.wcsng_research %}
+{% assign wcsng_news = site.data.wcsng_news %}
+{% assign profile = site.data.profile %}
+
+<section class="home-hero">
+  <div class="home-hero__content">
+    <p class="home-eyebrow">UC San Diego | Electrical and Computer Engineering | CSE affiliate</p>
+    <div class="home-intro-meta">
+      <p>Associate Professor, Electrical and Computer Engineering</p>
+      <p>Affiliate Faculty, Computer Science and Engineering</p>
+      <p>{{ profile.office.address }}</p>
+      <p>Office hours: {{ profile.office.hours }}</p>
+    </div>
+    <p class="home-lede">
+      I am an Associate Professor in the ECE department at UC San Diego with an affiliate appointment in CSE.
+      The <a href="https://wcsng.ucsd.edu">WCSNG group</a> builds systems for wireless communication, computing,
+      sensing, and networking.
+    </p>
+    <p class="home-lede">
+      Our research aims to design and prototype high-performance systems for communication, sensing, computing,
+      and secure connected systems, with an emphasis on real-world problems that also open new research and
+      commercialization directions.
+    </p>
+    <p class="home-lede home-lede--secondary">
+      Our broad impact areas are vision and perception systems, sensing systems, wireless communications,
+      computing systems, and wireless networking. We also release open datasets and software that lower the
+      barrier to reproducible work in these areas.
+    </p>
+    <div class="home-link-strip">
+      <a class="home-link-chip" href="{{ base_path }}/research/">Research areas</a>
+      <a class="home-link-chip" href="{{ base_path }}/publications/">Publications</a>
+      <a class="home-link-chip" href="{{ base_path }}/software/">Datasets &amp; tools</a>
+    </div>
+  </div>
+
+  <aside class="home-profile">
+    <img class="home-profile__image" src="{{ base_path }}/images/WebpageNewPic.jpg" alt="Dinesh Bharadia portrait">
+    <div class="home-profile__content">
+      <p class="home-profile__name">Dinesh Bharadia</p>
+    </div>
+    <div class="home-link-list">
+      <a href="https://wcsng.ucsd.edu">WCSNG Lab</a>
+      <a href="https://scholar.google.com/citations?user=5SjaXJsAAAAJ&amp;hl=en">Google Scholar</a>
+    </div>
+    <p class="home-profile__contact">Contact: <span>dineshb at ucsd dot edu</span></p>
+  </aside>
+</section>
+
+<section class="home-section home-section--summary">
+  <div class="home-summary-grid">
+    <article class="home-summary-card">
+      <p class="home-section__eyebrow">Openings</p>
+      <h2>Apply to WCSNG Group</h2>
+      <p>{{ profile.openings.intro }}</p>
+      <p>{{ profile.openings.details }}</p>
+      <div class="home-bullet-list">
+        {% for item in profile.openings.response %}
+          <p>{{ item }}</p>
+        {% endfor %}
+      </div>
+      <a class="home-text-link" href="{{ wcsng.links.join_us }}">Current openings and forms</a>
+    </article>
+
+    <article class="home-summary-card">
+      <p class="home-section__eyebrow">Honors</p>
+      <h2>Selected awards and recognition</h2>
+      <div class="home-awards-list">
+        {% for item in profile.honors %}
+          <p>
+            {% if item.url %}
+              <strong><a href="{{ item.url }}">{{ item.title }}</a></strong>
+            {% else %}
+              <strong>{{ item.title }}</strong>
+            {% endif %}
+            {% if item.year %}<span> | {{ item.year }}</span>{% endif %}
+          </p>
+        {% endfor %}
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="home-section home-section--group">
+  <div class="home-group-grid">
+    <div class="home-group-copy">
+      <div class="home-section__heading">
+        <p class="home-section__eyebrow">WCSNG</p>
+        <h2>Group mission, research direction, and current focus areas.</h2>
+        <p>{{ wcsng.mission }}</p>
+        <p>{{ wcsng.overview }}</p>
+      </div>
+
+      <div class="home-group-areas">
+        <h3>Key research areas</h3>
+        <div class="home-pill-list">
+          {% for area in wcsng_research.areas %}
+            <a class="home-pill" href="{{ base_path }}{{ area.url }}">{{ area.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="home-link-cluster">
+        <a class="home-text-link" href="{{ wcsng.links.home }}">Visit WCSNG</a>
+        <a class="home-text-link" href="{{ wcsng.links.team }}">Meet the team</a>
+        <a class="home-text-link" href="{{ base_path }}/software/">Open source projects</a>
+        <a class="home-text-link" href="{{ wcsng.links.join_us }}">Join the group</a>
+      </div>
+    </div>
+
+    <aside class="home-news-panel">
+      <p class="home-section__eyebrow">Recent from the group</p>
+      <h3>WCSNG news</h3>
+      <div class="home-news-list">
+        {% for item in wcsng_news limit: 6 %}
+          <article class="home-news-item">
+            <p class="home-news-item__date">{{ item.date }}</p>
+            <p>{{ item.headline }}</p>
+          </article>
+        {% endfor %}
+      </div>
+      <a class="home-text-link" href="{{ base_path }}/news/">More group news</a>
+    </aside>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section__heading">
+    <p class="home-section__eyebrow">Research</p>
+    <h2>Systems research shaped by real deployment constraints.</h2>
+    <p>
+      The research program spans perception systems, sensing systems, wireless communication, computing systems,
+      and wireless networking, with projects that move from theory to deployable prototypes and shared resources.
+    </p>
+  </div>
+
+  <div class="home-research-grid">
+    {% for area in wcsng_research.areas limit: 4 %}
+      <a class="home-research-card" href="{{ base_path }}{{ area.url }}">
+        {% if area.image %}
+          <div class="home-research-card__media">
+            <img src="{{ base_path }}{{ area.image }}" alt="{{ area.image_alt | default: area.title }}">
+          </div>
+        {% endif %}
+        <div class="home-research-card__body">
+          <h3>{{ area.title }}</h3>
+          <p>{{ area.summary }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="home-section__cta">
+    <a class="home-text-link" href="{{ base_path }}/research/">View all research areas</a>
+  </div>
+</section>
+
+<section class="home-section home-section--split">
+  <div class="home-section__heading">
+    <p class="home-section__eyebrow">Publications</p>
+    <h2>Recent papers and systems contributions.</h2>
+    <p>
+      Selected work across wireless communication, sensing, localization, perception, and robust networked systems.
+      The full archive includes papers, project pages, and software links.
+    </p>
+  </div>
+
+  <div class="home-publications">
+    {% for post in recent_publications limit: 4 %}
+      <article class="home-publication">
+        <p class="home-publication__meta">{{ post.date | date: "%Y" }}{% if post.venue %} | {{ post.venue }}{% endif %}</p>
+        <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+        {% if post.citation %}
+          <p class="home-publication__citation">{{ post.citation | strip | truncate: 180 }}</p>
+        {% endif %}
+        <div class="home-publication__links">
+          {% if post.paperurl %}
+            {% if post.paperurl contains "://" %}
+              <a href="{{ post.paperurl }}">Paper</a>
+            {% else %}
+              <a href="{{ base_path }}{{ post.paperurl }}">Paper</a>
+            {% endif %}
+          {% endif %}
+          {% if post.link %}
+            <a href="{{ post.link }}">Project</a>
+          {% endif %}
+          {% if post.code %}
+            <a href="{{ post.code }}">Code</a>
+          {% endif %}
+          {% if post.github %}
+            <a href="{{ post.github }}">GitHub</a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="home-section__cta">
+    <a class="home-text-link" href="{{ base_path }}/publications/">See the full publications archive</a>
+  </div>
+</section>
+
+<section class="home-section home-section--bio">
+  <div class="home-summary-grid">
+    <article class="home-summary-card">
+      <p class="home-section__eyebrow">Bio</p>
+      <h2>Short professional background</h2>
+      <div class="home-bullet-list">
+        {% for paragraph in profile.bio %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="home-summary-card">
+      <p class="home-section__eyebrow">Impact</p>
+      <h2>{{ profile.industry.title }}</h2>
+      <p>{{ profile.industry.text }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="home-section home-section--teaching">
+  <div class="home-section__heading">
+    <p class="home-section__eyebrow">Teaching</p>
+    <h2>Hands-on systems courses with a strong theory core.</h2>
+    <p>
+      My teaching centers on challenging assumptions, building strong intuition, and pairing theory with direct
+      exposure to systems, hardware, and applied experimentation.
+    </p>
+  </div>
+
+  <div class="home-course-grid">
+    <article class="home-course">
+      <p class="home-course__type">Current course</p>
+      <h3>ECE 157A</h3>
+      <p>Wireless communications laboratory built around SDRs, labs, mini-projects, and digital communication systems.</p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157a/">Open course page</a></p>
+    </article>
+    <article class="home-course">
+      <p class="home-course__type">Graduate</p>
+      <h3>ECE 257B</h3>
+      <p>Principles of Wireless Communication, focused on foundations and system design tradeoffs.</p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-257b/">Open course page</a></p>
+    </article>
+    <article class="home-course">
+      <p class="home-course__type">Laboratory</p>
+      <h3>ECE 157B</h3>
+      <p>Wireless communication and wireless sensing laboratories built around practical experimentation.</p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">Open course page</a></p>
+    </article>
+    <article class="home-course">
+      <p class="home-course__type">Laboratory archive</p>
+      <h3>ECE 157B</h3>
+      <p>Wireless sensing laboratory material spanning respiration, FMCW, localization, and practical experimentation.</p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">Open course page</a></p>
+    </article>
+  </div>
+
+  <div class="home-section__cta">
+    <a class="home-text-link" href="{{ base_path }}/teaching/">Read more about teaching</a>
+  </div>
+</section>

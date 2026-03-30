@@ -1,31 +1,78 @@
 ---
+layout: teaching_page
 permalink: /teaching/
 title: "Teaching"
+author_profile: false
+lede: "My teaching pairs theory with direct systems work. I focus on strong fundamentals, careful intuition-building, and public course pages that surface the durable parts of each offering."
 ---
 
-My teaching follows my research philosophy of enabling the students to challenge existing knowledge and learn via challenging it, combined with hands-on experience. I believe that students retain most of the class material if combined with appropriate hands-on experience and impact of what they can achieve by learning this class. Adding all these components to class requires an extensive effort, and more so during COVID, to enable students to have remote access seamless and not be overburdened due to hardware aspects. 
+{% include base_path %}
 
-Besides content, I have found my passion and energy for the class material and connecting with applied aspects of the class inspires students to achieve endeavors and pursue higher studies, internship, and exploring the topic further on their own extensively. Furthermore, I conduct comprehensive exams (up to 24-hour exams to not put them under time pressure and give them a chance to be represent what they learned) to test both theory and applied knowledge; the goal is to verify if students have an intuition for the class. Such teaching philosophy has resulted in confidence in the students when they start their position in the industry; sometimes, I have received queries years after requesting access to the class material to prepare for interviews from my former students. 
+<section class="course-page__body-section">
+  <p class="course-page__body-eyebrow">UC San Diego</p>
+  <h2>Current teaching</h2>
+  <p>
+    Quarter-specific logistics live in class and on Canvas. The public pages here focus on the durable material:
+    course scope, planners, archived lectures, assignments, and representative course structure.
+  </p>
 
+  <div class="teaching-overview-grid">
+    <article class="teaching-overview-card">
+      <p class="course-page__body-eyebrow">Current course</p>
+      <h3>ECE 157A: Wireless Communications Laboratory</h3>
+      <p>{{ site.data.teaching.ece_157a.summary }}</p>
+      <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-157a/">Open course page</a></p>
+    </article>
+  </div>
+</section>
 
+<section class="course-page__body-section">
+  <p class="course-page__body-eyebrow">Representative pages</p>
+  <h2>Regular and archived courses</h2>
+  <p>
+    These pages preserve the material that is still useful publicly: course framing, assignments, lecture
+    archives, and project structure.
+  </p>
 
-## University of California San Diego
+  <div class="teaching-overview-grid">
+    <article class="teaching-overview-card">
+      <p class="course-page__body-eyebrow">Graduate course</p>
+      <h3>ECE 257B: Principles of Wireless Communication</h3>
+      <p>{{ site.data.teaching.ece_257b.summary }}</p>
+      <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-257b/">Open course page</a></p>
+    </article>
 
-- ECE 157B – Wireless Sensing Laboratory  (Spring'19 and 20)
-    + [Webpage](https://web.eng.ucsd.edu/~dineshb/ECE157B)
-- ECE 257B – Principles of Wireless Communication -- (Spring'18, Winter'19, 20 and 21) 
-    + [Webpage](https://web.eng.ucsd.edu/~dineshb/ECE257B)
-- ECE 101 – Linear Systems Fundamental -- (Spring'21) 
-    + Canvas 
-- ECE 157A – Wireless Communications Laboratory -- (Winter'21)
-    + Piazza 
+    <article class="teaching-overview-card">
+      <p class="course-page__body-eyebrow">Laboratory archive</p>
+      <h3>ECE 157B: Wireless Sensing Laboratory</h3>
+      <p>{{ site.data.teaching.ece_157b.summary }}</p>
+      <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-157b/">Open course page</a></p>
+    </article>
+  </div>
+</section>
 
+<section class="course-page__body-section">
+  <p class="course-page__body-eyebrow">Course history</p>
+  <h2>Other teaching and earlier roles</h2>
 
-## MIT
-- 6.888: Wireless Communication Systems
-    +  Class on full-duplex radios
+  <div class="teaching-overview-stack">
+    <article class="teaching-overview-note">
+      <h3>UC San Diego</h3>
+      <p>ECE 157A: Wireless Communications Laboratory</p>
+      <p>ECE 157B: Wireless Sensing Laboratory</p>
+      <p>ECE 257B: Principles of Wireless Communication</p>
+      <p>ECE 101: Linear Systems Fundamentals</p>
+    </article>
 
-## Stanford
-- EE107: Embedded Networked Systems (Spring 2015)
-    + Teaching Assistant 
-    - [Webpage](https://web.stanford.edu/class/ee107/)
+    <article class="teaching-overview-note">
+      <h3>MIT</h3>
+      <p>6.888: Wireless Communication Systems, including instruction on full-duplex radios.</p>
+    </article>
+
+    <article class="teaching-overview-note">
+      <h3>Stanford</h3>
+      <p>EE107: Embedded Networked Systems, teaching assistant.</p>
+      <p><a class="course-page__inline-link" href="https://web.stanford.edu/class/ee107/">Course site</a></p>
+    </article>
+  </div>
+</section>

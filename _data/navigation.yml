@@ -1,16 +1,73 @@
 # main links links
 main:
-  - title: "Publications"
-    url: /publications/
-    
   - title: "Research"
     url: /research/
+
+  - title: "Publications"
+    url: /publications/
 
   - title: "Teaching"
     url: /teaching/
 
-  # - title: "Software"
-  #   url: /software/
+  - title: "Open Source"
+    url: /software/
+
+  - title: "CV"
+    url: /files/CV.pdf
+
+teaching_courses:
+  - title: "Course pages"
+    children:
+      - title: "ECE 157A"
+        url: /teaching/ece-157a/
+      - title: "ECE 257B"
+        url: /teaching/ece-257b/
+      - title: "ECE 157B"
+        url: /teaching/ece-157b/
+
+teaching_ece_157a:
+  - title: "Course pages"
+    children:
+      - title: "Overview"
+        url: /teaching/ece-157a/
+      - title: "Course info and planner"
+        url: /teaching/ece-157a/course-info/
+      - title: "Homework and labs"
+        url: /teaching/ece-157a/homework/
+      - title: "Contact"
+        url: /teaching/ece-157a/contact/
+
+teaching_ece_157b:
+  - title: "Course pages"
+    children:
+      - title: "Overview"
+        url: /teaching/ece-157b/
+      - title: "Course info and lectures"
+        url: /teaching/ece-157b/course-info/
+      - title: "Homework"
+        url: /teaching/ece-157b/homework/
+      - title: "Contact"
+        url: /teaching/ece-157b/contact/
+
+teaching_ece_257b:
+  - title: "Course pages"
+    children:
+      - title: "Overview"
+        url: /teaching/ece-257b/
+      - title: "Course info"
+        url: /teaching/ece-257b/info/
+      - title: "Outline"
+        url: /teaching/ece-257b/outline/
+      - title: "Project"
+        url: /teaching/ece-257b/project/
+      - title: "Reading"
+        url: /teaching/ece-257b/reading/
+      - title: "Homework"
+        url: /teaching/ece-257b/homework/
+      - title: "Exams"
+        url: /teaching/ece-257b/exams/
+      - title: "Contact"
+        url: /teaching/ece-257b/contact/
 
   # - title: "Posts"
   #   url: /posts/

@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% assign course = site.data.teaching[page.course_key] %}
+
+<div id="main" role="main">
+  <aside class="sidebar sticky course-sidebar">
+    <div class="course-sidebar__block">
+      <p class="course-sidebar__eyebrow">Teaching</p>
+      <h2 class="course-sidebar__course">{{ course.short_title }}</h2>
+      <p class="course-sidebar__term">{{ course.term }}</p>
+      <p class="course-sidebar__back"><a href="{{ base_path }}/teaching/">All teaching</a></p>
+    </div>
+
+    <div class="course-sidebar__nav">
+      {% include nav_list nav=course.nav_key %}
+    </div>
+  </aside>
+
+  <article class="page page--course-nav">
+    <div class="page__inner-wrap">
+      <header class="course-page__header">
+        <p class="course-page__eyebrow">{{ course.term }}</p>
+        <h1 class="course-page__title">{{ course.title }}</h1>
+        {% if page.section_title %}
+          <p class="course-page__section">{{ page.section_title }}</p>
+        {% endif %}
+        {% if page.section_summary %}
+          <p class="course-page__summary">{{ page.section_summary }}</p>
+        {% endif %}
+
+        <div class="course-page__actions">
+          {% if course.piazza_url %}
+            <a class="course-page__action" href="{{ course.piazza_url }}">Piazza</a>
+          {% endif %}
+          {% if course.resources_url %}
+            {% if course.resources_url contains "://" %}
+              <a class="course-page__action" href="{{ course.resources_url }}">{{ course.resources_label | default: "Course materials" }}</a>
+            {% else %}
+              <a class="course-page__action" href="{{ base_path }}{{ course.resources_url }}">{{ course.resources_label | default: "Course materials" }}</a>
+            {% endif %}
+          {% endif %}
+          <a class="course-page__action" href="{{ base_path }}/teaching/">All teaching</a>
+        </div>
+      </header>
+
+      <section class="page__content course-page__content course-richtext" itemprop="text">
+        {{ content }}
+      </section>
+    </div>
+  </article>
+</div>

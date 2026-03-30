@@ -1,23 +1,112 @@
 ---
-layout: archive
+layout: feature
 title: "Research"
 permalink: /research/
-author_profile: true
-header:
-  og_image: "research/ecdf.png"
+author_profile: false
 ---
 
-My research has been focused on building efficient, performant systems for sensing, computing, communicating and securing the information in our connected world. Throughout my career, my research has aimed to solve the fundamental and near-impossible problems, which has often led to new areas of research and commercialization solutions. My approach to research is as follows: I identify core challenges with building next-generation technologies, form those as research topics and solve those with creativity and analytical understanding of the problem and go at length to solve them, including building integrated circuits or building robots, end-to-end systems. My research group [WCSNG Group](https://wcsng.ucsd.edu/) continues to work with same philosophy of solving fundamental problems, impacting areas of from IoT to robotics, to mobile sensing, mobile computing to every-day life. Specifically, my research agenda is focused on building systems in the broad areas of vision/perception systems, sensing systems, wireless communications, wireless networking. As such, my work has inspired significant follow-up work on almost all of the topics I have worked on. 
-
-I have worked and introduced a range of research areas and topics from communications, sensing, computing, and networking. My research career began by solving an open problem on enabling full-duplex radios in wireless communication. Specifically, It is, rather, it was well known that full-duplex radios are near impossible to achieve, with multiple wireless textbooks claiming it. This work inspired my research philosophy as well to a large extent to focus on identifying the fundamental problem on different topics and solving those problems, which inadvertently leads to significant impact and evolves new research areas to work on. My group has worked on the following topics following my research philosophy: sensing of radios in environments (radars, wireless localization, WiFi-SLAM), Wireless Sensing Driven Communication and Cloud RAN, Wireless Sensing for autonomous systems, Smart Surfaces based wireless networking and computing, Scalable and Ultra-low-power WiFi connectivity for IoT, Optimized Edge Node Compute, Full-duplex radios for networking and sensing, mm-accurate wireless sensing and localization, building scalable and reliable 5G mm-wave and autonomous perception systems using cameras and radars. 
-
-
-<nbsp>
-
 {% include base_path %}
+{% assign research = site.data.wcsng_research %}
+{% assign publication_count = site.publications | size %}
 
-{% assign ordered_pages = site.research | sort:"order_number" %}
+<div class="feature-page">
+  <section class="feature-section feature-section--intro">
+    <div class="feature-section__header feature-section__header--compact">
+      <p class="feature-eyebrow">Research</p>
+      <h1>Research</h1>
+      <p>{{ research.intro.lede }}</p>
+      <div class="feature-link-row">
+        <a class="feature-text-link" href="{{ base_path }}/publications/">{{ publication_count }} publications</a>
+        <a class="feature-text-link" href="{{ base_path }}/software/">datasets and tools</a>
+        <a class="feature-text-link" href="https://wcsng.ucsd.edu/">WCSNG group page</a>
+      </div>
+    </div>
+  </section>
 
-{% for post in ordered_pages %}
-  {% include archive-single.html type="grid" %}
-{% endfor %}
+  <section class="feature-section">
+    <div class="feature-section__header">
+      <p class="feature-eyebrow">Research Map</p>
+      <h2>Current focus areas</h2>
+      <p>
+        Each area below summarizes the direction of the work, the current system-level thrusts, and the
+        most relevant code or dataset releases to explore next.
+      </p>
+    </div>
+
+    <div class="feature-card-grid">
+      {% for area in research.areas %}
+        <a class="feature-card" href="{{ base_path }}{{ area.url }}">
+          {% if area.image %}
+            <div class="feature-card__media">
+              <img src="{{ base_path }}{{ area.image }}" alt="{{ area.image_alt | default: area.title }}">
+            </div>
+          {% endif %}
+          <div class="feature-card__body">
+            <h3>{{ area.title }}</h3>
+            <p>{{ area.summary }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-section__header">
+      <p class="feature-eyebrow">Details</p>
+      <h2>Area-by-area view</h2>
+    </div>
+
+    <div class="research-area-list">
+      {% for area in research.areas %}
+        <article id="{{ area.slug }}" class="research-area">
+          <div class="research-area__header">
+            <div>
+              <p class="feature-eyebrow">Current focus</p>
+              <h3>{{ area.title }}</h3>
+            </div>
+            <a class="feature-text-link" href="{{ area.external_url }}">Group page</a>
+          </div>
+
+          <p class="research-area__summary">{{ area.summary }}</p>
+
+          <div class="research-area__grid">
+            <div>
+              <h4>Current thrusts</h4>
+              <ul class="feature-list">
+                {% for item in area.themes %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div>
+              {% if area.image %}
+                <div class="research-area__visual">
+                  <img src="{{ base_path }}{{ area.image }}" alt="{{ area.image_alt | default: area.title }}">
+                </div>
+              {% endif %}
+
+              <h4>Researchers</h4>
+              <div class="feature-pill-list">
+                {% for person in area.people %}
+                  <span class="feature-pill">{{ person }}</span>
+                {% endfor %}
+              </div>
+
+              <h4>Representative resources</h4>
+              <div class="feature-link-row">
+                {% for link in area.links %}
+                  {% if link.url contains "://" %}
+                    <a class="feature-text-link" href="{{ link.url }}">{{ link.title }}</a>
+                  {% else %}
+                    <a class="feature-text-link" href="{{ base_path }}{{ link.url }}">{{ link.title }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</div>

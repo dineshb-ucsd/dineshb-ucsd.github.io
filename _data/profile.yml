@@ -1,0 +1,31 @@
+office:
+  address: "Franklin Antonio Hall 2303, UC San Diego"
+  hours: "Monday 2 pm to 3 pm except holidays, otherwise by appointment"
+openings:
+  intro: "If you are an exceptional student, researcher, or postdoc interested in working with WCSNG, email dineshb at ucsd dot edu and review the current group openings."
+  details: "For the latest PhD and internship opportunities, application instructions, and forms, use the WCSNG Join Us page so the year-specific details stay current."
+  response:
+    - "If you do not hear back within about 2 days, send a follow-up."
+    - "If you still do not hear back, follow up again a few days later."
+    - "I usually process email in morning and evening batches."
+honors:
+  - title: "Klein Gilhousen Chancellor's Endowed Chair"
+    year: "2023"
+  - title: "Qualcomm Innovation Fellowship"
+    year: "2020 and 2022"
+    url: "https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-north-america"
+  - title: "Forbes 30 Under 30, Science"
+    url: "https://www.forbes.com/profile/dinesh-bharadia/"
+  - title: "Marconi Young Scholar Award"
+    url: "https://www.marconisociety.org/press/marconi-society-honors-dinesh-bharadia-with-paul-baran-young-scholar-award/"
+  - title: "MIT TR35 Award"
+    url: "https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/"
+  - title: "Michael Dukakis Leadership Award"
+    url: "http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/"
+bio:
+  - "I have been at UC San Diego since January 2018. My group works across computer vision, deep learning, wireless communication, sensing, and networking, building technologies from theory to practice for robotics, autonomous systems, and everyday devices."
+  - "Previously, I was a postdoctoral associate at MIT CSAIL working on data-center networking and wireless sensing. I received my PhD at Stanford University for work on full-duplex radios, a problem long considered near-impossible to realize in practice."
+  - "Before Stanford, I received my bachelor's degree in Electrical Engineering from IIT Kanpur in 2010 and was awarded a gold medal for graduating at the top of the Electrical Engineering class."
+industry:
+  title: "Broader industry impact"
+  text: "Our work on full-duplex radios translated into Kumu Networks, where I worked as Principal Scientist to commercialize the technology. The resulting systems completed field trials with major tier-1 wireless providers and helped show that full-duplex could move from research to real products."

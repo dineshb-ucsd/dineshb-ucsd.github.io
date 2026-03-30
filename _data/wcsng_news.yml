@@ -1,0 +1,92 @@
+- date: "July 2025"
+  headline: "C-Shenron was accepted at IEEE VTC 2025. Explore the simulator and datasets <a href=\"https://wcsng.ucsd.edu/c-shenron/\">here</a>."
+
+- date: "July 2025"
+  headline: "WCSNG is organizing the <a href=\"https://wcsng.ucsd.edu/open-ai-ran-2025/\">MobiCom Open-AI-RAN 2025</a> workshop."
+
+- date: "May 2025"
+  headline: "Nagarjun, Ishan, and collaborators won the RFID best paper award, the SenSys best demo award, and a UCSD interdisciplinary research award for <a href=\"https://wcsng.ucsd.edu/sensync/\">RFID-based ubiquitous sensing</a>."
+
+- date: "January 2025"
+  headline: "PhaseMO was accepted at IEEE INFOCOM 2025. Read more <a href=\"https://wcsng.ucsd.edu/phasemo\">here</a>."
+
+- date: "October 2024"
+  headline: "EdgeRIC demos and tutorial were presented at the srsRAN Workshop 2024. More details are <a href=\"https://wcsng.ucsd.edu/edgeric\">here</a>."
+
+- date: "October 2024"
+  headline: "CommRad was accepted at SenSys 2024. Read about it <a href=\"https://wcsng.ucsd.edu/commrad\">here</a>."
+
+- date: "September 2024"
+  headline: "WCSNG welcomed three new PhD students: Ali, Golnaz, and Pushkal."
+
+- date: "July 2024"
+  headline: "Dinesh and Ish co-chaired the <a href=\"https://wcsng.ucsd.edu/open-ai-ran-2024/\">MobiCom Open-AI-RAN 2024</a> workshop."
+
+- date: "June 2024"
+  headline: "WCSNG celebrated five PhD graduates in 2024: Ish, Aditya, Raghav, Manideep, and Kshitiz."
+
+- date: "March 2024"
+  headline: "BeamArmor was published at HotMobile 2024 with a live demo. Check it out <a href=\"https://wcsng.ucsd.edu/beamarmor/\">here</a>."
+
+- date: "March 2024"
+  headline: "EdgeRIC was presented at NSDI 2024 by Ushasi. The paper is <a href=\"https://wcsng.ucsd.edu/edgeric/\">here</a>."
+
+- date: "November 2023"
+  headline: "Dinesh co-chaired the <a href=\"https://wcsng.ucsd.edu/mmNets2023/\">MobiCom mmNets 2023</a> workshop in Madrid, with Ish and Roshan as publicity co-chairs."
+
+- date: "July 2023"
+  headline: "Crescendo, a sweep-spectrum sensor designed for high signal fidelity, was accepted to MobiCom 2023."
+
+- date: "May 2023"
+  headline: "WCSNG presented new work at IEEE INFOCOM 2023 and IEEE S&amp;P 2023. See UC San Diego coverage of <a href=\"https://today.ucsd.edu/story/uc-san-diego-researchers-present-new-wireless-system-for-greater-5g-access\">mmFlexible</a> and <a href=\"https://today.ucsd.edu/story/team-develops-new-attacker-device-to-improve-autonomous-car-safety\">mmSpoof</a>."
+
+- date: "April 2023"
+  headline: "Roshan successfully defended his PhD thesis."
+
+- date: "March 2023"
+  headline: "Ish chaired the <a href=\"http://wcsng.ucsd.edu/s3/\">MobiCom S3 2023</a> workshop."
+
+- date: "March 2023"
+  headline: "The <a href=\"https://wcsng.ucsd.edu/dpa/\">Delay Phased Array</a> project earned Best Poster Runner-up at HotMobile 2023."
+
+- date: "January 2023"
+  headline: "MobiCom 2023 accepted GreenMO and IMWUT 2023 accepted WiForceSticker."
+
+- date: "January 2023"
+  headline: "HotMobile 2023 accepted MIRAGE, a privacy-preserving localization project."
+
+- date: "December 2022"
+  headline: "IEEE INFOCOM 2023 accepted the <a href=\"https://wcsng.ucsd.edu/dpa/\">Delay Phased Array (DPA)</a> work on flexible, sustainable multi-beam mmWave operation."
+
+- date: "December 2022"
+  headline: "IEEE S&amp;P 2023 accepted mmSpoof, a system for spoofing automotive radars using millimeter-wave reflect arrays."
+
+- date: "November 2022"
+  headline: "Dinesh received tenure with acceleration at UC San Diego."
+
+- date: "October 2022"
+  headline: "Raghav Subbaraman presented <a href=\"https://github.com/ucsdwcsng/bsma_lora\">BSMA</a> at MobiCom 2022 in Sydney."
+
+- date: "September 2022"
+  headline: "Ish Jain and Raghav Subbaraman received the <a href=\"https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-north-america\">Qualcomm Innovation Fellowship 2022</a>."
+
+- date: "June 2022"
+  headline: "The first International Workshop on AI Perception at CVPR 2022 went live. Details are <a href=\"https://wcsng.ucsd.edu/waip\">here</a>."
+
+- date: "May 2022"
+  headline: "The BLE security paper was released. More details are <a href=\"https://wcsng.ucsd.edu/ble-privacy/\">here</a>."
+
+- date: "April 2022"
+  headline: "P2SLAM, a WiFi localization and mapping paper, was accepted at IEEE Robotics and Automation 2022. The dataset is also available. Learn more <a href=\"https://wcsng.ucsd.edu/p2slam/\">here</a>."
+
+- date: "December 2021"
+  headline: "Agrim's NSDI 2021 work on wireless force sensing was invited to GetMobile 2022. The paper is <a href=\"https://dl.acm.org/doi/abs/10.1145/3511285.3511296\">here</a>."
+
+- date: "December 2021"
+  headline: "WCSNG joined a $6M IARPA SCISRS effort on secure wireless data communication. UC San Diego coverage is <a href=\"https://jacobsschool.ucsd.edu/news/release/3357\">here</a>."
+
+- date: "September 2021"
+  headline: "Scott Zhao presented ULoc at IMWUT 2021. Watch the demo of <a href=\"https://wcsng.ucsd.edu/uloc/\">ULoc</a>."
+
+- date: "June 2021"
+  headline: "Ish won the 3MT competition at the MobiSys 2021 student workshop."
