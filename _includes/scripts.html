@@ -1,4 +1,29 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
+<script>
+  (function () {
+    var nav = document.getElementById("site-nav");
+    if (!nav) return;
+
+    var button = nav.querySelector("button");
+    var hiddenLinks = document.getElementById("site-nav-hidden-links");
+
+    if (!button || !hiddenLinks) return;
+
+    function syncNavA11yState() {
+      var expanded = !hiddenLinks.classList.contains("hidden");
+      button.setAttribute("aria-expanded", expanded ? "true" : "false");
+      hiddenLinks.setAttribute("aria-hidden", expanded ? "false" : "true");
+    }
+
+    syncNavA11yState();
+
+    button.addEventListener("click", function () {
+      window.requestAnimationFrame(syncNavA11yState);
+    });
+
+    window.addEventListener("resize", syncNavA11yState);
+  })();
+</script>
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}

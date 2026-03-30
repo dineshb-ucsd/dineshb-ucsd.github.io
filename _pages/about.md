@@ -248,25 +248,25 @@ redirect_from:
       <p class="home-course__type">Current course</p>
       <h3>ECE 157A</h3>
       <p>Wireless communications laboratory built around SDRs, labs, mini-projects, and digital communication systems.</p>
-      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157a/">Open course page</a></p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157a/">View ECE 157A course page</a></p>
     </article>
     <article class="home-course">
       <p class="home-course__type">Graduate</p>
       <h3>ECE 257B</h3>
       <p>Principles of Wireless Communication, focused on foundations and system design tradeoffs.</p>
-      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-257b/">Open course page</a></p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-257b/">View ECE 257B course page</a></p>
     </article>
     <article class="home-course">
       <p class="home-course__type">Laboratory</p>
       <h3>ECE 157B</h3>
       <p>Wireless communication and wireless sensing laboratories built around practical experimentation.</p>
-      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">Open course page</a></p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">View ECE 157B course page</a></p>
     </article>
     <article class="home-course">
       <p class="home-course__type">Laboratory archive</p>
       <h3>ECE 157B</h3>
       <p>Wireless sensing laboratory material spanning respiration, FMCW, localization, and practical experimentation.</p>
-      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">Open course page</a></p>
+      <p><a class="home-text-link" href="{{ base_path }}/teaching/ece-157b/">View ECE 157B archive page</a></p>
     </article>
   </div>
 

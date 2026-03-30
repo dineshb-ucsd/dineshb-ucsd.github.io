@@ -18,6 +18,11 @@ gem "github-pages", group: :jekyll_plugins
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
+# Ruby 3.4+/4.0 no longer ships csv as a default gem, but Jekyll 3.9 requires it.
+gem "csv"
+# Ruby 3.4+/4.0 also externalized bigdecimal, which Liquid still requires.
+gem "bigdecimal"
+
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   # gem "jekyll-archives"
