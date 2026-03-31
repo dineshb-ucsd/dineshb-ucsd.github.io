@@ -20,8 +20,8 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Contact</button>
-    <ul class="author__urls social-icons">
+    <button class="btn btn--inverse" type="button" aria-controls="author-profile-links" aria-expanded="false" aria-label="Toggle contact and profile links">Contact and profiles</button>
+    <ul id="author-profile-links" class="author__urls social-icons">
       {% if author.location %}
         <li><i class="fa fa-fw fa-map-marker-alt" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}

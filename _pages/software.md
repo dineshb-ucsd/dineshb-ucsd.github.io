@@ -60,10 +60,10 @@ author_profile: false
           <p>{{ item.summary }}</p>
           <div class="feature-link-row">
             {% if item.github %}
-              <a class="feature-text-link" href="{{ item.github }}">GitHub</a>
+              <a class="feature-text-link" href="{{ item.github }}" aria-label="Open the GitHub repository for {{ item.title }}">GitHub</a>
             {% endif %}
             {% if item.paper %}
-              <a class="feature-text-link" href="{{ item.paper }}">Paper</a>
+              <a class="feature-text-link" href="{{ item.paper }}" aria-label="Read the paper for {{ item.title }}">Paper</a>
             {% endif %}
           </div>
         </article>
@@ -89,13 +89,13 @@ author_profile: false
           <p>{{ item.summary }}</p>
           <div class="feature-link-row">
             {% if item.dataset %}
-              <a class="feature-text-link" href="{{ item.dataset }}">Dataset</a>
+              <a class="feature-text-link" href="{{ item.dataset }}" aria-label="Open the dataset for {{ item.title }}">Dataset</a>
             {% endif %}
             {% if item.github %}
-              <a class="feature-text-link" href="{{ item.github }}">Code</a>
+              <a class="feature-text-link" href="{{ item.github }}" aria-label="Open the code for {{ item.title }}">Code</a>
             {% endif %}
             {% if item.paper %}
-              <a class="feature-text-link" href="{{ item.paper }}">Paper</a>
+              <a class="feature-text-link" href="{{ item.paper }}" aria-label="Read the paper for {{ item.title }}">Paper</a>
             {% endif %}
           </div>
         </article>

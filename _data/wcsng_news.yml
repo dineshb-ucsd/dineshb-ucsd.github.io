@@ -1,5 +1,5 @@
 - date: "July 2025"
-  headline: "C-Shenron was accepted at IEEE VTC 2025. Explore the simulator and datasets <a href=\"https://wcsng.ucsd.edu/c-shenron/\">here</a>."
+  headline: "C-Shenron was accepted at IEEE VTC 2025. Explore the <a href=\"https://wcsng.ucsd.edu/c-shenron/\">C-Shenron simulator and datasets</a>."
 
 - date: "July 2025"
   headline: "WCSNG is organizing the <a href=\"https://wcsng.ucsd.edu/open-ai-ran-2025/\">MobiCom Open-AI-RAN 2025</a> workshop."
@@ -8,13 +8,13 @@
   headline: "Nagarjun, Ishan, and collaborators won the RFID best paper award, the SenSys best demo award, and a UCSD interdisciplinary research award for <a href=\"https://wcsng.ucsd.edu/sensync/\">RFID-based ubiquitous sensing</a>."
 
 - date: "January 2025"
-  headline: "PhaseMO was accepted at IEEE INFOCOM 2025. Read more <a href=\"https://wcsng.ucsd.edu/phasemo\">here</a>."
+  headline: "PhaseMO was accepted at IEEE INFOCOM 2025. Read the <a href=\"https://wcsng.ucsd.edu/phasemo\">PhaseMO project page</a>."
 
 - date: "October 2024"
-  headline: "EdgeRIC demos and tutorial were presented at the srsRAN Workshop 2024. More details are <a href=\"https://wcsng.ucsd.edu/edgeric\">here</a>."
+  headline: "EdgeRIC demos and tutorial were presented at the srsRAN Workshop 2024. See the <a href=\"https://wcsng.ucsd.edu/edgeric\">EdgeRIC project page</a>."
 
 - date: "October 2024"
-  headline: "CommRad was accepted at SenSys 2024. Read about it <a href=\"https://wcsng.ucsd.edu/commrad\">here</a>."
+  headline: "CommRad was accepted at SenSys 2024. Read the <a href=\"https://wcsng.ucsd.edu/commrad\">CommRad project page</a>."
 
 - date: "September 2024"
   headline: "WCSNG welcomed three new PhD students: Ali, Golnaz, and Pushkal."
@@ -26,10 +26,10 @@
   headline: "WCSNG celebrated five PhD graduates in 2024: Ish, Aditya, Raghav, Manideep, and Kshitiz."
 
 - date: "March 2024"
-  headline: "BeamArmor was published at HotMobile 2024 with a live demo. Check it out <a href=\"https://wcsng.ucsd.edu/beamarmor/\">here</a>."
+  headline: "BeamArmor was published at HotMobile 2024 with a live demo. See the <a href=\"https://wcsng.ucsd.edu/beamarmor/\">BeamArmor project page</a>."
 
 - date: "March 2024"
-  headline: "EdgeRIC was presented at NSDI 2024 by Ushasi. The paper is <a href=\"https://wcsng.ucsd.edu/edgeric/\">here</a>."
+  headline: "EdgeRIC was presented at NSDI 2024 by Ushasi. Read the <a href=\"https://wcsng.ucsd.edu/edgeric/\">EdgeRIC paper and project page</a>."
 
 - date: "November 2023"
   headline: "Dinesh co-chaired the <a href=\"https://wcsng.ucsd.edu/mmNets2023/\">MobiCom mmNets 2023</a> workshop in Madrid, with Ish and Roshan as publicity co-chairs."
@@ -71,19 +71,19 @@
   headline: "Ish Jain and Raghav Subbaraman received the <a href=\"https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-north-america\">Qualcomm Innovation Fellowship 2022</a>."
 
 - date: "June 2022"
-  headline: "The first International Workshop on AI Perception at CVPR 2022 went live. Details are <a href=\"https://wcsng.ucsd.edu/waip\">here</a>."
+  headline: "The first International Workshop on AI Perception at CVPR 2022 went live. See the <a href=\"https://wcsng.ucsd.edu/waip\">WAIP workshop page</a>."
 
 - date: "May 2022"
-  headline: "The BLE security paper was released. More details are <a href=\"https://wcsng.ucsd.edu/ble-privacy/\">here</a>."
+  headline: "The BLE security paper was released. Read the <a href=\"https://wcsng.ucsd.edu/ble-privacy/\">BLE privacy project page</a>."
 
 - date: "April 2022"
-  headline: "P2SLAM, a WiFi localization and mapping paper, was accepted at IEEE Robotics and Automation 2022. The dataset is also available. Learn more <a href=\"https://wcsng.ucsd.edu/p2slam/\">here</a>."
+  headline: "P2SLAM, a WiFi localization and mapping paper, was accepted at IEEE Robotics and Automation 2022. The dataset is also available on the <a href=\"https://wcsng.ucsd.edu/p2slam/\">P2SLAM project page</a>."
 
 - date: "December 2021"
-  headline: "Agrim's NSDI 2021 work on wireless force sensing was invited to GetMobile 2022. The paper is <a href=\"https://dl.acm.org/doi/abs/10.1145/3511285.3511296\">here</a>."
+  headline: "Agrim's NSDI 2021 work on wireless force sensing was invited to GetMobile 2022. Read the <a href=\"https://dl.acm.org/doi/abs/10.1145/3511285.3511296\">GetMobile article</a>."
 
 - date: "December 2021"
-  headline: "WCSNG joined a $6M IARPA SCISRS effort on secure wireless data communication. UC San Diego coverage is <a href=\"https://jacobsschool.ucsd.edu/news/release/3357\">here</a>."
+  headline: "WCSNG joined a $6M IARPA SCISRS effort on secure wireless data communication. Read the <a href=\"https://jacobsschool.ucsd.edu/news/release/3357\">UC San Diego news coverage</a>."
 
 - date: "September 2021"
   headline: "Scott Zhao presented ULoc at IMWUT 2021. Watch the demo of <a href=\"https://wcsng.ucsd.edu/uloc/\">ULoc</a>."

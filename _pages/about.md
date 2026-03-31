@@ -4,9 +4,6 @@ title: "Dinesh Bharadia"
 excerpt: "Associate Professor at UC San Diego working on wireless communication, sensing, networking, and autonomous perception systems."
 layout: home
 author_profile: false
-redirect_from:
-  - /about/
-  - /about.html
 ---
 
 {% include base_path %}
@@ -18,6 +15,7 @@ redirect_from:
 
 <section class="home-hero">
   <div class="home-hero__content">
+    <h1 class="sr-only">Dinesh Bharadia</h1>
     <p class="home-eyebrow">UC San Diego | Electrical and Computer Engineering | CSE affiliate</p>
     <div class="home-intro-meta">
       <p>Associate Professor, Electrical and Computer Engineering</p>
@@ -180,6 +178,17 @@ redirect_from:
 
   <div class="home-publications">
     {% for post in recent_publications limit: 4 %}
+      {% assign home_paper_available = false %}
+      {% if post.paperurl %}
+        {% if post.paperurl contains "://" %}
+          {% assign home_paper_available = true %}
+        {% else %}
+          {% assign home_paper = site.static_files | where: "path", post.paperurl | first %}
+          {% if home_paper %}
+            {% assign home_paper_available = true %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
       <article class="home-publication">
         <p class="home-publication__meta">{{ post.date | date: "%Y" }}{% if post.venue %} | {{ post.venue }}{% endif %}</p>
         <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
@@ -187,21 +196,17 @@ redirect_from:
           <p class="home-publication__citation">{{ post.citation | strip | truncate: 180 }}</p>
         {% endif %}
         <div class="home-publication__links">
-          {% if post.paperurl %}
-            {% if post.paperurl contains "://" %}
-              <a href="{{ post.paperurl }}">Paper</a>
-            {% else %}
-              <a href="{{ base_path }}{{ post.paperurl }}">Paper</a>
-            {% endif %}
+          {% if home_paper_available %}
+            <a href="{% if post.paperurl contains '://' %}{{ post.paperurl }}{% else %}{{ base_path }}{{ post.paperurl }}{% endif %}" aria-label="Read the paper for {{ post.title }}">Paper</a>
           {% endif %}
           {% if post.link %}
-            <a href="{{ post.link }}">Project</a>
+            <a href="{{ post.link }}" aria-label="Open the project page for {{ post.title }}">Project</a>
           {% endif %}
           {% if post.code %}
-            <a href="{{ post.code }}">Code</a>
+            <a href="{{ post.code }}" aria-label="Open the code for {{ post.title }}">Code</a>
           {% endif %}
           {% if post.github %}
-            <a href="{{ post.github }}">GitHub</a>
+            <a href="{{ post.github }}" aria-label="Open the GitHub repository for {{ post.title }}">GitHub</a>
           {% endif %}
         </div>
       </article>

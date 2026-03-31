@@ -143,10 +143,13 @@ exclude:
   - assets/js/plugins
   - assets/js/vendor
   - config
+  - files/_site
+  - files/html
   - gulpfile.js
   - log
   - node_modules
   - package.json
+  - talkmap
   - tmp
   - vendor
 keep_files:
@@ -199,6 +202,7 @@ defaults:
       path: ""
       type: posts
     values:
+      published: false
       layout: single
       author_profile: true
       read_time: true

@@ -4,6 +4,18 @@ layout: default
 
 {% include base_path %}
 
+{% assign page_paper_available = false %}
+{% if page.paperurl %}
+  {% if page.paperurl contains "://" %}
+    {% assign page_paper_available = true %}
+  {% else %}
+    {% assign page_paper = site.static_files | where: "path", page.paperurl | first %}
+    {% if page_paper %}
+      {% assign page_paper_available = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
@@ -43,7 +55,7 @@ layout: default
         {% endif %}
         
              
-        {% if page.citation and page.paperurl %}
+        {% if page.citation and page_paper_available %}
           <p>Recommended citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>{{ page.paperurl }}</u></a></p>
         {% elsif page.citation %}
           <p>Recommended citation: {{ page.citation }} </p>

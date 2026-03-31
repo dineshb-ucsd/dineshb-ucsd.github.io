@@ -12,6 +12,18 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% assign publication_paper_available = false %}
+{% if post.collection == 'publications' and post.paperurl %}
+  {% if post.paperurl contains "://" %}
+    {% assign publication_paper_available = true %}
+  {% else %}
+    {% assign publication_paper = site.static_files | where: "path", post.paperurl | first %}
+    {% if publication_paper %}
+      {% assign publication_paper_available = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
@@ -22,7 +34,7 @@
           {% else %}
             "{{ teaser | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
-          alt="">
+          alt="{{ title | strip_html }}">
       </div>
     {% endif %}
 
@@ -66,16 +78,16 @@
         {{ post.news | xml_escape | markdownify | remove: '<p>' | remove: '</p>' }} 
       {% endif %}
       {% if post.link %}
-        <a href="{{ post.link }}"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i></a>
+        <a href="{{ post.link }}" aria-label="Open the project page for {{ title | strip_html }}"><i class="fas fa-fw fa-link zoom" aria-hidden="true"></i><span class="sr-only">Project page</span></a>
       {% endif %}
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}"><i class="fas fa-fw fa-file-pdf zoom" aria-hidden="true"></i></a>
+      {% if publication_paper_available %}
+        <a href="{{ post.paperurl }}" aria-label="Open the paper for {{ title | strip_html }}"><i class="fas fa-fw fa-file-pdf zoom" aria-hidden="true"></i><span class="sr-only">Paper</span></a>
       {% endif %}
       {% if post.code %}
-        <a href="{{ post.code }}"><i class="fas fa-fw fa-code zoom" aria-hidden="true"></i></a>
+        <a href="{{ post.code }}" aria-label="Open the code for {{ title | strip_html }}"><i class="fas fa-fw fa-code zoom" aria-hidden="true"></i><span class="sr-only">Code</span></a>
       {% endif %}
       {% if post.github %}
-        <a href="{{ post.github }}"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i></a>
+        <a href="{{ post.github }}" aria-label="Open the GitHub repository for {{ title | strip_html }}"><i class="fab fa-fw fa-github zoom" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
       {% endif %}
       </p>
     {% elsif post.collection == 'posts' and post.date %}

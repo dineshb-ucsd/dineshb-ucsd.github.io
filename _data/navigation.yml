@@ -13,7 +13,7 @@ main:
     url: /software/
 
   - title: "CV"
-    url: /files/CV.pdf
+    url: /cv/
 
 teaching_courses:
   - title: "Course pages"

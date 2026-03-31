@@ -2,36 +2,32 @@
 layout: archive
 title: "Sitemap"
 permalink: /sitemap/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
 
-A list of all the posts and pages found on the site. For you robots out there is an [XML version]({{ base_path }}/sitemap.xml) available for digesting as well.
+A list of the main public pages on the site. For search engines, the XML sitemap remains available at [sitemap.xml]({{ base_path }}/sitemap.xml).
 
-<h2>Pages</h2>
-{% for post in site.pages %}
-  {% include archive-single.html %}
+## Main pages
+
+- [Home]({{ base_path }}/)
+- [Research]({{ base_path }}/research/)
+- [Publications]({{ base_path }}/publications/)
+- [Teaching]({{ base_path }}/teaching/)
+- [Open Source & Data]({{ base_path }}/software/)
+- [News]({{ base_path }}/news/)
+- [CV]({{ base_path }}/cv/)
+
+## Teaching pages
+
+{% for course in site.data.navigation.teaching_courses[0].children %}
+- [{{ course.title }}]({{ base_path }}{{ course.url }})
 {% endfor %}
 
-<h2>Posts</h2>
-{% for post in site.posts %}
-  {% include archive-single.html %}
-{% endfor %}
+## Research areas
 
-{% capture written_label %}'None'{% endcapture %}
-
-{% for collection in site.collections %}
-{% unless collection.output == false or collection.label == "posts" %}
-  {% capture label %}{{ collection.label }}{% endcapture %}
-  {% if label != written_label %}
-  <h2>{{ label }}</h2>
-  {% capture written_label %}{{ label }}{% endcapture %}
-  {% endif %}
-{% endunless %}
-{% for post in collection.docs %}
-  {% unless collection.output == false or collection.label == "posts" %}
-  {% include archive-single.html %}
-  {% endunless %}
-{% endfor %}
+{% assign research_pages = site.research | sort: "title" %}
+{% for post in research_pages %}
+- [{{ post.title }}]({{ base_path }}{{ post.url }})
 {% endfor %}

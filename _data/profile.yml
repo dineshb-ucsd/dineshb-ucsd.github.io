@@ -9,8 +9,12 @@ openings:
     - "If you still do not hear back, follow up again a few days later."
     - "I usually process email in morning and evening batches."
 honors:
+  - title: "Young Alumni Award, IIT Kanpur"
+    year: "2025"
+    url: "https://ece.ucsd.edu/awards/faculty/associate-professor-dinesh-bharadia-receives-young-alumni-award-iit-kanpur"
   - title: "Klein Gilhousen Chancellor's Endowed Chair"
     year: "2023"
+    url: "https://ece.ucsd.edu/awards/faculty/associate-professor-dinesh-bharadia-receives-young-alumni-award-iit-kanpur"
   - title: "Qualcomm Innovation Fellowship"
     year: "2020 and 2022"
     url: "https://www.qualcomm.com/research/university-relations/innovation-fellowship/2022-north-america"
@@ -22,6 +26,8 @@ honors:
     url: "https://www.technologyreview.com/lists/innovators-under-35/2016/inventor/dinesh-bharadia/"
   - title: "Michael Dukakis Leadership Award"
     url: "http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/"
+  - title: "Sarah and Thomas Kailath Stanford Graduate Fellowship"
+    url: "https://wcsng.ucsd.edu/waip/"
 bio:
   - "I have been at UC San Diego since January 2018. My group works across computer vision, deep learning, wireless communication, sensing, and networking, building technologies from theory to practice for robotics, autonomous systems, and everyday devices."
   - "Previously, I was a postdoctoral associate at MIT CSAIL working on data-center networking and wireless sensing. I received my PhD at Stanford University for work on full-duplex radios, a problem long considered near-impossible to realize in practice."

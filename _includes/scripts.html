@@ -2,26 +2,43 @@
 <script>
   (function () {
     var nav = document.getElementById("site-nav");
-    if (!nav) return;
+    if (nav) {
+      var button = nav.querySelector("button");
+      var hiddenLinks = document.getElementById("site-nav-hidden-links");
 
-    var button = nav.querySelector("button");
-    var hiddenLinks = document.getElementById("site-nav-hidden-links");
+      if (button && hiddenLinks) {
+        function syncNavA11yState() {
+          var expanded = !hiddenLinks.classList.contains("hidden");
+          button.setAttribute("aria-expanded", expanded ? "true" : "false");
+          hiddenLinks.setAttribute("aria-hidden", expanded ? "false" : "true");
+        }
 
-    if (!button || !hiddenLinks) return;
+        syncNavA11yState();
 
-    function syncNavA11yState() {
-      var expanded = !hiddenLinks.classList.contains("hidden");
-      button.setAttribute("aria-expanded", expanded ? "true" : "false");
-      hiddenLinks.setAttribute("aria-hidden", expanded ? "false" : "true");
+        button.addEventListener("click", function () {
+          window.requestAnimationFrame(syncNavA11yState);
+        });
+
+        window.addEventListener("resize", syncNavA11yState);
+      }
     }
 
-    syncNavA11yState();
+    var profileButton = document.querySelector(".author__urls-wrapper button");
+    var profileLinks = document.getElementById("author-profile-links");
+    if (!profileButton || !profileLinks) return;
 
-    button.addEventListener("click", function () {
-      window.requestAnimationFrame(syncNavA11yState);
+    function syncProfileA11yState() {
+      var buttonVisible = window.getComputedStyle(profileButton).display !== "none";
+      var linksVisible = !buttonVisible || window.getComputedStyle(profileLinks).display !== "none";
+      profileButton.setAttribute("aria-expanded", linksVisible ? "true" : "false");
+      profileLinks.setAttribute("aria-hidden", linksVisible ? "false" : "true");
+    }
+
+    syncProfileA11yState();
+    profileButton.addEventListener("click", function () {
+      window.requestAnimationFrame(syncProfileA11yState);
     });
-
-    window.addEventListener("resize", syncNavA11yState);
+    window.addEventListener("resize", syncProfileA11yState);
   })();
 </script>
 

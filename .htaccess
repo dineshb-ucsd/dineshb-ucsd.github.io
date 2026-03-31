@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Preserve legacy entry points with server-side redirects instead of generated redirect pages.
+RewriteRule ^about/?$ / [R=301,L]
+RewriteRule ^about\.html$ / [R=301,L]
+RewriteRule ^resume/?$ /cv/ [R=301,L]
+RewriteRule ^resume\.html$ /cv/ [R=301,L]
+
+# Retire legacy template and archive surfaces that are no longer part of the public site.
+RewriteRule ^posts(/.*)?$ - [G,L]
+RewriteRule ^tags(/.*)?$ - [G,L]
+RewriteRule ^teaching-materials/?$ - [G,L]
+RewriteRule ^files/html(/.*)?$ - [G,L]
+RewriteRule ^files/_site(/.*)?$ - [G,L]
+
+# Redirect stale talkmap asset requests to the accessible replacement page.
+RewriteRule ^talkmap(/.*)?$ /talkmap.html [R=302,L]
