@@ -24,19 +24,19 @@ author_profile: false
       <p>Office hours: {{ profile.office.hours }}</p>
     </div>
     <p class="home-lede">
-      I am an Associate Professor in the ECE department at UC San Diego with an affiliate appointment in CSE.
-      The <a href="https://wcsng.ucsd.edu">WCSNG group</a> builds systems for wireless communication, computing,
-      sensing, and networking.
+      I am Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego.
+      Our group <a href="https://wcsng.ucsd.edu">WCSNG</a> designs systems for wireless communication, computing,
+      sensing, and networking at UC San Diego.
     </p>
     <p class="home-lede">
-      Our research aims to design and prototype high-performance systems for communication, sensing, computing,
-      and secure connected systems, with an emphasis on real-world problems that also open new research and
-      commercialization directions.
+      The vision for our research is to design and prototype performant systems for communicating, sensing,
+      computing, and securing information in our connected world, solving real-world problems. Our research
+      has aimed to solve fundamental questions, which has often led to new areas of research and commercialization.
     </p>
     <p class="home-lede home-lede--secondary">
       Our broad impact areas are vision and perception systems, sensing systems, wireless communications,
-      computing systems, and wireless networking. We also release open datasets and software that lower the
-      barrier to reproducible work in these areas.
+      computing systems, and wireless networking. WCSNG has curated and created open-source datasets and tools
+      that enable reproducible research and lower the barrier to entry in communication, computing, and sensing.
     </p>
     <div class="home-link-strip">
       <a class="home-link-chip" href="{{ base_path }}/research/">Research areas</a>
@@ -97,9 +97,15 @@ author_profile: false
     <div class="home-group-copy">
       <div class="home-section__heading">
         <p class="home-section__eyebrow">WCSNG</p>
-        <h2>Group mission, research direction, and current focus areas.</h2>
-        <p>{{ wcsng.mission }}</p>
-        <p>{{ wcsng.overview }}</p>
+        <h2>Projects, impact areas, and current directions.</h2>
+        <p>
+          WCSNG consists of highly interdisciplinary engineers spanning electrical engineering, computer science,
+          data science, sensing, circuits, computer vision, machine learning, and AI.
+        </p>
+        <p>
+          We develop science and algorithms alongside real-world implementations and prototypes, moving from
+          fundamental ideas to deployable systems and shared research infrastructure.
+        </p>
       </div>
 
       <div class="home-group-areas">
@@ -140,8 +146,9 @@ author_profile: false
     <p class="home-section__eyebrow">Research</p>
     <h2>Systems research shaped by real deployment constraints.</h2>
     <p>
-      The research program spans perception systems, sensing systems, wireless communication, computing systems,
-      and wireless networking, with projects that move from theory to deployable prototypes and shared resources.
+      The research program spans perception systems, sensing systems, wireless communications, computing systems,
+      and wireless networking, with projects that move from theory to deployable prototypes, curated datasets,
+      and open tools.
     </p>
   </div>
 

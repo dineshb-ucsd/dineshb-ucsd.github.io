@@ -1,0 +1,29 @@
+{% if site.external_redirect and site.external_redirect.hosts and site.external_redirect.url %}
+<script>
+  (function () {
+    var redirectHosts = {{ site.external_redirect.hosts | jsonify }};
+    var targetOrigin = {{ site.external_redirect.url | jsonify }};
+    var targetBase = {{ site.external_redirect.baseurl | default: "" | jsonify }};
+    var currentHost = window.location.hostname;
+
+    if (!redirectHosts || redirectHosts.indexOf(currentHost) === -1) return;
+
+    var origin = targetOrigin.replace(/\/$/, "");
+    var base = targetBase.replace(/\/$/, "");
+    var path = window.location.pathname || "/";
+
+    if (base && (path === base || path.indexOf(base + "/") === 0)) {
+      path = path.slice(base.length) || "/";
+    }
+
+    var target = origin + base + path;
+
+    if (window.location.search) target += window.location.search;
+    if (window.location.hash) target += window.location.hash;
+
+    if (target !== window.location.href) {
+      window.location.replace(target);
+    }
+  })();
+</script>
+{% endif %}

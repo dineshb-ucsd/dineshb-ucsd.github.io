@@ -786,6 +786,10 @@ a:focus {
   margin-top: 1.2rem;
 }
 
+.feature-link-row--compact {
+  margin-top: 1rem;
+}
+
 .feature-button {
   display: inline-flex;
   align-items: center;
@@ -828,6 +832,32 @@ a:focus {
   border-color: rgba(255, 244, 226, 0.42);
   background: rgba(255, 255, 255, 0.12);
   color: #fff8ec;
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid rgba(255, 244, 226, 0.18);
+  border-radius: 999px;
+  color: #fff8ec;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.feature-chip:hover,
+.feature-chip:focus {
+  transform: translateY(-1px);
+  border-color: rgba(255, 244, 226, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff8ec;
+  text-decoration: none;
 }
 
 .feature-section {
@@ -883,6 +913,24 @@ a:focus {
 .resource-grid {
   display: grid;
   gap: 1.25rem;
+}
+
+.resource-area-stack {
+  display: grid;
+  gap: 2rem;
+}
+
+.resource-area-block {
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-area-block__header {
+  max-width: 54rem;
+}
+
+.resource-area-block__summary {
+  margin: 0;
 }
 
 .feature-card-grid {

@@ -27,11 +27,14 @@ honors:
   - title: "Michael Dukakis Leadership Award"
     url: "http://bostonglobalforum.org/mdlf/2016/09/19/dinesh-bharadia/"
   - title: "Sarah and Thomas Kailath Stanford Graduate Fellowship"
-    url: "https://wcsng.ucsd.edu/waip/"
+    url: "https://jacobsschool.ucsd.edu/faculty/profile?id=433"
+  - title: "Gold Medal for Best Student in Electrical Engineering, IIT Kanpur"
+    year: "2010"
+    url: "https://jacobsschool.ucsd.edu/faculty/profile?id=433"
 bio:
   - "I have been at UC San Diego since January 2018. My group works across computer vision, deep learning, wireless communication, sensing, and networking, building technologies from theory to practice for robotics, autonomous systems, and everyday devices."
-  - "Previously, I was a postdoctoral associate at MIT CSAIL working on data-center networking and wireless sensing. I received my PhD at Stanford University for work on full-duplex radios, a problem long considered near-impossible to realize in practice."
-  - "Before Stanford, I received my bachelor's degree in Electrical Engineering from IIT Kanpur in 2010 and was awarded a gold medal for graduating at the top of the Electrical Engineering class."
+  - "Previously, I was a postdoctoral associate at MIT CSAIL, focusing on data-center networking and wireless sensing. I received my PhD at Stanford University for work on full-duplex radios, which were long considered near-impossible to realize in practice."
+  - "Before Stanford, I received my bachelor's degree in Electrical Engineering from IIT Kanpur in 2010, where I received the gold medal for graduating at the top of the Electrical Engineering class."
 industry:
   title: "Broader industry impact"
-  text: "Our work on full-duplex radios translated into Kumu Networks, where I worked as Principal Scientist to commercialize the technology. The resulting systems completed field trials with major tier-1 wireless providers and helped show that full-duplex could move from research to real products."
+  text: "Our research on full-duplex radios translated into Kumu Networks, where I worked as Principal Scientist for nearly two years to commercialize the technology and bring it into real networks. The resulting systems completed field trials with major tier-1 providers including Deutsche Telekom and SK Telecom, helping show that full-duplex could move from research to deployable products."
