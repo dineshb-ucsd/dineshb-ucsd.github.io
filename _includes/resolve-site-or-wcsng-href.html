@@ -1,0 +1,14 @@
+{% assign href = include.href | default: "" | strip %}
+{% if href == "" %}
+{% elsif href contains "://" %}
+{{ href }}
+{% elsif href | slice: 0, 1 == "/" %}
+  {% assign static_target = site.static_files | where: "path", href | first %}
+  {% if static_target %}
+{{ base_path }}{{ href }}
+  {% else %}
+https://wcsng.ucsd.edu{{ href }}
+  {% endif %}
+{% else %}
+{{ href }}
+{% endif %}

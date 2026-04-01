@@ -1,0 +1,3030 @@
+{
+  "publications": {
+    "2022-01-25-p2slam": {
+      "source_post": "2022-01-25-p2slam.md",
+      "title": "P2SLAM: Bearing based WiFi SLAM for Indoor Robots",
+      "short_title": "P2SLAM",
+      "conference": "IEEE Robotics and Automation 2022",
+      "conference_site": "https://ieeexplore.ieee.org/document/9691786",
+      "paper": "/files/p2slam.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/p2slam.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "authors": "Aditya Arun, Roshan Ayyalasomayajula, William Hunter, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Aditya Arun",
+          "url": "https://wcsng.ucsd.edu/aarun/",
+          "email": "aarun@ucsd.edu"
+        },
+        {
+          "name": "Roshan Ayyalasomayajula",
+          "url": "https://engineering.buffalo.edu/computer-science-engineering/people/faculty-directory/full-time.host.html/content/shared/engineering/computer-science-engineering/profiles/faculty/ladder/ayyalasomayajula-roshan.detail.html",
+          "email": "roshana@buffalo.edu"
+        },
+        {
+          "name": "William Hunter",
+          "email": "wshunter@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "A recent spur of interest in indoor robotics has increased the importance of robust simultaneous localization and mapping algorithms in indoor scenarios. This robustness is typically provided by the use of multiple sensors which can correct each others’ deficiencies. In this vein, exteroceptive sensors, like cameras and LiDAR’s, employed for fusion are capable of correcting the drifts accumulated by wheel odometry or inertial measurement units (IMU’s). However, these exteroceptive sensors are deficient in highly structured environments and dynamic lighting conditions. This letter will present WiFi as a robust and straightforward sensing modality capable of circumventing these issues. Specifically, we make three contributions. First, we will understand the necessary features to be extracted from WiFi signals. Second, we characterize the quality of these mea surements. Third, we integrate these features with odometry into a state-of-art GraphSLAM backend. We present our results in a 25×30 m and 50×40 environment and robustly test the system by driving the robot a cumulative distance of over 1225 m in these two environments. We show an improvement of at least 6× compared odometry-only estimation and perform on par with one of the state-of-the-art Visual-based SLAM."
+        },
+        {
+          "title": "High Level Idea",
+          "text": "<p>The following video gives a high-level idea on how the Wi-Fi bearing measurements are made. It also shows when the measurements are dropped to have robust measurements.</p>\n<iframe width=\"100%\" height=\"400\" src=\"https://www.youtube.com/embed/0is2C4l_QfM\" title=\"YouTube video player\" frameborder=\"10\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\nThe robots movement over three timestamp are shown. Relative odometry is measured between two consecutive robot poses. At each timestamp, the robot ping’s an AP (orange arrow) and receives a pong reply (green arrow). For each ping and pon transmission the AP-sided and Robot-sided bearing of the signal is computed respectively. These measurements can then be fed into GTSAM for accurate drift correction and to recover the robot's trajectory. <a href=\"/assets/images/pubpic/p2slam.png\"><center><img src=\"/assets/images/pubpic/p2slam.png\" width=\"50%\" style=\"float:center\" ></center> </a> <br> <a href=\"/assets/images/pubpic/p2slam-graph.png\"><center><img src=\"/assets/images/pubpic/p2slam-graph.png\" width=\"50%\" style=\"float:center\" ></center> </a> <center><b>(Top)</b> All measurements and variables tracked over time. <b>(Bottom)</b> Factor graph with WiFi bearings and relative odometry </center> <br>"
+        },
+        {
+          "title": "Environment Description",
+          "text": "Here we describe the environments and the datasets collected in these environments. We further showcase P2SLAM results as compared to camera-based baseline RTABMap. We find that in all datasets inclusion of WiFi-based sensing for localization performs on par with RTABMap and makes a strong case for the inclusion of these simple sensors within SLAM systems. <br> <iframe width=\"100%\" height=\"400\" src=\"https://www.youtube.com/embed/SJ4I1VJ0gFs\" title=\"YouTube video player\" frameborder=\"10\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe> 1.  <b> Env-1- Atkinson Hall 4th Floor </b> -- 20 x 30 m (65 x 100 feet) standard office environment with complex mulitpath and mulitple Non-line of sight conditions. A total of 5 AP's were deployed in this environment and two paths (<i> Dataset 1 </i> and <i> Dataset 2 </i>) were taken as described below. <a href=\"/assets/images/respic/env1.jpg\"><img src=\"/assets/images/respic/env1.jpg\" width=\"100%\" style=\"float:center\" > </a>\n2. <b> Env-2- Atkinson Hall Ground Floor </b> -- 50 x 40 m large environment covering mulitple corridors and large lobbies and auditorium spaces. <i> Dataset 3 </i> was collected in this environment. <a href=\"/assets/images/respic/env2.jpg\"><img src=\"/assets/images/respic/env2.jpg\" width=\"95%\" style=\"float:center\" > </a>\n<p> First, we summarize all our results in the following table. We show the median and 90th percentile translation and orientation errors in centimeters and degrees respectively. We show across three sensing modalities -- using odometry only, using odometry + Camera (RTABMap) and using odometry + WiFi (P2SLAM) - </p>\n<!-- Results table --> <center> <style type=\"text/css\"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-kwiq{border-color:inherit;color:#000000;text-align:left;vertical-align:top} .tg .tg-vpkt{border-color:inherit;color:#000000;font-weight:bold;text-align:center;vertical-align:top} .tg .tg-21f3{border-color:inherit;color:#000000;font-weight:bold;text-align:left;vertical-align:top} .tg .tg-ml2k{border-color:inherit;color:#000000;text-align:center;vertical-align:top} </style> <table class=\"tg\"> <thead> <tr> <th class=\"tg-kwiq\" rowspan=\"3\"><br><br><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Sensors</span></th> <th class=\"tg-vpkt\" colspan=\"2\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Env 1 - Dataset 1</span></th> <th class=\"tg-vpkt\" colspan=\"2\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Env 1 - Dataset 2</span></th> <th class=\"tg-vpkt\" colspan=\"2\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Env 2 - Dataset 3</span></th> </tr> <tr> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Trans </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">(cm)</span></th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Orient </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">(deg)</span></th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Trans </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">(cm)</span></th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Orient </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">(deg)</span></th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Trans </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">(cm)</span></th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Orientation </span><br><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">( </span><span style=\"font-style:normal;text-decoration:none;background-color:transparent\">deg</span><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">)</span></th> </tr> <tr> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">Med</span><br>(90th)</th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none\">Med</span><br>(90th)</th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none\">Med</span><br>(90th)</th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none\">Med</span><br>(90th)</th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none\">Med</span><br>(90th)</th> <th class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none\">Med</span><br>(90th)</th> </tr> </thead> <tbody> <tr> <td class=\"tg-21f3\">Dead reckoning</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">180.6</span><br>(<span style=\"text-decoration:none;background-color:transparent\">513.9</span>)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">8.64</span><br>(<span style=\"text-decoration:none;background-color:transparent\">18.1</span>)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">378.6</span><br>(<span style=\"text-decoration:none;background-color:transparent\">1156</span>)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">23.35</span><br><span style=\"background-color:transparent\">(</span><span style=\"text-decoration:none;background-color:transparent\">37</span><span style=\"background-color:transparent\">)</span></td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">422</span><br>(<span style=\"text-decoration:none;background-color:transparent\">1098</span>)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">16</span><br>(<span style=\"text-decoration:none;background-color:transparent\">30.5</span>)</td> </tr> <tr> <td class=\"tg-21f3\">RTABMap</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">36.8</span><br>(<span style=\"text-decoration:none;background-color:transparent\">165.7</span>)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">2.97</span><br>(<span style=\"text-decoration:none;background-color:transparent\">10.83</span>)</td> <td class=\"tg-ml2k\"><span style=\"font-weight:bold\">38.5</span><br><span style=\"font-weight:bold\">(63.7)</span></td> <td class=\"tg-ml2k\"><span style=\"font-weight:bold\">0.74</span><br><span style=\"font-weight:bold\">(2.69)</span></td> <td class=\"tg-ml2k\"><span style=\"font-weight:bold\">61.5</span><br>(256)</td> <td class=\"tg-ml2k\"><span style=\"background-color:transparent\">2.2</span><br>(<span style=\"text-decoration:none;background-color:transparent\">7.99</span>)</td> </tr> <tr> <td class=\"tg-21f3\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">P</span>2<span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">SLAM</span></td> <td class=\"tg-vpkt\"><span style=\"font-style:normal;text-decoration:none;background-color:transparent\">26.9</span><br>(<span style=\"font-style:normal;text-decoration:none;background-color:transparent\">54.7</span>)</td> <td class=\"tg-vpkt\"><span style=\"font-weight:700;font-style:normal;text-decoration:none;background-color:transparent\">1.28</span><br>(<span style=\"font-style:normal;text-decoration:none;background-color:transparent\">3.16</span>)</td> <td class=\"tg-ml2k\">40.4<br>(76.9)<br></td> <td class=\"tg-ml2k\"><span style=\"font-style:normal;text-decoration:none;background-color:transparent\">1.32</span><br>(3.7)</td> <td class=\"tg-ml2k\"><span style=\"font-style:normal;text-decoration:none;background-color:transparent\">65.2</span><br><span style=\"font-weight:bold\">(158)</span></td> <td class=\"tg-ml2k\"><span style=\"font-weight:bold;font-style:normal;text-decoration:none;background-color:transparent\">1.65</span><br><span style=\"font-weight:bold\">(</span><span style=\"font-weight:bold;font-style:normal;text-decoration:none;background-color:transparent\">3.95</span><span style=\"font-weight:bold\">)</span></td> </tr> </tbody> </table> </center>"
+        },
+        {
+          "title": "In-depth Results",
+          "text": "Next, we present in-depth analysis for the above three datasets. Further details to use this dataset is given below.\n1. <b> Env 1 - Dataset 1 </b> (easy)- Simple robot movement where we traverse all the corridors, for a total path length of 330 m (approx) at 18 cm/s. AP's are placed in the locations marked by circles in the above figure. <!-- Download the dataset .mat file [here](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/aarun_ucsd_edu/EZBHoXwnUGBBgx1X-2G0g-YBpJCzFOyaEhYuwL5SShRNJA?e=3oiN1A). --> <a href=\"/assets/images/respic/results_ds1.jpg\"> <center> <img src=\"/assets/images/respic/results_ds1.jpg\" width=\"50%\" style=\"float:center\" > </center> </a>\n2. <b> Env 1 - Dataset 2 </b> (hard)- Complex robot movement where the robot traverses different nooks in the environment. This path closely replicate one taken by a vacuume cleaner or package delivery robot. Total path-length travelled is 495 m (approx) at 28 cm/s. AP's are placed in the locations marked by cross in the above figure. <!-- Download the dataset .mat file [here](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/aarun_ucsd_edu/Ef1ETWRODuxEj4RSAV-wlK4BfirvThNOviIqoYJxQalmyg?e=PBCH50). --> <a href=\"/assets/images/respic/results_ds2.jpg\"> <center> <img src=\"/assets/images/respic/results_ds2.jpg\" width=\"50%\" style=\"float:center\" > </center> </a>\n3. <b> Env 2 - Dataset 3 </b>- Simple robot movement where mulitple corridors are traversed at 28 cm/s for a total path length of 400 m (approx). <!-- Download the dataset .mat file [here](https://ucsdcloud-my.sharepoint.com/:u:/g/personal/aarun_ucsd_edu/EVPUpb8DFuRBoKW8r7yS7nkBRWXWP9Z03eQcX7O4XydnEg?e=9j93j4). --> <a href=\"/assets/images/respic/results_ds3.jpg\"> <center> <img src=\"/assets/images/respic/results_ds3.jpg\" width=\"50%\" style=\"float:center\" > </center> </a>"
+        },
+        {
+          "title": "Swap-C Analysis",
+          "text": "SWaP-C is a common industry acronym for Size, Weight, Power and Cost. In P2SLAM, we show the efficacy of WiFi-based sensing for robotic localization and navigation. Furthermore, we claim that the SWaP-C metrics for WiFi radios is 10 times better than LiDAR's. Here we further justify this claim.\n<h4> Size </h4>\nThe smallest surround LIDAR, [Puck Lite](https://www.mapix.com/wp-content/uploads/2018/07/63-9286_Rev-H_Puck-LITE_Datasheet_Web.pdf) by Velodyne Lidar, has a very small form factor with a 3.5\" diameter and height of 2.82\".\nDeveloping a WiFi sensor using the [ESP8266 NodeMCU](https://www.nodemcu.com/index_en.html) with multi-antenna capability will have dimensions of (2\" x 1\" x 0.5\"), with the size of an 4-element linear antenna array at 9.8\" or a square antenna array at 6.25\".\n<h4> Weight </h4>\nThe Puck Lite weighs at 590 g. An ESP8266-based design would weight a meagre 9 g.\n<h4> Power </h4>\n<!-- Power table --> <center> <style type=\"text/css\"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-8efc{background-color:#c0c0c0;border-color:inherit;color:#000000;font-size:100%;font-weight:bold;text-align:center; vertical-align:top} .tg .tg-f35e{background-color:#c0c0c0;border-color:inherit;font-size:100%;font-weight:bold;text-align:left;vertical-align:top} .tg .tg-kwiq{border-color:inherit;color:#000000;text-align:left;vertical-align:top} .tg .tg-1pgq{background-color:#c0c0c0;border-color:inherit;color:#000000;font-size:100%;font-weight:bold;text-align:left; vertical-align:top} .tg .tg-ml2k{border-color:inherit;color:#000000;text-align:center;vertical-align:top} .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top} .tg .tg-vpkt{border-color:inherit;color:#000000;font-weight:bold;text-align:center;vertical-align:top} .tg .tg-21f3{border-color:inherit;color:#000000;font-weight:bold;text-align:left;vertical-align:top} .tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top} </style> <table class=\"tg\"> <thead> <tr> <th class=\"tg-8efc\">Device</th> <th class=\"tg-8efc\">Power Consumption</th> <th class=\"tg-1pgq\">Notes</th> <th class=\"tg-f35e\"><span style=\"color:#000\">Sources</span></th> </tr> </thead> <tbody> <tr> <td class=\"tg-ml2k\">Hokoyo Lidar</td> <td class=\"tg-ml2k\">8.4 W</td> <td class=\"tg-kwiq\">Single channel</td> <td class=\"tg-0pky\"><a href=\"https://autonomoustuff.com/-/media/Images/Hexagon/Hexagon%20Core/autonomousstuff/pdf/hokuyo-utm-30lx-datasheet.ashx?la=en&hash=E1F8A1F837A229BD9EB3FEC17DD3488F\" target=\"_blank\" rel=\"noopener noreferrer\">Datasheet</a></td> </tr> <tr> <td class=\"tg-vpkt\">Velodyne Puck</td> <td class=\"tg-vpkt\">8 W</td> <td class=\"tg-21f3\">16 channel</td> <td class=\"tg-fymr\"><a href=\"https://www.mapix.com/wp-content/uploads/2018/07/63-9286_Rev-H_Puck-LITE_Datasheet_Web.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Datasheet</a></td> </tr> <tr> <td class=\"tg-ml2k\">ASUS RT-AC86U</td> <td class=\"tg-ml2k\">Measured @ 6.5 W in lab</td> <td class=\"tg-kwiq\">802.11AC, 5 Ghz, 20/40/80 MHz, 4x4</td> <td class=\"tg-0pky\"></td> </tr> <tr> <td class=\"tg-ml2k\">Quantenna </td> <td class=\"tg-ml2k\">Measured @ 3.2 W in lab</td> <td class=\"tg-kwiq\">802.11AC, 5 Ghz, 20/40/80 MHz,  4x4</td> <td class=\"tg-0pky\"></td> </tr> <tr> <td class=\"tg-ml2k\">Intel 5300</td> <td class=\"tg-ml2k\">1.6 W Rx, 2.1 W Tx</td> <td class=\"tg-kwiq\">802.11n, 2.4 Ghz, 20 and 40 MHz, <br>3x3</td> <td class=\"tg-0pky\"><a href=\"https://www.usenix.org/legacy/events/hotpower/tech/full_papers/Halperin.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Power measurements by Halperin et al.</a></td> </tr> <tr> <td class=\"tg-ml2k\">TP-Link TL-WDR4300<br>(Atheros CSI tool)</td> <td class=\"tg-ml2k\">4.6 W</td> <td class=\"tg-kwiq\">IEEE 802.11n, 2.4 GHz, 20/40 MHz, 3x3 </td> <td class=\"tg-kwiq\"><a href=\"http://www.tpcdb.com/product.php?id=1729\" target=\"_blank\" rel=\"noopener noreferrer\">Power consumption database</a></td> </tr> <tr> <td class=\"tg-vpkt\">ESP 32, NodeMCU</td> <td class=\"tg-vpkt\">240 mW x 4 ~ 1 W</td> <td class=\"tg-21f3\">802.11 b/g/n, 2.4 GHz, 20 MHz</td> <td class=\"tg-21f3\"><a href=\"https://jeelabs.org/book/1526f/\" target=\"_blank\" rel=\"noopener noreferrer\">Measurement by JeeLabs</a></td> </tr> </tbody> </table> </center>\nFrom the above table, we can see that taking a conservative power estimate of the NodeMCU, we find the power consumption to be close to 1 W, which is about 8 times lower than the Velodyne Puck Lite.\n<h4> Cost </h4>\nPublicly available information about the Velodyne Puck prices the it at $8000. A simple NodeMCU WiFi sensor would cost less than $20."
+        },
+        {
+          "title": "Dataset Usage",
+          "text": "The CSI data is named as <b>channels.mat</b> and the rosbag is named as <b>data.bag</b> in the resepctive dataset folders. All the datasets can be downloaded <a href=https://ucsdcloud-my.sharepoint.com/:u:/g/personal/aarun_ucsd_edu/Ed8UkFdFa71AqorqwJM-ESkBPJaC8z18bSKXob4A29K14A>here (size = 19.6 GB)</a>. To access the dataset, you will need to fill out a brief <a href=\"https://forms.gle/UgUQ5XkhVLqE9FEj6\" target=\"_blank\">Google Form</a> to agree to the terms of usage. Upon form completion an email will be sent out with the download instructions. <p>The MATLAB files (channels.mat) are stored using <strong>HDF5</strong> file structure and contain the following variables-</p> <ul> <li><strong>channels_cli</strong>- <em>[ n_datapoints x n_frequency x n_ap x n_rx_ant X n_tx_ant]</em> 5D complex channel matrix received at the WiFi access points deployed in the environment.</li> <li><strong>channels_ap</strong>- <em>[ n_datapoints x n_frequency x num_aps x n_rx_ant X n_tx_ant]</em> 5D complex channel matrix received at the WiFi access point present on the robot.</li> <li><strong>cli_rssi_synced</strong>- <em>[ n_datapoints x n_rx_ant x n_ap ]</em> Received signal strength matrix at the environment's WiFi access point.</li> <li><strong>ap_rssi_synced</strong>- <em>[ n_datapoints x n_rx_ant x n_ap ]</em> Received signal strength matrix at the robot's WiFi access point.</li> <li><strong>cli_hw_noise_synced</strong>- <em>[ n_datapoints x n_ap ]</em> Hardware noise floor measured at the Environment's AP's when signal is received from the robot.</li> <li><strong>ap_hw_noise_synced</strong>- <em>[ n_datapoints x n_ap ]</em> Hardware noise floor measured at robot's WiFi AP with signal received from each of the environment's AP's.</li> <li><strong>ap</strong>- <em>[1 x n_ap]</em> cell matrix. Each element corresponding to <em>[ n_rx_ant x 2]</em> antenna positions in the global coordinates.</li> <li><strong>labels</strong>- <em>[ n_datapoints x 3 ]</em> 2D best-estimate ground truth XY labels + heading of the robot -- computed using Cartographer using onboard Lidar and internal odometry.</li> <li><strong>labels_noise</strong>- <em>[ n_datapoints x 3 ]</em> 2D XY labels + heading of the robot computed using only robot's wheel encoder (highly erroneous measurements)</li> <li><strong>labels_imu</strong>- <em>[ n_datapoints x 3 ]</em> 2D XY labels + heading of the robot computed using the robot's wheel encoder and internal gyroscope (less erroneous than only using wheel encoders)</li> <li><strong>labels_vel</strong>- <em>[ n_datapoints x 1 ]</em> Velocity of the robot in m/s.</li> </ul> <p>The rosbags (data.bag) contain the following topics-</p>\n<ol> <li><strong>Camera Information from Intel Realsense D415. DS 1 uses the Orbbec Astra camera and its topics are in parentheses</strong>- <ul> <li>/camera/color/camera_info (/camera/rgb/camera_info)</li> <li>/camera/color/image_raw/compressed (/camera/rgb/image_rect_color/compressed)</li> <li>/camera/depth_registered/image_raw/compressedDepth (/camera/depth_registered/image_raw/compressedDepth)</li> </ul> </li> <li><strong>Odometry Information from Turtlebot base</strong>- <ul> <li>/mobile_base/sensors/core</li> <li>/mobile_base/sensors/imu_data</li> <li>/mobile_base/sensors/imu_data_raw</li> <li>/odom</li> <li>/tf</li> </ul> </li> <li><strong>Hokuoyo Lidar scan information</strong>- <ul> <li>/scan</li> </ul> </li> </ol>"
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Dataset",
+          "content_url": "https://forms.gle/yMgrBwLHvz97ifep8"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/JjalvBHqC94",
+      "video2": null,
+      "video_str": "Teaser",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-02-09-issccbeamsteer": {
+      "source_post": "2022-02-09-ISSCCBeamsteer.md",
+      "title": "A WiFi and Bluetooth Backscattering Combo Chip Featuring Beam Steering via a Fully-Reflective Phased-Controlled Multi-Antenna Termination Technique Enabling Operation Over 56 Meters",
+      "short_title": "Beamsteering backscatter tag",
+      "conference": "ISSCC 2022",
+      "conference_site": null,
+      "paper": "/files/ISSCC_2022_paper.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/ISSCC_2022_slides.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/isscc2022_cover.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Shihkai Kuo, Manideep Dunna, Patrick P. Mercier, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Manideep Dunna",
+          "url": "https://manideepabc.github.io/",
+          "email": "mdunna@ucsd.edu"
+        },
+        {
+          "name": "Shihkai Kuo",
+          "email": "s1kuo@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        },
+        {
+          "name": "Patrick Mercier",
+          "email": "pmercier@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "In this work, we propose a low power architecture to backscatter a WiFi or BLE signal from Tx access point to Rx access point that are located in arbitrary direction. We achieved this by using multiple antennas on the tag and performing beamforming of the backscattered signal. The beamforming capability is realized by using a digital phase shifting mechanism instead of analog phase shifters to have an efficient and low cost operation of the tag."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-05-01-ble": {
+      "source_post": "2022-05-01-ble.md",
+      "title": "Evaluating Physical-Layer BLE Location Tracking Attacks on Mobile Devices",
+      "short_title": "BLE",
+      "conference": "IEEE S&P 2022",
+      "conference_site": "https://www.ieee-security.org/TC/SP2022/",
+      "paper": "/files/sp22_paper.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/ble_cover.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "security",
+          "label": "Security"
+        }
+      ],
+      "authors": "Hadi Givehchian, Nishant Bhaskar, Eliana Rodriguez Herrera, Héctor Rodrigo López Soto, Christian Dameff, Dinesh Bharadia, Aaron Schulman",
+      "author_list": [
+        {
+          "name": "Hadi Givehchian",
+          "url": "https://hadigivehchian.github.io/",
+          "email": "hgivehch@ucsd.edu"
+        },
+        {
+          "name": "Nishant Bhaskar",
+          "url": "https://cseweb.ucsd.edu/~nibhaska/",
+          "email": "nibhaska@ucsd.edu"
+        },
+        {
+          "name": "Eliana Rodriguez Herrera"
+        },
+        {
+          "name": "Héctor Rodrigo López Soto"
+        },
+        {
+          "name": "Christian Dameff"
+        },
+        {
+          "name": "Dinesh Bharadia"
+        },
+        {
+          "name": "Aaron Schulman"
+        }
+      ],
+      "description": [
+        {
+          "text": "Mobile devices increasingly function as wireless tracking beacons. Using the Bluetooth Low Energy (BLE) protocol, mobile devices such as smartphones and smartwatches continuously transmit beacons to inform passive listeners about device locations for applications such as digital contact tracing for COVID-19, and even finding lost devices.",
+          "image": "/images/wcsng-publications/ble1.jpg",
+          "image_width": 500
+        },
+        {
+          "text": "These applications use cryptographic anonymity that limit an adversary’s ability to use these beacons to stalk a user. However, attackers can bypass these defenses by fingerprinting the unique physical-layer imperfections in the transmissions of specific devices. The figure below shows examples of pysical-layer imperfections in WiFi/BLE combo chipsets.",
+          "image": "/images/wcsng-publications/ble2.jpg",
+          "image_width": 500
+        },
+        {
+          "text": "We build a tool to detect BLE signals and develop an algorithm to estimate these physical-layer imperfections accurately and create a profile for the target devices. An overal view of our BLE hardware imperfection estimation method is depicted below.",
+          "image": "/images/wcsng-publications/ble3.jpg",
+          "image_width": 500
+        },
+        {
+          "text": "We further empirically demonstrate that there are several key challenges that can limit an attacker’s ability to find a stable physical layer identifier to uniquely identify mobile devices using BLE, including variations in the hardware design of BLE chipsets, transmission power levels, differences in thermal conditions, and limitations of inexpensive radios that can be widely deployed to capture raw physical-layer signals. We evaluated how much each of these factors limits accurate fingerprinting in a large-scale field study of hundreds of uncontrolled BLE devices, revealing that physical-layer identification is a viable, although sometimes unreliable, way for an attacker to track mobile devices. For example, the figure below shows histogram of imperfections across 647 BLE devices. ~50% of devices have unique imperfection fingerprints even amongst a large set of devices.",
+          "image": "/images/wcsng-publications/ble4.jpg",
+          "image_width": 500
+        },
+        {
+          "text": "An example of an end-to-end attack is demonstrated below. The target device has been profiled before during the fingerprinting stage. The observed fingerprints of the target device during the identification stage fall inside the fingerprint boundary of the device while the fingerprints of other devices fall outside.",
+          "image": "/images/wcsng-publications/pubpic/BLE_attack.gif",
+          "image_width": 500
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "S&P22 Talk",
+          "content_url": "https://www.youtube.com/watch?v=EBj6H54BnaM"
+        }
+      ],
+      "video": "https://www.youtube.com/watch?v=5gCfqZPMkik",
+      "video2": null,
+      "video_str": "Teaser",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-10-14-bsma": {
+      "source_post": "2022-10-14-bsma.md",
+      "title": "BSMA: scalable LoRa networks using full duplex gateways",
+      "short_title": "BSMA",
+      "conference": "MobiCom 2022",
+      "conference_site": "https://www.sigmobile.org/mobicom/2022/",
+      "paper": "https://github.com/ucsdwcsng/bsma_lora/blob/09b998355498d6268ab0c1e940b395ec62a026a0/docs/full_paper_3495243.3560544.pdf",
+      "github": "https://github.com/ucsdwcsng/bsma_lora",
+      "dataset": null,
+      "slides": "https://github.com/ucsdwcsng/bsma_lora/blob/09b998355498d6268ab0c1e940b395ec62a026a0/docs/bsma_talk_mobicom22.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/bsma.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Raghav Subbaraman, Yeswanth Guntupalli, Shruti Jain, Rohit Kumar, Krishna Chintalapudi, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Raghav Subbaraman",
+          "url": "https://rsubbaraman.github.io",
+          "email": "rsubbara@ucsd.edu"
+        },
+        {
+          "name": "Yeswanth Guntupalli",
+          "email": "yguntupa@eng.ucsd.edu"
+        },
+        {
+          "name": "Shruti Jain",
+          "email": "shjain@eng.ucsd.edu"
+        },
+        {
+          "name": "Rohit Kumar",
+          "email": "rokumar@eng.ucsd.edu"
+        },
+        {
+          "name": "Krishna Chintalapudi",
+          "email": "krchinta@microsoft.com"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "This work develops BSMA, a scalable LoRa MAC protocol that uses full duplex gateways to improve network capacity by 100% compared to CSMA in bursty loads. Implementing BSMA requires a full duplex LoRa gateway, which we develop in the 915 MHz ISM band. The implementation of a LoRa BSMA gateway is open source, and works with COTS LoRA devices."
+        }
+      ],
+      "citation": [
+        {
+          "text": "Subbaraman, Raghav, Yeswanth Guntupalli, Shruti Jain, Rohit Kumar, Krishna Chintalapudi, and Dinesh Bharadia. \"BSMA: scalable LoRa networks using full duplex gateways.\" In Proceedings of the 28th Annual International Conference on Mobile Computing And Networking, pp. 676-689. 2022.",
+          "bibtex": "@inproceedings{subbaraman2022bsma, title={BSMA: scalable LoRa networks using full duplex gateways}, author={Subbaraman, Raghav and Guntupalli, Yeswanth and Jain, Shruti and Kumar, Rohit and Chintalapudi, Krishna and Bharadia, Dinesh}, booktitle={Proceedings of the 28th Annual International Conference on Mobile Computing And Networking}, pages={676--689}, year={2022} }"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "LoRa testbed github",
+          "content_url": "https://github.com/ucsdwcsng/loratestbed"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-10-21-phy-obf-chip": {
+      "source_post": "2022-10-21-phy-obf-chip.md",
+      "title": "Protecting Bluetooth User Privacy Through Obfuscation of Carrier Frequency Offset",
+      "short_title": "PHY Obfuscation Chip",
+      "conference": "IEEE TCAS II 2023",
+      "conference_site": null,
+      "paper": "/files/phy-obf-chip.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/ble-obf-chip.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "security",
+          "label": "Security"
+        }
+      ],
+      "authors": "Ali Nikoofard, Hadi Givehchian, Nishant Bhaskar, Aaron Schulman, Dinesh Bharadia, Patrick P. Mercier",
+      "author_list": [
+        {
+          "name": "Ali Nikoofard"
+        },
+        {
+          "name": "Hadi Givehchian"
+        },
+        {
+          "name": "Nishant Bhaskar"
+        },
+        {
+          "name": "Aaron Schulman"
+        },
+        {
+          "name": "Dinesh Bharadia"
+        },
+        {
+          "name": "Patrick Mercier"
+        }
+      ],
+      "description": [
+        {
+          "text": "This brief presents the analysis, design, and measurement results of an integrated circuit designed to prevent tracking the location of Bluetooth Low Energy (BLE) transmitters. Conventional BLE transmitters have unique RF fingerprints due to variation-induced imperfections in the underlying circuits. Coupled with BLE’s wide adoption in mobile devices and tendency to transmit continuously, BLE has become a significant threat to the location privacy of individual users. The primary source of this privacy threat is that BLE transmitters have a unique Carrier Frequency Offset (CFO) that can be easily fingerprinted by passive adversaries. To combat this, a test chip is developed that pseudo-randomly changes its CFO by switching in a binary-weighted set of semi-identical MIM capacitors into the tank of an LC voltage controlled oscillator, all while maintaining compatibility with BLE standard specifications. Measurement results reveal that privacy preservation can be improved from only a few seconds with a conventional design, to over a day with the proposed design."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-10-30-vrproj": {
+      "source_post": "2022-10-30-vrproj.md",
+      "title": "VRProj: Delivering 360-degree Video With Viewport-Adaptive Truncation",
+      "short_title": "VRProj",
+      "conference": "WPMC 2022",
+      "conference_site": null,
+      "paper": "/files/vrproj.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/vrproj.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Tian Qiu, Ish Kumar Jain, Raini Wu, Dinesh Bharadia, Pamela Cosman",
+      "author_list": [
+
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "Delivering Virtual Reality (VR) content wirelessly involves projecting a 360-video into a 2D format and then encoding it to satisfy the wireless bitrate requirements. However, the popular equirectangular and cubemap projections offer little flexibility to adapt to changing bitrates and headset motion. In this work, we show that the truncated square pyramid projection offers high flexibility for network and headset motion adaptation. We adapt by tuning a truncation parameter that controls the video quality for different spatial regions in the 360-video. Depending on the video, our scheme improves average video quality by up to 1.1dB in PSNR and up to 4.6 in VMAF score compared to a non-adaptive baseline."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2022-10-31-channogram": {
+      "source_post": "2022-10-31-channogram.md",
+      "title": "High Resolution Spectral Analysis and Signal Segregation Using the Polyphase Channelizer",
+      "short_title": "Channogram",
+      "conference": "2022 56th Asilomar Conference on Signals, Systems, and Computers",
+      "conference_site": "https://www.asilomarsscconf.org/",
+      "paper": "https://ieeexplore.ieee.org/abstract/document/10051908",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/channelizer.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        }
+      ],
+      "authors": "Richard Bell, Radhika Mathuria, Fred Harris, Peter Gerstoft, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Richard Bell",
+          "email": "rcbell@ucsd.edu"
+        },
+        {
+          "name": "Radhika Mathuria",
+          "email": "rmathuria@ucsd.edu"
+        },
+        {
+          "name": "Fred Harris",
+          "email": "fjharris@ucsd.edu"
+        },
+        {
+          "name": "Peter Gerstoft",
+          "email": "pgerstoft@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "The windowed fast Fourier transform (FFT) is the ubiquitous tool for spectral analysis because it is fast and easy to use. In this paper we will show how the polyphase channelizer can replace the FFT for spectral analysis and produce estimates of the power spectral density (PSD) and the short-time Fourier transform (STFT) spectrogram. We refer to the polyphase channelizer equivalents of these estimates respectively as the channelizer power spectral density (cPSD) and the channogram. It will be shown that the spectral resolution of the cPSD and channogram improves upon the well-established FFT-based estimators for a given FFT length while introducing minimal processing overhead. We will then discuss Parseval's theorem equivalent for the polyphase channelizer. Finally, we will show how the polyphase channelizer leads to straightforward signal segregation and inversion back to time domain when signals of random and unknown center frequencies and bandwidth are encountered. This is an important enabler for real-time radio frequency (RF) signal classification using machine learning algorithms."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Talk Slides",
+          "content_url": "/files/RBell_Asilomar_2022_Slides.pdf"
+        },
+        {
+          "content_type": "Poster",
+          "content_url": "/files/RBell_Asilomar_2022_Poster.pdf"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-01-26-dpa": {
+      "source_post": "2023-01-26-dpa.md",
+      "title": "Delay Phased Array Project- mmFlexible [Infocom 2023], FlexLink [Mobihoc 2025]",
+      "short_title": "mmFlexible",
+      "conference": "Infocom 2023 [Submitted: July 2022, Accepted: Dec 2022, Presented: May 2023], Mobihoc 2025",
+      "conference_site": "https://infocom2023.ieee-infocom.org/program",
+      "paper": "/files/mmflexible.pdf",
+      "github": "https://github.com/ucsdwcsng/dpa",
+      "dataset": "https://github.com/ucsdwcsng/mMobile",
+      "slides": "/files/slides_mmflexible.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/dpa.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Ish Kumar Jain, Rohith Reddy Vennam, Raghav Subbaraman, and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Rohith Reddy Vennam",
+          "url": "https://acsweb.ucsd.edu/~rvennam/",
+          "email": "rvennam@ucsd.edu"
+        },
+        {
+          "name": "Raghav Subbaraman",
+          "url": "https://rsubbaraman.github.io/",
+          "email": "rsubbara@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "How multi-beams support multiple users without loosing power per-beam",
+          "text": "Modern mmWave systems have limited scalability due to inflexibility in performing frequency multiplexing. All the frequency components in the signal are beamformed to one direction via pencil beams and cannot be streamed to other user directions. We present a new flexible mmWave system called mmFlexible that enables flexible directional frequency multiplexing, where different frequency components of the mmWave signal are beamformed in multiple arbitrary directions with the same pencil beam. Our system makes two key contributions: (1) We propose a novel mmWave front-end architecture called a delay-phased array that uses a variable delay and variable phase element to create the desired frequency-direction response. (2) We propose a novel algorithm called FSDA (Frequency-space to delay-antenna) to estimate delay and phase values for the real-time operation of the delay-phased array. Through evaluations with mmWave channel traces, we show that mmFlexible provides a 60-150% reduction in worst-case latency compared to baselines.",
+          "image": "/images/wcsng-publications/respic/5G/dpa_hotmobile.png",
+          "image_width": 800
+        },
+        {
+          "title": "Delay-Phased Array Architecture Details",
+          "text": "DPA architecture consists of programmable delay and programmable phase element per antenna with a single-RF chain. These elements can be programmed together to create flexible beam responses that are not possible by either of the two elements alone. Our insight is to control two knobs: delays τn and phase Φn to get the desired response.",
+          "image": "/images/wcsng-publications/respic/5G/dpa_architecture.png",
+          "image_width": 800
+        },
+        {
+          "title": "Best Poster Runner-up Award at Hotmobile'23",
+          "image": "/images/wcsng-publications/respic/5G/dpa_hotmobile_poster.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Poster",
+          "content_url": "/files/dpa_hotmobile_poster.pdf"
+        },
+        {
+          "content_type": "Dataset",
+          "content_url": "https://github.com/ucsdwcsng/mMobile"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/Xo1JbZHfBCY",
+      "video2": null,
+      "video_str": "Video",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-01-26-mmflexible": {
+      "source_post": "2023-01-26-mmflexible.md",
+      "title": "mmFlexible: Flexible Directional Frequency Multiplexing for Multi-user mmWave Networks",
+      "short_title": "mmFlexible",
+      "conference": "Infocom 2023 [Submitted: July 2022, Accepted: Dec 2022, Presented: May 2023]",
+      "conference_site": "https://infocom2023.ieee-infocom.org/program",
+      "paper": "/files/mmflexible.pdf",
+      "github": "https://github.com/ucsdwcsng/dpa",
+      "dataset": "https://github.com/ucsdwcsng/mMobile",
+      "slides": "/files/slides_mmflexible.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/dpa.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Ish Kumar Jain, Rohith Reddy Vennam, Raghav Subbaraman, and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Rohith Reddy Vennam",
+          "url": "https://acsweb.ucsd.edu/~rvennam/",
+          "email": "rvennam@ucsd.edu"
+        },
+        {
+          "name": "Raghav Subbaraman",
+          "url": "https://rsubbaraman.github.io/",
+          "email": "rsubbara@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "How multi-beams support multiple users without loosing power per-beam",
+          "text": "Modern mmWave systems have limited scalability due to inflexibility in performing frequency multiplexing. All the frequency components in the signal are beamformed to one direction via pencil beams and cannot be streamed to other user directions. We present a new flexible mmWave system called mmFlexible that enables flexible directional frequency multiplexing, where different frequency components of the mmWave signal are beamformed in multiple arbitrary directions with the same pencil beam. Our system makes two key contributions: (1) We propose a novel mmWave front-end architecture called a delay-phased array that uses a variable delay and variable phase element to create the desired frequency-direction response. (2) We propose a novel algorithm called FSDA (Frequency-space to delay-antenna) to estimate delay and phase values for the real-time operation of the delay-phased array. Through evaluations with mmWave channel traces, we show that mmFlexible provides a 60-150% reduction in worst-case latency compared to baselines.",
+          "image": "/images/wcsng-publications/respic/5G/dpa_hotmobile.png",
+          "image_width": 800
+        },
+        {
+          "title": "Delay-Phased Array Architecture Details",
+          "text": "DPA architecture consists of programmable delay and programmable phase element per antenna with a single-RF chain. These elements can be programmed together to create flexible beam responses that are not possible by either of the two elements alone. Our insight is to control two knobs: delays τn and phase Φn to get the desired response.",
+          "image": "/images/wcsng-publications/respic/5G/dpa_architecture.png",
+          "image_width": 800
+        },
+        {
+          "title": "Best Poster Runner-up Award at Hotmobile'23",
+          "image": "/images/wcsng-publications/respic/5G/dpa_hotmobile_poster.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Poster",
+          "content_url": "/files/dpa_hotmobile_poster.pdf"
+        },
+        {
+          "content_type": "Dataset",
+          "content_url": "https://github.com/ucsdwcsng/mMobile"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/Xo1JbZHfBCY",
+      "video2": null,
+      "video_str": "Video",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-02-09-issccenergyharvesting": {
+      "source_post": "2023-02-09-ISSCCEnergyHarvesting.md",
+      "title": "An LTE-Harvesting BLE-to-WiFi Backscattering Chip for Single-Device RFID-Like Interrogation",
+      "short_title": "LTE Energy Harvesting and Backscatter Tag",
+      "conference": "ISSCC 2023",
+      "conference_site": null,
+      "paper": "/files/ISSCC_2023_paper.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/ISSCC_2023_slides.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/isscc2023_cover.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Shihkai Kuo, Manideep Dunna, Patrick P. Mercier, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Manideep Dunna",
+          "url": "https://manideepabc.github.io/",
+          "email": "mdunna@ucsd.edu"
+        },
+        {
+          "name": "Shihkai Kuo",
+          "email": "s1kuo@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        },
+        {
+          "name": "Patrick Mercier",
+          "email": "pmercier@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "In this work, we developed a self sustaining backscattering chip to enable a single device like interrogation of IoT backscatter tags. The developed tag can harvest energy from the LTE signals emitted by a mobile device and backscatters an incident BLE signal by embedding the Iot data in the form of a WiFi packet."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-02-22-mirage": {
+      "source_post": "2023-02-22-mirage.md",
+      "title": "Users are Closer than they Appear: Protecting User's Location from WiFi APs",
+      "short_title": "Users are Closer than they Appear",
+      "conference": "HotMobile 2023",
+      "conference_site": null,
+      "paper": "/files/mirage-paper.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/MIRAGE-ppt.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/mirage.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "security",
+          "label": "Security"
+        }
+      ],
+      "authors": "Roshan Ayyalasomayajula, Wei Sun, Aditya Arun, Dinesh Bharadia",
+      "author_list": [
+
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "Wi-Fi-based indoor localization has now matured for over a decade. Most of the current localization algorithms rely on the Wi-Fi access points (APs) in the enterprise network to localize the Wi-Fi user accurately. Thus, the Wi-Fi user’s location information could be easily snooped by an attacker listening through a compromised Wi-Fi AP. With indoor localization and navigation being the next step towards automation, it is important to give users the capability to defend against such attacks. In this paper, we present MIRAGE, a system that can utilize the downlink physical layer information to create a defense against an attacker snooping on a Wi-Fi user’s location information. MIRAGE achieves this by utilizing the beamforming capability of the transmitter that is already part of the Wi-Fi standard protocols. With this initial idea, we have demonstrated that the user can obfuscate his/her location from the Wi-Fi AP always with no compromise to the throughput of the existing Wi-Fi communication system through the real-world prototype, and reduce the user location accuracy of the attacker from 2.3m to more than 10m through simulation."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-03-01-wiros": {
+      "source_post": "2023-03-01-wiros.md",
+      "title": "WiROS: WiFi sensing toolbox for robotics",
+      "short_title": "WiROS",
+      "conference": "IPSN Demo 2023",
+      "conference_site": "https://dl.acm.org/doi/10.1145/3583120.3589817",
+      "paper": "/files/wiros-demo.pdf",
+      "github": "https://github.com/ucsdwcsng/WiROS",
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/wiros.jpg",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "authors": "William Hunter*, Aditya Arun*, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "William Hunter*",
+          "email": "wshunter@ucsd.edu"
+        },
+        {
+          "name": "Aditya Arun*",
+          "url": "https://wcsng.ucsd.edu/aarun/",
+          "email": "aarun@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "Many recent works have explored using WiFi-based sensing to improve SLAM, robot manipulation or exploration. Moreover, widespread availability makes WiFi the most advantageous RF signal to leverage. But WiFi sensors lack an accurate, tractable, and versatile toolbox, which hinders their widespread adoption with robot’s sensor stacks. We develop WiROS to address this immediate need, furnishing many WiFi-related measurements as easy-to-consume ROS topics. Specifically, WiROS is a plug-and-play WiFi sensing toolbox providing access to coarse-grained WiFi signal strength (RSSI), fine-grained WiFi channel state information (CSI), and other MAC-layer information (device address, packet id’s or frequency-channel information). Additionally, WiROS open-sources state-of-art algorithms to calibrate and process WiFi measurements to furnish accurate bearing information for received WiFi signals."
+        },
+        {
+          "title": "High Level Idea",
+          "text": "WiROS makes three concrete contributions, in order to deliver an accurate, versatile and tractable WiFi-sensor framework for ROS. First, it provides a C++ framework to integrate WiFi-sensor specific API’s into ROS. We accomplish this for Nexmon API, however, newer platforms can be similarly integrated with little additional effort. Second, we provide a wireless calibration algorithm and toolkit to measure and calibrate for hardware non-idealities for WiFi sensors. The lastly, we open-source state-of-art algorithms to extract physical parameters like angles of arrival or departure of the WiFi signals."
+        },
+        {
+          "title": "WiROS Process Block Diagram",
+          "text": "The following figure showcases the two main blocks - CSI Node and Feature-extraction Node to extract raw WiFi measurements and to calibrate and process these measurements. The blue text indicates the control plane parameters, whereas the red text indicates the exposed measurements. WiROS extends the functionality of the underlying black box CSI Extraction Toolkit.",
+          "image": "/images/wcsng-publications/pubpic/wiros.jpg",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Tutorial Paper",
+          "content_url": "https://arxiv.org/abs/2305.13418"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/zYAshWFn75k",
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-05-24-mmspoof": {
+      "source_post": "2023-05-24-mmspoof.md",
+      "title": "mmSpoof: Spoofing Attacks on Automotive FMCW Radars using Millimeter-wave Reflect Array",
+      "short_title": "mmSpoof",
+      "conference": "IEEE S&P 2023",
+      "conference_site": "https://sp2023.ieee-security.org/program.html",
+      "paper": "/files/mmspoof.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/mmspoof_slides.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/mmspoof.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        },
+        {
+          "slug": "security",
+          "label": "Security"
+        }
+      ],
+      "authors": "Rohith Reddy Vennam, Ish Kumar Jain, Kshitiz Bansal, Joshua Orozco, Puja Shukla, Aanjhan Ranganathan, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Rohith Reddy Vennam",
+          "url": "https://acsweb.ucsd.edu/~rvennam/",
+          "email": "rvennam@ucsd.edu"
+        },
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Kshitiz Bansal",
+          "url": "https://kshitiz-bansal.netlify.app/",
+          "email": "ksbansal@ucsd.edu"
+        },
+        {
+          "name": "Joshua Orozco",
+          "email": "jorozco@ucsd.edu"
+        },
+        {
+          "name": "Puja Shukla",
+          "email": "pshukla@ucsd.edu"
+        },
+        {
+          "name": "Aanjhan Ranganathan",
+          "url": "https://aanjhan.com/",
+          "email": "aanjhan.ranganathan@northeastern.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "FMCW radars are integral to automotive driving for robust and weather-resistant sensing of surrounding objects. However, these radars are vulnerable to spoofing attacks that can cause sensor malfunction and potentially lead to accidents. For instance, an attacker driving ahead of a radar-equipped victim’s vehicle can manipulate the radar signals such that the victim radar measures a false distance to the attacker vehicle (as shown in figure). Upon falsely detecting the attacker’s phantom vehicle, the radar may trigger the vehicle to apply a sudden brake, risking the passenger’s life and causing accidents.",
+          "image": "/images/wcsng-publications/mmSpoof/attack_scenario.png",
+          "image_width": 800
+        },
+        {
+          "text": "Previous attempts at spoofing FMCW radars using an attacker device have not been very effective due to the need for synchronization between the attacker and the victim. We present a novel spoofing mechanism called mmSpoof that does not require synchronization and is resilient to various security features and countermeasures of the victim radar. Our spoofing mechanism uses a “reflect array” based attacker device that reflects the radar signal with appropriate modulation to spoof the victim’s radar. We provide insights and mechanisms to flexibly spoof any distance and velocity on the victim’s radar using a unique frequency shift at the mmSpoof’s reflect array. We design a novel algorithm to estimate this frequency shift without assuming prior information about the victim’s radar. We show the effectiveness of our spoofing using a compact and mobile setup with commercial-off-the-shelf components in realistic automotive driving scenarios with commercial radars.",
+          "image": "/images/wcsng-publications/mmSpoof/attack_demonstration.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+        {
+          "text": "Vennam, R.R., Jain, I.K., Bansal, K., Orozco, J., Shukla, P., Ranganathan, A. and Bharadia, D., 2023, May. mmSpoof: Resilient Spoofing of Automotive Millimeter-wave Radars using Reflect Array. In 2023 IEEE Symposium on Security and Privacy (SP) (pp. 1807-1821). IEEE.",
+          "bib": "bibtex-link",
+          "bibtex": "<pre xml:space=\"preserve\"> @inproceedings{vennam2023mmspoof,\ntitle={mmSpoof: Resilient Spoofing of Automotive Millimeter-wave Radars using Reflect Array},\nauthor={Vennam, Rohith Reddy and Jain, Ish Kumar and Bansal, Kshitiz and Orozco, Joshua and Shukla, Puja and Ranganathan, Aanjhan and Bharadia, Dinesh},\nbooktitle={2023 IEEE Symposium on Security and Privacy (SP)}, pages={1807--1821}, year={2023},\norganization={IEEE} } </pre>"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "Slides",
+          "content_url": "https://wcsng.ucsd.edu/files/mmspoof_slides.pdf"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/Lx6Hn4g7ItQ",
+      "video2": null,
+      "video_str": "1 min teaser",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-08-16-forcesticker": {
+      "source_post": "2023-08-16-forcesticker.md",
+      "title": "ForceSticker: Wireless, Batteryless, Thin & Flexible Force Sensors",
+      "short_title": "ForceSticker",
+      "conference": "ACM IMWUT Vol. 7, No. 1, Article 13/ Ubicomp'23",
+      "conference_site": "https://www.ubicomp.org/ubicomp-iswc-2023/",
+      "paper": "https://dl.acm.org/doi/abs/10.1145/3580793",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/force-sticker-UCSD-teaser.jpg",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        }
+      ],
+      "authors": "Agrim Gupta, Daegue Park, Shayaun Bashar, Cedric Girerd, Nagarjun Bhat, Siddhi Mundhra, Tania Morimoto, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Agrim Gupta",
+          "url": "https://agrim9.github.io/",
+          "email": "agg003@ucsd.edu"
+        },
+        {
+          "name": "Daegue Park",
+          "email": "d8park@ucsd.edu"
+        },
+        {
+          "name": "Shayaun Bashar",
+          "email": "sbashar@ucsd.edu"
+        },
+        {
+          "name": "Cedric Girerd",
+          "email": "cgirerd@ucsd.edu"
+        },
+        {
+          "name": "Nagarjun Bhat",
+          "email": "nbhat@ucsd.edu"
+        },
+        {
+          "name": "Siddhi Mundhra",
+          "email": "siddhimundhra201105@gmail.com"
+        },
+        {
+          "name": "Tania Morimoto",
+          "email": "tkmorimoto@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "Any two objects in contact with each other exert a force that could be simply due to gravity or mechanical contact, such as any ubiquitous object exerting weight on a platform or the contact between two bones at our knee joints. The most ideal way of capturing these contact forces is to have a flexible force sensor which can conform well to the contact surface. Further, the sensor should be thin enough to not affect the contact physics between the two objects. The two hindrances to achieve this thin form-factor are batteries, and wires.",
+          "image": "/images/wcsng-publications/force-sticker-banner.png",
+          "image_width": 800
+        },
+        {
+          "title": "How to make force-sensors in sicker form factor?",
+          "text": "In the force-sticker paper, we show that the force-information can be piggybacked over existing RFIDs, with no additional power and requirement of any interfacing electronics, by simply interfacing a force sensitive capacitor to the RFID. Hence, the designed force-stickers consist of a thin parallel-plate capacitor, smaller than a rice grain that deforms under applied force, and is interfaced in between the RFID squiggly antenna and the RFID IC. But, how does the force-information from the capacitor get communicated via the RFID IC, without requiring any more electronics and power? The secret sauce lies in the capacitor-design, choosing the correct polymer and correct dimensions! For more technical details, please read our paper.",
+          "image": "/images/wcsng-publications/force-sticker-design.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+        {
+          "text": "Gupta, Agrim, et al. \"ForceSticker: Wireless, Batteryless, Thin & Flexible Force Sensors.\" Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies 7.1 (2023): 1-32.",
+          "bibtex": "<pre xml:space=\"preserve\"> @article{gupta2023forcesticker,\ntitle={ForceSticker: Wireless, Batteryless, Thin & Flexible Force Sensors},\nauthor={Gupta, Agrim and Park, Daegue and Bashar, Shayaun and Girerd, Cedric and Bhat, Nagarjun and Mundhra, Siddhi and Morimoto, Tania K and Bharadia, Dinesh},\njournal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},\nvolume={7}, number={1}, pages={1--32}, year={2023},\npublisher={ACM New York, NY, USA} } </pre>"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "Ubicomp Talk",
+          "content_url": "https://www.youtube.com/embed/0ezsSe8hJb8"
+        },
+        {
+          "content_type": "Medium Blog",
+          "content_url": "https://medium.com/ubicomp-iswc-2023/forcesticker-wireless-batteryless-thin-flexible-force-sensors-796294399c91"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/arSO7shzFT4?si=hygEYTRO50bvhs0b",
+      "video2": null,
+      "video_str": "30 sec. teaser",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-10-29-crescendo": {
+      "source_post": "2023-10-29-crescendo.md",
+      "title": "Crescendo: Towards Wideband, Real-Time, High-Fidelity Spectrum Sensing Systems",
+      "short_title": "Crescendo",
+      "conference": "MobiCom 2023",
+      "conference_site": "https://sigmobile.org/mobicom/2023/",
+      "paper": "https://dl.acm.org/doi/abs/10.1145/3570361.3613294",
+      "github": "https://github.com/ucsdwcsng/crescendo",
+      "dataset": null,
+      "slides": "https://sigmobile.org/mobicom/2023/media/presentations/SubbaramanCrescendo.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/crescendo.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Raghav Subbaraman, Kevin Mills, Aaron Schulman, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Raghav Subbaraman",
+          "url": "https://rsubbaraman.github.io",
+          "email": "rsubbara@ucsd.edu"
+        },
+        {
+          "name": "Kevin Mills",
+          "email": "kmmills@ucsd.edu"
+        },
+        {
+          "name": "Aaron Schulman",
+          "url": "https://cseweb.ucsd.edu/~schulman/",
+          "email": "schulman@cs.ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "Spectrum sensing systems provide real-time feedback essential for spectrum sharing. However, the growth of spectrum sharing is limited by the capabilities of these spectrum sensors. Sharing a new frequency band is only possible if sensors can detect activity in that band with sufficient time granularity and signal fidelity to meet spectrum sharing policy requirements. In this work, we introduce Crescendo, a system design that shows we can achieve wideband, real-time, high-fidelity spectrum sensing using sweeping spectrum sensors. We first provide an analysis that demonstrates there are operating points of sweeping sensors that can sense multiple popular protocols. Then we demonstrate these sensors can be built in practice with an adaptive gain superheterodyne RF frontend with high-fidelity LO generation, and evaluate a prototype built with COTS components. In our benchmarks, Crescendo outperforms prior wideband spectrum sensors, achieving a 30 dB increase in dynamic range and 10 dB increase in SNR."
+        }
+      ],
+      "citation": [
+        {
+          "text": "Subbaraman, Raghav, Kevin Mills, Aaron Schulman, and Dinesh Bharadia. \"Crescendo: Towards Wideband, Real-Time, High-Fidelity Spectrum Sensing Systems.\" In Proceedings of the 29th Annual International Conference on Mobile Computing and Networking, pp. 1-14. 2023.",
+          "bibtex": "@inproceedings{subbaraman2023crescendo, title={Crescendo: Towards Wideband, Real-Time, High-Fidelity Spectrum Sensing Systems}, author={Subbaraman, Raghav and Mills, Kevin and Schulman, Aaron and Bharadia, Dinesh}, booktitle={Proceedings of the 29th Annual International Conference on Mobile Computing and Networking}, pages={1--14}, year={2023} }"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-11-01-phy-obf": {
+      "source_post": "2023-11-01-phy-obf.md",
+      "title": "Practical Obfuscation of BLE Physical-Layer Fingerprints on Mobile Devices",
+      "short_title": "PHY Obfuscation",
+      "conference": "IEEE S&P 2024",
+      "conference_site": "https://sp2024.ieee-security.org/",
+      "paper": "/files/phy-obf.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/ble-obf.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "security",
+          "label": "Security"
+        }
+      ],
+      "authors": "Hadi Givehchian, Nishant Bhaskar, Alexander Redding, Han Zhao, Aaron Schulman, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Hadi Givehchian",
+          "url": "https://hadigivehchian.github.io/",
+          "email": "hgivehch@ucsd.edu"
+        },
+        {
+          "name": "Nishant Bhaskar",
+          "url": "https://cseweb.ucsd.edu/~nibhaska/"
+        },
+        {
+          "name": "Alexander Redding"
+        },
+        {
+          "name": "Han Zhao"
+        },
+        {
+          "name": "Aaron Schulman"
+        },
+        {
+          "name": "Dinesh Bharadia"
+        }
+      ],
+      "description": [
+        {
+          "text": "Mobile devices continuously beacon Bluetooth Low Energy (BLE) advertisement packets. This has created the threat of attackers identifying and tracking a device by sniffing its BLE signals. To mitigate this threat, MAC address randomization has been deployed at the link-layer in most BLE transmitters. However, attackers can bypass MAC address randomization using lower-level physical-layer fingerprints resulting from manufacturing imperfections of radios. In this work, we demonstrate a practical and effective method of obfuscating physical-layer hardware imperfection fingerprints. Through theoretical analysis, simulations, and field evaluations, we design and evaluate our approach to hardware imperfection obfuscation. By analyzing data from thousands of BLE devices, we demonstrate obfuscation significantly reduces the accuracy of identifying a target device. This makes an attack impractical, even if a target is continuously observed for 24 hours.",
+          "image": "/images/wcsng-publications/obf1.jpg",
+          "image_width": 400
+        },
+        {
+          "text": "Furthermore, we demonstrate the practicality of this defense by implementing it by only making firmware changes to commodity BLE chipsets.",
+          "image": "/images/wcsng-publications/obf2.jpg",
+          "image_width": 400
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "S&P24 Talk",
+          "content_url": "https://www.youtube.com/watch?v=VF_Y-CYKY-w"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-11-04-xrloc": {
+      "source_post": "2023-11-04-XRLoc.md",
+      "title": "XRLoc: Accurate UWB Localization to Realize XR Deployments",
+      "short_title": "XRLoc",
+      "conference": "Sensys 2023",
+      "conference_site": "https://dl.acm.org/doi/10.1145/3625687.3625810",
+      "paper": "/files/xrloc.pdf",
+      "github": "https://github.com/ucsdwcsng/xrloc.git",
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/xrloc.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "authors": "Aditya Arun*, Shunsuke Saruwatari*, Sureel Shah, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Aditya Arun*",
+          "url": "https://wcsng.ucsd.edu/aarun/",
+          "email": "aarun@ucsd.edu"
+        },
+        {
+          "name": "Shunsuke Saruwatari*",
+          "url": "https://www.ist.osaka-u.ac.jp/english/researcher/detail.php?id=105",
+          "email": "saru@ist.osaka-u.ac.jp"
+        },
+        {
+          "name": "Sureel Shah",
+          "email": "sbs001@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "Understanding the location of ultra-wideband (UWB) tag-attached objects and people in the real world is vital to enabling a smooth cyber-physical transition. However, most UWB localization systems today require multiple anchors in the environment, which can be very cumbersome to set up. In this work, we develop XRLoc, providing an accuracy of a few centimeters in many real-world scenarios. This paper will delineate the key ideas that allow us to overcome the fundamental restrictions that plague a single anchor point from localization of a device to within an error of a few centimeters. We deploy a VR chess game using everyday objects as a demo and find that our system achieves 2.4 cm median accuracy and 5.3 cm 90th percentile accuracy in dynamic scenarios, performing at least 8× better than state-of-art localization systems. Additionally, we implement a MAC protocol to furnish these locations for over 10 tags at update rates of 100 Hz, with a localization latency of ∼1 ms.",
+          "image": "/images/wcsng-publications/pubpic/xrloc-banner.jpg",
+          "image_width": 800
+        },
+        {
+          "title": "Why build another localization solution?",
+          "text": "Most UWB systems rely on ranging measurements between the mulitple localization modules (or anchors) and the tags. This is commonly done by measuring the time of arrival of packets at each of the devices and measuring either the time it takes for the packet to travel among the two nodes (a.k.a. two way ranging, TWR) or the additional time taken for the packet to arrive at different anchors (a.k.a time difference of arrival, TDOA). More recently, few works are also leverage difference phase across various UWB receivers to measure the angle of arrival of a transmitted signal from the tag. Subsequently, there are three ways to localize a tag using UWB measurements: via circle-intersection using TWR measurements, via hyperbola-intersection using TDoA measurements or via line-intersections using AoA measurements.\nHowever, all of these systems assume a diverse placement of the anchor modules to provide tens of centimeters of accuracy. Placing multiple anchors all over a space demands extensive deployment efforts -- routing the required power and network resources, anchoring devices to walls and ceilings -- and additional maintainence of these devices. These efforts curtail the widespread adoption of UWB localization solutions. XRLoc instead seeks to circumvent these challenges by developing the UWB system which can localize off-the-shelf UWB tags within a few centimeters of accuracy from a single localization module. This localization module, sized less than a meter in length, can be easily incorporated into television sets and soundbars or deployed on a single wall to provide room-scale cm-accurate localization to hundreds of tags."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": "https://www.youtube.com/embed/WMu4kbbsyWE",
+      "video2": null,
+      "video_str": "Demo",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2023-12-05-shenron": {
+      "source_post": "2023-12-05-shenron.md",
+      "title": "SHENRON - Scalable, High Fidelity and EfficieNt Radar SimulatiON",
+      "short_title": "Shenron",
+      "conference": "RAL 2023",
+      "conference_site": null,
+      "paper": "/files/shenron.pdf",
+      "github": "https://github.com/Kshitizbansal/shenron-radar-simulator",
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/shenron.jpg",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "authors": "Kshitiz Bansal, Gautham Reddy, Dinesh Bharadia",
+      "author_list": [
+
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "Radar Simulations have become an essential tool in radar algorithm development and testing due to the lack of available high-resolution radar datasets and enormous difficulty in acquiring real-world data. However, simulating radar data is challenging as existing radar simulation tools are not easily accessible, require detailed mesh inputs and take hours to simulate. To address these issues, we present SHENRON, an open-source framework that efficiently simulates high-fidelity MIMO radar data using only lidar point cloud and camera images. We show that with SHENRON, one can generate simulated data that can be used to evaluate algorithms as effectively as on real data. Further, one can perform quick iterations through a vast parameter space of the radar to find the best set of parameters for any application, significantly aiding research in radar perception and sensor fusion."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": "https://www.youtube.com/embed/xupnpWCeoNM?si=fs8K_E6az4v4w24T",
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-03-01-beamarmor": {
+      "source_post": "2024-03-01-beamarmor.md",
+      "title": "BeamArmor: Seamless Anti-Jamming in 5G Cellular Networks with MIMO Null-steering",
+      "short_title": "BeamArmor",
+      "conference": "Hotmobile 2024 [Live Demo at Milcom'23 and Hotmobile'24]",
+      "conference_site": "http://www.hotmobile.org/2024/index.php?id=program",
+      "paper": "/files/beamarmor.pdf",
+      "github": "https://github.com/ucsdwcsng/beamarmor",
+      "dataset": null,
+      "slides": "/files/slides_beamarmor.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/beamarmor.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Frederik Zumegen, Ish Kumar Jain, and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Frederik Zumegan",
+          "url": "https://www.linkedin.com/in/frederik-zumegen-428ba11b5/?originalSubdomain=de",
+          "email": "fzumegen@ethz.ch"
+        },
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "BeamArmor is implemented with real-time RAN (srsRAN) with a EdgeRIC controller",
+          "image": "/images/wcsng-publications/respic/5G/beamarmor_poster.png",
+          "image_width": 900
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Poster",
+          "content_url": "/files/beamarmor_hotmobile_poster.pdf"
+        }
+      ],
+      "video": "https://edgeric.github.io/index.html",
+      "video2": null,
+      "video_str": "Video",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-04-17-edgeric": {
+      "source_post": "2024-04-17-edgeric.md",
+      "title": "EdgeRIC: Empowering Real-time Intelligent Optimization and Control in NextG Networks",
+      "short_title": "EdgeRIC",
+      "conference": "NSDI 2024",
+      "conference_site": "https://www.usenix.org/conference/nsdi24",
+      "paper": "https://www.usenix.org/system/files/nsdi24-ko.pdf",
+      "github": "https://github.com/ucsdwcsng/EdgeRIC-A-real-time-RIC.git",
+      "dataset": null,
+      "slides": "https://www.usenix.org/system/files/nsdi24_slides-ko.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/edgeric_intro.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Woo Hyun Ko, Ushasi Ghosh, Ujwal Dinesha, Raini Wu, Srinivas Shakkottai, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Woo Hyun Ko",
+          "email": "whko@tamu.edu"
+        },
+        {
+          "name": "Ushasi Ghosh",
+          "email": "ughosh@ucsd.edu"
+        },
+        {
+          "name": "Ujwal Dinesha",
+          "email": "ujwald36@tamu.edu"
+        },
+        {
+          "name": "Raini Wu",
+          "email": "ryw003@ucsd.edu"
+        },
+        {
+          "name": "Srinivas Shakkottai",
+          "email": "sshakkot@tamu.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "Radio Access Networks (RANs) are increasingly softwarized and accessible via data-collection and control interfaces. RAN intelligent control (RIC) is an approach to manage these interfaces at different timescales. In this paper, we introduce EdgeRIC, a real-time RIC co-located with the Distributed Unit (DU). It is decoupled from the RAN stack, and operates at the RAN timescale. EdgeRIC serves as the seat of real-time AI-in-the-loop for decision and control. It can access RAN and application-level information to execute AI-optimized and other policies in real-time (sub-millisecond). We demonstrate that EdgeRIC operates as if embedded within the RAN stack. We showcase RT applications called μApps over EdgeRIC that significantly outperforms a cloud-based near real-time RIC (> 15 ms latency) in terms of attained system throughput. Further, our over-the-air experiments with AI-based policies showcase their resilience to channel dynamics. Remarkably, these AI policies outperform model-based strategies by 5% to 25% in both system throughput and end user application-level benchmarks across diverse mobile scenarios."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Project Website",
+          "content_url": "https://edgeric.github.io"
+        },
+        {
+          "content_type": "Poster",
+          "content_url": "/files/edgeric_poster.pdf"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": "Radio Access Networks (RANs) are increasingly softwarized and accessible via data-collection and control interfaces. RAN intelligent control (RIC) is an approach to manage these interfaces at different timescales. In this paper, we introduce EdgeRIC, a real-time RIC co-located with the Distributed Unit (DU). It is decoupled from the RAN stack, and operates at the RAN timescale. EdgeRIC serves as the seat of real-time AI-in-the-loop for decision and control. It can access RAN and application-level information to execute AI-optimized and other policies in real-time (sub-millisecond). We demonstrate that EdgeRIC operates as if embedded within the RAN stack. We showcase RT applications called μApps over EdgeRIC that significantly outperforms a cloud-based near real-time RIC (> 15 ms latency) in terms of attained system throughput. Further, our over-the-air experiments with AI-based policies showcase their resilience to channel dynamics. Remarkably, these AI policies outperform model-based strategies by 5% to 25% in both system throughput and end user application-level benchmarks across diverse mobile scenarios.",
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-05-15-mod-rec-sig-proc": {
+      "source_post": "2024-05-15-mod_rec_sig_proc.md",
+      "title": "Fourier Meets Gardner : Robust Blind Waveform Characterization",
+      "short_title": "",
+      "conference": "IEEE DySPAN 2024",
+      "conference_site": "https://dyspan2024.ieee-dyspan.org/",
+      "paper": "/files/FourierMeetsGardner.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/sig_proc_modality_flow.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Radhika Mathuria, Srivatsan Rajagopal and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Radhika Mathuria",
+          "email": "rmathuria@ucsd.edu"
+        },
+        {
+          "name": "Srivatsan Rajagopal",
+          "email": "srajagopal@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "Waveform Characterization is crucial for various spectrum sensing applications such as anomaly detection and measuring spectrum utilization. It consists of detecting the waveform type (single carrier or spread spectrum), modulation form (QAM, PSK, FSK, GMSK, GFSK etc ̇) and corresponding parameters such as symbol rate and chip rate. In this paper, we propose a blind characterization algorithm suited for these applications using second-order cyclostationary and fourier domain features of signals. To test the proposed method’s robustness, a comprehensive evaluation is conducted using both simulated and over-the-air (OTA) experiments with appropriate signal detection pre-processing steps. An overall modulation classification accuracy of 86.25% is attained for OTA testing with a modulation set consisting of QAM, PSK, FSK, GFSK, MSK, GMSK, DSSS and OOK.",
+          "image": "/images/wcsng-publications/pubpic/sig_proc_modality_flow.png"
+        }
+      ],
+      "citation": [
+        {
+          "text": "Mathuria, R., Rajagopal, S., & Bharadia, D. (2024). Fourier Meets Gardner: Robust Blind Waveform Characterization. In IEEE International Symposium on Dynamic Spectrum Access Networks (IEEE DySPAN 24).",
+          "bibtex": "@inproceedings{rmathuria@dyspan2024, title={Fourier Meets Gardner: Robust Blind Waveform Characterization.}, author={Mathuria, R., Rajagopal, S., & Bharadia, D.}, booktitle={IEEE International Symposium on Dynamic Spectrum Access Networks (IEEE DySPAN 24)}, year={2024} }"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-05-15-mod-rec": {
+      "source_post": "2024-05-15-mod_rec.md",
+      "title": "Blind Signal Characterization: Transformers, Triplet Losses and Beyond",
+      "short_title": "",
+      "conference": "IEEE DySPAN 2024",
+      "conference_site": "https://dyspan2024.ieee-dyspan.org/",
+      "paper": "/files/TripletModalityClassifier.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/ml_modality_flow.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Srivatsan Rajagopal, Radhika Mathuria and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Srivatsan Rajagopal",
+          "email": "srajagopal@ucsd.edu"
+        },
+        {
+          "name": "Radhika Mathuria",
+          "email": "rmathuria@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "In this work, we report on progress in building a machine learning (ML) algorithm to blindly infer the signal modality of anomalous wireless signals. The system built is designed to be robust to hardware impairments like carrier frequency offset (CFO), sample frequency offset (SFO), wireless channel, sample rate changes due to radio resampling etc. The main novelty of our work is the exploration of metric learning methods for the task of blind modality/modulation classification using cyclostationary features. We describe how the ML approach evolved, with an empirical illustration of improvement in classification accuracy.",
+          "image": "/images/wcsng-publications/pubpic/ml_modality_flow.png"
+        }
+      ],
+      "citation": [
+        {
+          "text": "Rajagopal, S., Mathuria, R., & Bharadia, D. (2024). Blind Signal Characterization: Transformers, Triplet Losses and Beyond. In IEEE International Symposium on Dynamic Spectrum Access Networks (IEEE DySPAN 24).",
+          "bibtex": "@inproceedings{rajagaopal@dyspan2024, title={Blind Signal Characterization: Transformers, Triplet Losses and Beyond.}, author={Rajagopal, S., Mathuria, R., & Bharadia, D}., booktitle={IEEE International Symposium on Dynamic Spectrum Access Networks (IEEE DySPAN 24)}, year={2024} }"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-05-15-rfsynth": {
+      "source_post": "2024-05-15-rfsynth.md",
+      "title": "RFSynth: Data generation and testing platform for spectrum information systems",
+      "short_title": "RFSynth",
+      "conference": "IEEE DySPAN 2024",
+      "conference_site": "https://dyspan2024.ieee-dyspan.org/",
+      "paper": "/files/rfsynth.pdf",
+      "github": "https://github.com/ucsdwcsng/rfsynth",
+      "dataset": null,
+      "slides": "/files/rfsynth_talk.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/rfsynth.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Hari Prasad Sankar, Raghav Subbaraman, Tianyi Hu, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Hari Prasad Sankar*",
+          "email": "hsankar@ucsd.edu"
+        },
+        {
+          "name": "Raghav Subbaraman*",
+          "url": "https://rsubbaraman.github.io",
+          "email": "rsubbara@ucsd.edu"
+        },
+        {
+          "name": "Tianyi Hu",
+          "email": "JASR Systems"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Abstract",
+          "text": "The paper presents a scalable RF data generation framework which aims to address the challenges of limited data generation/testing platforms for spectrum sensing systems. The proposed framework combines simulation and real-world data generation methods to enable large and diverse data sets for training and testing RF ML models and spectrum sensing systems. The framework includes modules for metadata generation which allows for easy experimentation. The effectiveness of the proposed framework is demonstrated through experiments including signal detection and modulation classification. This paper contributes to the development of a comprehensive framework for generating RF IQ data with ease that can significantly reduce the development and deployment time of complex wireless systems.",
+          "image": "/images/wcsng-publications/pubpic/rfsynth.png"
+        }
+      ],
+      "citation": [
+        {
+          "text": "Sankar, H. P., Subbaraman, R., Hu, T., & Bharadia, D. (2024). RFSynth: Data generation and testing platform for spectrum information systems. In 21st USENIX Symposium on Networked Systems Design and Implementation (IEEE DySPAN 24).",
+          "bibtex": "@inproceedings{sankar2024rfsynth, title={RFSynth: Data generation and testing platform for spectrum information systems}, author={Sankar, Hari Prasad and Subbaraman, Raghav and Hu, Tianyi and Bharadia, Dinesh}, booktitle={IEEE International Symposium on Dynamic Spectrum Access Networks (IEEE DySPAN 24)}, year={2024} }"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": "https://www.youtube.com/embed/inNMCq5oWZ0",
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-06-01-wais": {
+      "source_post": "2024-06-01-wais.md",
+      "title": "WAIS: Leveraging WiFi for Resource-Efficient SLAM",
+      "short_title": "WAIS",
+      "conference": "Mobisys 2024",
+      "conference_site": "https://www.sigmobile.org/mobisys/2024/accepted-papers.html",
+      "paper": "/files/wais.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/viwid.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "authors": "Aditya Arun, William Hunter, Roshan Ayyalasomayajula, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Aditya Arun",
+          "url": "https://wcsng.ucsd.edu/aarun/",
+          "email": "aarun@ucsd.edu"
+        },
+        {
+          "name": "William Hunter",
+          "email": "wshunter@ucsd.edu"
+        },
+        {
+          "name": "Roshan Ayyalasomayajula",
+          "url": "https://www.acsu.buffalo.edu/~roshana/",
+          "email": "roshana@buffalo.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@uscd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Overview",
+          "text": "Visual (LiDAR/camera-based) SLAM systems deploy compute and memory-intensive search algorithms to detect \"Loop Closures\" to make the trajectory estimate globally consistent. Instead, WAIS (WiFi Assisted Indoor SLAM) demonstrates using WiFi-based sensing can reduce this resource intensiveness drastically. By covering over 1500 m in realistic indoor environments and WiFi deployments, we showcase 4.3 x and 4 x reduction in compute and memory consumption compared to state-of-the-art Visual and Lidar SLAM systems. Incorporating WiFi into the sensor stack also improves the resiliency of the Visual-SLAM system. We find the 90th percentile translation errors improve by ~40% and orientation errors by ~60% compared with purely camera-based systems.",
+          "image": "/images/wcsng-publications/pubpic/wais_overview.png",
+          "image_width": 800
+        },
+        {
+          "title": "New Dataset Added to P2SLAM",
+          "text": "In addition to the environments described in P2SLAM, we have collected a new dataset in an office envrionment, with stereo camera data, IMU, Lidar, Wheel odometry and WiFi measurements. The purple box and orange boxes indicate the robot and the AP’s placed in the environment respectively. The colored boxes in the map correspond to the view points of the 3 images of the environment shown, color-matched to the edges of the respective images.",
+          "image": "/images/wcsng-publications/pubpic/viwid-env.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Github",
+          "content_url": "https://github.com/ucsdwcsng/wais"
+        },
+        {
+          "content_type": "Dataset",
+          "content_url": "https://forms.gle/KvgBy46mNNozneeXA"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/FIAdBC_UzPU",
+      "video2": null,
+      "video_str": "Demo",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-08-01-mmsubarray": {
+      "source_post": "2024-08-01-mmsubarray.md",
+      "title": "mmSubArray: Enabling Joint Satellite-Terrestrial Networks in Millimeter-wave Band",
+      "short_title": "mmSubArray",
+      "conference": "Small Satellite Conference 2024",
+      "conference_site": "https://smallsat.org/",
+      "paper": "/files/mmsubarray.pdf",
+      "github": "https://github.com/ucsdwcsng/mmSubArray",
+      "dataset": null,
+      "slides": "/files/mmsubarray_slides.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/mmsubarray/mmsubarray_cover.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Rohith Reddy Vennam, Ish Kumar Jain, Nagarjun Bhat, Suriyaa Muruganandan and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Rohith Reddy Vennam",
+          "url": "https://acsweb.ucsd.edu/~rvennam/",
+          "email": "rvennam@ucsd.edu"
+        },
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Nagarjun Bhat",
+          "url": "https://www.linkedin.com/in/nagarjun-bhat",
+          "email": "nbhat@ucsd.edu"
+        },
+        {
+          "name": "Suriyaa Muruganandan",
+          "email": "smm233@ucsd.edu"
+        },
+        {
+          "name": "Luke Wilson",
+          "email": "l5wilson@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "The future of global connectivity depends on the seamless integration of satellite and terrestrial networks. Satellites and ground stations can now relay data between terrestrial base stations and remote devices, breaking coverage barriers and enabling global connectivity. However, current satellite-to-device architectures require ground stations with extensive fiber backhaul across difficult terrain, leading to high deployment costs, scalability challenges, and increased latency. To address this, we propose <b><i>JointNets: Joint satellite and terrestrial networks</i></b> by deploying ground stations within terrestrial coverage areas and using high-speed millimeter-wave links for backhaul. This eliminates the need for long optical fibers, simplifies ground station deployment, enhances scalability, and reduces latency.",
+          "image": "/images/wcsng-publications/mmsubarray/proposed_joint_satellite_5G.png",
+          "image_width": 800
+        },
+        {
+          "text": "A major challenge in enabling <b><i>JointNets</i></b> is that ground station to satellite uplink transmissions (27.5 to 30.0 GHz) interfere with 5G links, leading to reduced efficiency or complete link failure. Current approches, such as distance, frequency, and direction separation, often cause spectrum inefficiency and coverage gaps. This paper introduces <b>mmSubArray: An array of sub-band phased arrays</b> using commercial off-the-shelf phased arrays to enable full-spectrum utilization and joint satellite-terrestrial networks. Our <b>mmSubArray</b> approach splits the bandwidth into overlapping and non-overlapping subbands, with different phased arrays beaming each subband at the base station.",
+          "image": "/images/wcsng-publications/mmsubarray/proposed_mmsubarray.png",
+          "image_width": 800
+        },
+        {
+          "text": "<b>Enabling Backhaul</b>: Using commercial phased arrays, we demonstrate that simultaneous mmWave transmissions in non-overlapping bands do not suffer significant degradation due to interference. <b>mmSubArray</b> employs one or more phased arrays to beam non-overlapping bands toward interfering ground stations. This allows <b>mmSubArray</b> to enable backhaul for ground stations or support users in interfering directions.",
+          "image": "/images/wcsng-publications/mmsubarray/proposed_mmsubarray_backhaul.png",
+          "image_width": 800
+        },
+        {
+          "text": "<b>Enabling Coexistence</b>: In the overlapping band, we use the other phased arrays to serve users in non-interfering directions. However, simply beaming in other directions is not sufficient to enable coexistence in many scenarios. We may still have side lobes that fall along the interference directions, causing interference issues. Our key idea is to apply nulling along with beaming in other directions; together, these techniques suppress the interference power below the noise floor and enable coexistence in overlapping bands. Through extensive simulations and real-world measurements, we demonstrate the interference challenges and evaluate the efficacy of our approach.",
+          "image": "/images/wcsng-publications/mmsubarray/proposed_mmsubarray_coexistence.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+        {
+          "text": "Vennam, Rohith Reddy, et al. \"mmSubArray: Enabling Joint Satellite and 5G Networks With Full-Spectrum Utilization in Millimeter-Wave Bands.\" (2024).",
+          "bib": "bibtex-link",
+          "bibtex": "<pre xml:space=\"preserve\"> @article{vennam2024mmsubarray, title={mmSubArray: Enabling Joint Satellite and 5G Networks With Full-Spectrum Utilization in Millimeter-Wave Bands}, author={Vennam, Rohith Reddy and Jain, Ish Kumar and Bhat, Nagarjun and M, Suriyaa and Bharadia, Dinesh}, year={2024} organization={smallsat} } } </pre>"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": "https://www.youtube.com/embed/uGWcX8MJM4Y",
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-09-15-windex": {
+      "source_post": "2024-09-15-windex.md",
+      "title": "Windex: Realtime Neural Whittle Indexing for Scalable Service Guarantees in NextG Cellular Networks",
+      "short_title": "Windex",
+      "conference": "Mobicom Demo 2024",
+      "conference_site": null,
+      "paper": "https://arxiv.org/html/2406.01888v1",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/windex.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Archana Bura, Ushasi Ghosh, Srinivas Shakkottai, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Archana Bura",
+          "email": "abura@ucsd.edu"
+        },
+        {
+          "name": "Ushasi Ghosh",
+          "url": "https://ushasigh.github.io",
+          "email": "ughosh@ucsd.edu"
+        },
+        {
+          "name": "Srinivas Shakkottai",
+          "email": "sshakkot@tamu.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "We address the resource allocation challenge in NextG cellular radio access networks (RAN), where resources must be shared among diverse user applications, each requiring guarantees on throughput and service regularity. Due to factors such as fluctuating channel quality, user mobility, and scalability, this problem quickly becomes combinatorial and complex. We begin by analytically modeling it as a constrained Markov decision process, drawing from control theory. By leveraging the structural properties of this model, we decompose the problem into a more manageable form, allowing for the independent computation of relative priorities for each user. By allocating resources in descending order of these priorities, we reduce the combinatorial complexity of resource allocation to a linear one. We introduce Windex, a lightweight method for training neural networks to compute these priorities, taking into account service guarantees, channel quality, and system load. Implemented on a real-time RAN Intelligent Controller (RIC), Windex enables resource allocation decisions in under 20μs per user, efficiently managing resources within each 1 ms scheduling time slot. Our approach, evaluated across standardized 3GPP service classes, demonstrates the least service violations compared to state-of-the-art systems. These results have been validated through simulations and real-world emulations using over-the-air channel traces on a 5G testbed."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": "We address the resource allocation challenge in NextG cellular radio access networks (RAN), where resources must be shared among diverse user applications, each requiring guarantees on throughput and service regularity. Due to factors such as fluctuating channel quality, user mobility, and scalability, this problem quickly becomes combinatorial and complex. We begin by analytically modeling it as a constrained Markov decision process, drawing from control theory. By leveraging the structural properties of this model, we decompose the problem into a more manageable form, allowing for the independent computation of relative priorities for each user. By allocating resources in descending order of these priorities, we reduce the combinatorial complexity of resource allocation to a linear one. We introduce Windex, a lightweight method for training neural networks to compute these priorities, taking into account service guarantees, channel quality, and system load. Implemented on a real-time RAN Intelligent Controller (RIC), Windex enables resource allocation decisions in under 20μs per user, efficiently managing resources within each 1 ms scheduling time slot. Our approach, evaluated across standardized 3GPP service classes, demonstrates the least service violations compared to state-of-the-art systems. These results have been validated through simulations and real-world emulations using over-the-air channel traces on a 5G testbed.",
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-10-10-sparc": {
+      "source_post": "2024-10-10-sparc.md",
+      "title": "SPARC: Spatio-Temporal Adaptive Resource Control for Multi-site Spectrum Management in NextG Cellular Networks",
+      "short_title": "Sparc",
+      "conference": "CoNEXT 2024",
+      "conference_site": null,
+      "paper": null,
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/sparc.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Ushasi Ghosh, Azuka Chiejina, Nathan Stephenson, Vijay Shah, Srinivas Shakkottai, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ushasi Ghosh",
+          "url": "https://ushasigh.github.io",
+          "email": "ughosh@ucsd.edu"
+        },
+        {
+          "name": "Azuka Chiejina",
+          "email": "achiejin@gmu.edu"
+        },
+        {
+          "name": "Nathan Stephenson",
+          "email": "nstephe7@gmu.edu"
+        },
+        {
+          "name": "Vijay Shah",
+          "email": "vijay.shah@ncsu.edu"
+        },
+        {
+          "name": "Srinivas Shakkottai",
+          "email": "sshakkot@tamu.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "This work presents SPARC (Spatio-Temporal Adaptive Resource Control), a novel approach for multi-site spectrum management in NextG cellular networks. SPARC addresses the challenge of limited licensed spectrum in dynamic environments. We leverage the O-RAN architecture to develop a multi-timescale RAN Intelligent Controller (RIC) framework, featuring an xApp for near-real-time interference detection and localization, and a μApp for real-time intelligent resource allocation. By utilizing base stations as spectrum sensors, SPARC enables efficient and fine-grained dynamic resource allocation across multiple sites, enhancing signal-to-noise ratio (SNR) by up to 7dB, spectral efficiency by up to 15%, and overall system throughput by up to 20%. Comprehensive evaluations, including emulations and over-the-air experiments, demonstrate the significant performance gains achieved through SPARC, showcasing it as a promising solution for optimizing resource efficiency and network performance in NextG cellular networks."
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": "This work presents SPARC (Spatio-Temporal Adaptive Resource Control), a novel approach for multi-site spectrum management in NextG cellular networks. SPARC addresses the challenge of limited licensed spectrum in dynamic environments. We leverage the O-RAN architecture to develop a multi-timescale RAN Intelligent Controller (RIC) framework, featuring an xApp for near-real-time interference detection and localization, and a μApp for real-time intelligent resource allocation. By utilizing base stations as spectrum sensors, SPARC enables efficient and fine-grained dynamic resource allocation across multiple sites, enhancing signal-to-noise ratio (SNR) by up to 7dB, spectral efficiency by up to 15%, and overall system throughput by up to 20%. Comprehensive evaluations, including emulations and over-the-air experiments, demonstrate the significant performance gains achieved through SPARC, showcasing it as a promising solution for optimizing resource efficiency and network performance in NextG cellular networks.",
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-10-24-zensetag": {
+      "source_post": "2024-10-24-zensetag.md",
+      "title": "ZenseTag: An RFID assisted Twin-Tag Single Antenna COTS Sensor Interface",
+      "short_title": "ZenseTag",
+      "conference": "ACM SenSys2024",
+      "conference_site": "https://sensys.acm.org/2024/",
+      "paper": "https://dl.acm.org/doi/pdf/10.1145/3666025.3699342",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/slides-zensetag.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/zensetag/zeta-overview.jpg",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        }
+      ],
+      "authors": "Nagarjun Bhat, Agrim Gupta, Ishan Bansal, Harine Govindarajan, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Nagarjun Bhat",
+          "email": "nbhat@ucsd.edu"
+        },
+        {
+          "name": "Agrim Gupta",
+          "url": "https://agrim9.github.io/",
+          "email": "agg003@ucsd.edu"
+        },
+        {
+          "name": "Ishan Bansal",
+          "url": "https://b-ishan.github.io/",
+          "email": "isbansal@ucsd.edu"
+        },
+        {
+          "name": "Harine Govindarajan",
+          "email": "hgovindarajan@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Artifact Evaluation",
+          "image": "/images/wcsng-publications/zensetag/ae-badges-zensetag.png",
+          "image_width": 800
+        },
+        {
+          "title": "Overview of ZenseTag",
+          "text": "In our work, titled ZenseTag, we develop a novel RFID-assisted sensing platform that connects COTS sensors to inexpensive, flexible RFID stickers. ZenseTag's key insight is a direct-to-RF interface for sensors, revealing that many commercial sensors have fundamental operational frequencies similar to antennas. This allows for optimal coupling with the RFID tag. We demonstrate robust sensor readout by having two RFID tags share the same antenna, enabling the reader to detect changes through channel differences. ZenseTag also incorporates high-performance software for low-latency, reliable readouts in dynamic environments.",
+          "image": "/images/wcsng-publications/zensetag/zeta-overview.jpg",
+          "image_width": 800
+        },
+        {
+          "title": "How to design ZenseTag",
+          "text": "In this section, we outline the design steps of ZenseTag and its ability to interface various COTS sensors (force, soil moisture, and photodiode) with readily available RFID stickers. The key to this interface is ‘Direct-to-RF’ impedance profiling, modeling sensor behavior at 900 MHz. ZenseTag reveals that many commercial sensors have a resonant frequency that can be tuned to match RFID tags. We introduce a ‘Twin-Tag Single-Antenna Sensor Interface’ using flexible PCBs, allowing one tag to couple with the sensor stimuli while the other remains isolated. The RFID reader then detects channel differences between the two tags for low-latency, robust sensor readout in dynamic environments. ZenseTag's design encompasses three contributions: (1) Direct-to-RF impedance profiling to determine sensor resonant frequency, (2) Twin-Tag Single-Antenna Sensor Interface for tuning and interfacing, and (3) low-latency, robust sensor readout via custom software on a standard RFID reader.",
+          "image": "/images/wcsng-publications/zensetag/zeta-design.jpg",
+          "image_width": 800
+        },
+        {
+          "title": "Applications for ZenseTag",
+          "text": "ZenseTag was evaluated using three commercial sensors: soil moisture sensor, force-sensitive resistor (FSR), and photodiode. For soil moisture sensing, after impedance profiling and resonance tuning, the system achieved a 15x improvement in phase change sensitivity and over 93% accuracy in classifying three moisture levels (Dry/Moist/Saturated). The FSR evaluation demonstrated detection of weights as light as 10g with a 30-degree phase change for 50g loads, while maintaining robust performance under dynamic conditions with less than 5-degree median phase error during human movement tests. The photodiode implementation successfully measured light intensity up to 400 lux with 96% accuracy between dark and bright conditions, and 90% accuracy between medium and bright levels, while also demonstrating wavelength classification capabilities between red, yellow, and blue light. All evaluations were conducted using a flexible PCB measuring just 15mm x 10mm interfaced with a printed RFID antenna and RFID ICs, maintaining the advantages of being battery-free and using minimal commercial off-the-shelf components.",
+          "image": "/images/wcsng-publications/zensetag/zeta-apps.jpg",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+        {
+          "text": "Nagarjun Bhat, Agrim Gupta, Ishan Bansal, Harine Govindarajan, and Dinesh Bharadia. 2024. ZenseTag: An RFID assisted Twin-Tag Single Antenna COTS Sensor Interface. In Proceedings of the 22nd ACM Conference on Embedded Networked Sensor Systems (SenSys '24). Association for Computing Machinery, New York, NY, USA, 336–350.",
+          "bibtex": "<pre xml:space=\"preserve\"> @inproceedings{10.1145/3666025.3699342, author = {Bhat, Nagarjun and Gupta, Agrim and Bansal, Ishan and Govindarajan, Harine and Bharadia, Dinesh}, title = {ZenseTag: An RFID assisted Twin-Tag Single Antenna COTS Sensor Interface}, year = {2024}, isbn = {9798400706974}, publisher = {Association for Computing Machinery}, address = {New York, NY, USA}, url = {https://doi.org/10.1145/3666025.3699342}, doi = {10.1145/3666025.3699342}, abstract = {Sensors enable us to digitally capture stimuli like moisture, light, and force. Despite their low cost, reliability, and scalability, the lack of widespread adoption of IoT has hindered the realization of true ubiquitous sensing. A likely reason is that the current sensor platforms are bulky due to the batteries and complex electronics needed to interface sensors communication systems. In this work, we present a fully-passive, miniaturized, flexible form factor sensor interface titled ZenseTag that uses minimal electronics to read and communicate analog sensor data, directly at radio frequencies (RF). We exploit the fundamental principle of resonance, where a sensor's terminal impedance becomes most sensitive to the measured stimulus at its resonant frequency. This enables ZenseTag to read out the sensor variation using only energy harvested from wireless signals. We demonstrate its implementation with a 15x10mm flexible PCB that connects sensors to a printed antenna and passive RFID ICs, enabling near real-time readout through a performant GUI-enabled software.We showcase ZenseTag's versatility by interfacing commercial force, soil moisture and photodiode sensors [1--3]. Further, we motivate dedicated application studies for these sensors.}, booktitle = {Proceedings of the 22nd ACM Conference on Embedded Networked Sensor Systems}, pages = {336–350}, numpages = {15}, location = {Hangzhou, China}, series = {SenSys '24} } </pre>"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "Poster",
+          "content_url": "/files/poster-zensetag.pdf"
+        },
+        {
+          "content_type": "Digital Library",
+          "content_url": "https://dl.acm.org/doi/10.1145/3666025.3699342"
+        },
+        {
+          "content_type": "Demonstration Webpage",
+          "content_url": "https://wcsng.ucsd.edu/zensetag_demo"
+        }
+      ],
+      "video": "https://www.youtube.com/embed/7mvNrl5CLU8",
+      "video2": null,
+      "video_str": "Demonstration of ZenseTag",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2024-11-01-commrad": {
+      "source_post": "2024-11-01-commrad.md",
+      "title": "CommRad: Context-Aware Sensing-Driven Millimeter-Wave Networks",
+      "short_title": "CommRad",
+      "conference": "Sensys 2024",
+      "conference_site": "https://dl.acm.org/doi/10.1145/3666025.3699363",
+      "paper": "/files/commrad.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": "/files/commrad_sensys24_Ish_Jain.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/pubpic/commrad.png",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Ish Kumar Jain, Suriyaa MM, and Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Suriyaa MM",
+          "url": "https://www.linkedin.com/in/mmsuri",
+          "email": "smm223@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Utilizing monostatic Radar and Bi-static Radio as multi-modal sensing",
+          "text": "Millimeter-wave (mmWave) technology is pivotal for next-generation wireless networks, enabling high-data-rate and low-latency applications such as autonomous vehicles and XR streaming. However, maintaining directional mmWave links in dynamic mobile environments is challenging due to mobility-induced disruptions and blockage. While effective, the current 5G NR beam training methods incur significant overhead and scalability issues in multi-user scenarios. To address this, we introduce CommRad, a sensing-driven solution incorporating a radar sensor at the base station to track mobile users and maintain directional beams even under blockages. While radar provides high-resolution object tracking, it suffers from a fundamental challenge of lack of context, i.e., it cannot discern which objects in the environment represent active users, reflectors, or blockers. To obtain this contextual awareness, CommRad unites wireless sensing capabilities of bi-static radio communication with the mono-static radar sensor, allowing radios to provide initial context to radar sensors. Subsequently, the radar aids in user tracking and sustains mobile links even in obstructed scenarios, resulting in robust and high-throughput directional connections for all mobile users at all times. We evaluate this collaborative radar-radio framework using a 28 GHz mmWave testbed integrated with a radar sensor in various indoor and outdoor scenarios, demonstrating a 2.5x improvement in median throughput and an 8x improvement in 20th percentile throughput compared to a non-collaborative baseline.",
+          "image": "/images/wcsng-publications/respic/5G/commrad_collab_learning.png",
+          "image_width": 800
+        },
+        {
+          "title": "Synchronized radar and radio platform",
+          "text": "We built a synchronized 28 GHz Radio and 24 Ghz Radar platform controlled via an FPGA for a trigger-based synchronization.",
+          "image": "/images/wcsng-publications/respic/5G/commrad_sync_radar_radio.png",
+          "image_width": 800
+        },
+        {
+          "title": "This project won the <span class=\"red-text\">Qualcomm Innovation Fellowship</span> in 2022",
+          "text": "Original award winning QIF poster outlining the original idea of CommRad in May 2022.",
+          "image": "/images/wcsng-publications/respic/5G/commrad_poster_qif.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+
+      ],
+      "video": "https://www.youtube.com/watch?v=dfIJFsQHZpE&feature=youtu.be",
+      "video2": null,
+      "video_str": "Video",
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2025-02-28-c-shenron-demo": {
+      "source_post": "2025-02-28-c-shenron-demo.md",
+      "title": "Demo - C-Shenron: Radar Simulation Framework for CARLA",
+      "short_title": "C-Shenron-Demo",
+      "conference": "Demo at SenSys 2025",
+      "conference_site": "https://sensys.acm.org/2025/",
+      "paper": "/files/c-shenron_demo.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/c-shenron-demo/c-shenron.png",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "authors": "Pushkal Mishra, Satyam Srivastava, Jerry Li, Kshitiz Bansal, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Pushkal Mishra",
+          "url": "https://pushkalm11.github.io/",
+          "email": "pumishra@ucsd.edu"
+        },
+        {
+          "name": "Satyam Srivastava",
+          "url": "https://satyam-53.github.io/",
+          "email": "f20190188@pilani.bits-pilani.ac.in"
+        },
+        {
+          "name": "Jerry Li",
+          "email": "jli793@ucr.edu"
+        },
+        {
+          "name": "Kshitiz Bansal",
+          "url": "https://kshitizbansal.com/",
+          "email": "ksbansal@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Driving Videos",
+          "content_url": "https://www.youtube.com/playlist?list=PLMklUDp_gXNE2W83f0UNoK7Vrs9QZROIv"
+        },
+        {
+          "content_type": "Project Webpage",
+          "content_url": "https://wcsng.ucsd.edu/c-shenron"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2025-03-26-sensync": {
+      "source_post": "2025-03-26-sensync.md",
+      "title": "SenSync: Real-Time and Accurate Passive Sensing",
+      "short_title": "SenSync",
+      "conference": "IEEE RFID 2025",
+      "conference_site": "https://2025.ieee-rfid.org/",
+      "paper": "/files/sensync.pdf",
+      "github": "https://github.com/ucsdwcsng/SenSync",
+      "dataset": null,
+      "slides": "/files/sensync_slides.pdf",
+      "extra": null,
+      "cover": "/images/wcsng-publications/zensetag/sensync-overview.jpg",
+      "display_cover": true,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        }
+      ],
+      "authors": "Ishan Bansal, Nagarjun Bhat, Agrim Gupta, Harine Govindarajan, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ishan Bansal",
+          "url": "https://b-ishan.github.io/",
+          "email": "isbansal@ucsd.edu"
+        },
+        {
+          "name": "Nagarjun Bhat",
+          "email": "nbhat@ucsd.edu"
+        },
+        {
+          "name": "Agrim Gupta",
+          "url": "https://agrim9.github.io/",
+          "email": "agg003@ucsd.edu"
+        },
+        {
+          "name": "Harine Govindarajan",
+          "email": "hgovindarajan@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Winner of Best Paper Award at the IEEE RFID Conference in 2025"
+        },
+        {
+          "title": "Overview of SenSync",
+          "text": "SenSync tackles key challenges in RFID-based differential sensing systems, including temporal misalignment, phase ambiguity, and environmental sensitivity. Traditional techniques are limited by sequential data processing, which introduces time shifts, and arbitrary phase jumps injected by commercial RFID readers, which obscure accurate differential measurements. These issues, compounded by multipath effects and dynamic environments, hinder the deployment of robust RFID sensing systems at scale. To address these challenges, we propose innovative algorithms and signal processing techniques to align and interpret time-shifted data from multiple ICs. Our approach mitigates the effects of temporal misalignment and phase ambiguity, ensuring reliable differential sensing in real-world applications. By improving data alignment and robustness, we accelerate the sensory resolution by 5x. Furthermore, we developed a user interface capable of automatically detecting sensors within the system’s field of operation and displaying their readings in real-time, demonstrating the practical applicability and versatility of our proposed solution."
+        },
+        {
+          "title": "Design and Idea of SenSync",
+          "text": "SenSync is designed to tackle challenges in differential RFID sensing, such as temporal mismatches and phase ambiguity. Traditional systems suffer from sequential tag reading and variable energy harvesting times, leading to inconsistent phase measurements. SenSync addresses these issues with a novel algorithm that aligns and processes RFID signals in real time. A key feature of SenSync is its use of Dynamic Time Warping (DTW) to synchronize phase sequences from multiple RFID tags, overcoming time shifts introduced by commercial RFID readers. By analyzing backscattered signals across multiple frequency channels, the system ensures robust phase difference calculations. Empirical testing showed that maintaining at least three stable channels mitigates phase errors caused by frequency hopping. SenSync also enhances throughput by optimizing RFID reader configurations. Unlike previous works that rely on low-throughput 3rd party interfaces, SenSync employs the Impinj Octane SDK, enabling an eightfold increase in sampling rate. This improvement allows for faster and more reliable real-time sensing. Additionally, SenSync operates across different computing environments, supporting both Java and Python implementations. Its deterministic approach eliminates the need for extensive training datasets, making it adaptable to various real-world sensing applications. This innovation significantly improves the accuracy and efficiency of RFID-based differential sensing systems.",
+          "image": "/images/wcsng-publications/zensetag/sensync-dtw.jpg",
+          "image_width": 800
+        },
+        {
+          "title": "Evaluation of SenSync against State-of-the-Art Techniques",
+          "text": "SenSync's performance was assessed under both controlled and dynamic conditions to demonstrate its advantages over existing differential RFID sensing methods. The evaluation compared SenSync with ZenseTag, both in terms of accuracy and robustness. In static conditions, SenSync was tested using a Simulatory Stubbed Tag (SST) placed 50 cm from the RFID antenna. Results showed that SenSync produced significantly lower phase error than ZenseTag, highlighting its superior precision. The median error in computing phase differences was reduced, making SenSync a more reliable solution for differential sensing. Under dynamic conditions, where disturbances such as moving objects and lateral tag movements were introduced, SenSync continued to outperform other methods. It maintained a median phase error of just 0.79°, compared to significantly higher errors observed with ZenseTag. Further analysis demonstrated that SenSync’s integration of DTW alignment and high-throughput data collection played a crucial role in improving accuracy. Additionally, SenSync was evaluated using a commercial Force-Sensitive Resistor (FSR) to classify weight changes. The results showed that SenSync achieved significantly higher accuracy than existing state-of-the-art methods, even when dealing with metallic weights. These findings confirm that SenSync enhances RFID-based sensing, providing more precise and reliable real-time measurements across various environments."
+        }
+      ],
+      "citation": [
+        {
+          "text": "I. Bansal, N. Bhat, A. Gupta, H. Govindarajan and D. Bharadia, \"SenSync: Real-Time and Accurate Passive Sensing,\" 2025 IEEE International Conference on RFID (RFID), Atlanta, GA, USA, 2025, pp. 1-6, doi: 10.1109/RFID64926.2025.11015540.",
+          "bibtex": "<pre xml:space=\"preserve\"> @INPROCEEDINGS{11015540, author={Bansal, Ishan and Bhat, Nagarjun and Gupta, Agrim and Govindarajan, Harine and Bharadia, Dinesh}, booktitle={2025 IEEE International Conference on RFID (RFID)}, title={SenSync: Real-Time and Accurate Passive Sensing}, year={2025}, volume={}, number={}, pages={1-6}, keywords={Wireless communication;Weight measurement;Wireless sensor networks;Accuracy;Signal processing algorithms;Real-time systems;Sensors;Passive RFID tags;Remote sensing;Radiofrequency identification;Algorithm;Passive System;Real-Time Sensing}, doi={10.1109/RFID64926.2025.11015540}} </pre>"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "Poster",
+          "content_url": "/files/sensync_poster.pdf"
+        },
+        {
+          "content_type": "Digital Library",
+          "content_url": "https://doi.org/10.1109/RFID64926.2025.11015540"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2025-06-19-c-shenron": {
+      "source_post": "2025-06-19-c-shenron.md",
+      "title": "C-Shenron: A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA",
+      "short_title": "C-Shenron",
+      "conference": "IEEE Vehicular Technology Conference (VTC) 2025",
+      "conference_site": "https://ieeexplore.ieee.org/document/11310463",
+      "paper": "/files/c-shenron-paper.pdf",
+      "github": "https://github.com/ucsdwcsng/c-shenron",
+      "dataset": "http://wcsng-41.nrp-nautilus.io:8000/",
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/c-shenron/c-shenron-integration.png",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "authors": "Satyam Srivastava, Jerry Li, Pushkal Mishra, Kshitiz Bansal, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Satyam Srivastava*",
+          "email": "srivastavasatyam53@gmail.com"
+        },
+        {
+          "name": "Jerry Li*",
+          "email": "jli793@ucr.edu"
+        },
+        {
+          "name": "Pushkal Mishra*",
+          "url": "https://pushkalm11.github.io/",
+          "email": "pumishra@ucsd.edu"
+        },
+        {
+          "name": "Kshitiz Bansal",
+          "url": "https://kshitizbansal.com/",
+          "email": "ksbansal@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Carla Radar vs C-Shenron Radar",
+          "text": "The following image shows a comparison of the radar sensor output from CARLA and C-Shenron. The camera view is from inside the ego vehicle whereas both radar views are in bird's eye view. Clearly from the image, CARLA radar only provides sparse point clouds whereas C-Shenron provides a dense Range-AoA map.",
+          "image": "/images/wcsng-publications/c-shenron/carla-vs-c-shenron-radar.png"
+        },
+        {
+          "title": "High Level Implementation",
+          "text": "<p>The following diagram illustrates a high level overview of our sensor integration into CARLA and the evaluation framework for End-to-End Driving.</p>\n<a href=\"/assets/images/c-shenron/c-shenron-flowchart.png\"><center><img src=\"/assets/images/c-shenron/c-shenron-flowchart.png\" width=\"80%\" style=\"float:center\" ></center> </a>\n<br> <p>The <a href=\"https://github.com/autonomousvision/carla_garage\">Transfuser++ model</a> is the state-of-the-art End-to-End driving model that utilizes Camera and LiDAR sensors for perception and path planning. The model is trained on data from an expert driver provided by CARLA and it predicts the future waypoints/direction and the velocity of the ego vehicle. We substitute the LiDAR input with our integrated C-Shenron radar sensor and re-train multiple models with varying radar views. In our results, we showcase that using radar sensors have improved the driving score and overall situational awareness of the model, indicating the accuracy of our sensor.</p>"
+        },
+        {
+          "title": "Sensor Views",
+          "text": "Comparison of views from Camera, Semantic LiDAR, and Shenron Radar in CARLA simulator. Like the above image, the camera view is from inside the ego vehicle whereas both radar views are in bird's eye view.",
+          "image": "/images/wcsng-publications/c-shenron/c-shenron.png"
+        }
+      ],
+      "citation": [
+
+      ],
+      "miscs": [
+        {
+          "content_type": "Dataset",
+          "content_url": "http://wcsng-41.nrp-nautilus.io:8000/"
+        },
+        {
+          "content_type": "Driving Videos",
+          "content_url": "https://www.youtube.com/playlist?list=PLMklUDp_gXNE2W83f0UNoK7Vrs9QZROIv"
+        },
+        {
+          "content_type": "Supplementary Material",
+          "content_url": "/files/c-shenron-supplementary-materials.pdf"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2025-09-26-tunetag": {
+      "source_post": "2025-09-26-tunetag.md",
+      "title": "TuneTag: Impedance-Matched RFID Tag for Long-Range and Reliable Battery-Free Sensing",
+      "short_title": "TuneTag",
+      "conference": "IEEE Journal of RFID",
+      "conference_site": "https://www.ieee-rfid.org/ieee-jrfid/",
+      "paper": "/files/TuneTag.pdf",
+      "github": "https://github.com/ucsdwcsng/SenSync",
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/zensetag/tunetag-overview.jpg",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        }
+      ],
+      "authors": "Ishan Bansal, Nagarjun Bhat, Agrim Gupta, Harine Govindarajan, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ishan Bansal*",
+          "url": "https://b-ishan.github.io/",
+          "email": "isbansal@ucsd.edu"
+        },
+        {
+          "name": "Nagarjun Bhat*",
+          "email": "nbhat@ucsd.edu"
+        },
+        {
+          "name": "Harine Govindarajan*",
+          "email": "hgovindarajan@ucsd.edu"
+        },
+        {
+          "name": "Agrim Gupta",
+          "url": "https://agrim9.github.io/",
+          "email": "agg003@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "title": "Overview of TuneTag",
+          "text": "While RFID has expanded to passive sensing, its adoption is limited by constrained range and challenges like data sparsity, temporal misalignment, phase ambiguity, and environmental interference. We introduce TuneTag, a passive sensing platform featuring a custom tag with a novel impedance matched antenna for improved precision and range, alongside a low-complexity algorithm compatible with commercial RFID readers and ICs. This algorithm corrects timing and phase inconsistencies, enabling robust differential sensing. Our evaluations demonstrate that TuneTag achieves a 5× improvement in sensing accuracy, a 2.4× extended range, and reduces latency to subsecond levels, yielding a 5× improvement in response time over State of the Art systems. The system features a graphical user interface (GUI) for near real-time sensor output display. We developed an Augmented Reality (AR) smartphone app that detects sensors and overlays live camera feeds with real-time data.",
+          "image": "/images/wcsng-publications/zensetag/tunetag-overview.jpg"
+        },
+        {
+          "title": "Design and Idea of TuneTag",
+          "text": "The TuneTag hardware is designed around the principle of impedance standardization to maximize energy transfer efficiency and enable robust differential sensing at long range. A key innovation lies in the two-step matching process. First, a passive matching network ensures conjugate matching between the RFID ICs (with highly reactive input impedances) and the 50 Ω transmission lines from the Wilkinson Power Combiner. This reduces reflection loss and improves both harvested energy and backscatter stability. Second, instead of relying on conventional conjugate-matched tag antennas, TuneTag employs a novel compact antenna structure that is itself matched to 50 Ω at its input, thereby maintaining uniform impedance across the system. This architecture eliminates the cascading mismatch losses typical in prior designs such as ZenseTag, yielding up to 6 dB RSSI improvement and a 2.4× range extension. Fabricated on a thin flexible polyimide substrate, the design balances low-cost scalability, compact form factor, and high performance",
+          "image": "/images/wcsng-publications/zensetag/tunetag-matching.jpg"
+        },
+        {
+          "title": "Evaluation of TuneTag",
+          "text": "The evaluation of TuneTag demonstrates substantial improvements in range, stability, and sensing accuracy compared to prior RFID sensing platforms. Antenna characterization, performed through HFSS simulations and anechoic chamber measurements, confirmed proper tuning of the integrated antenna within the UHF RFID band once mounted on the PCB, despite standalone resonance shifts. Range tests showed a 2.4× extension over ZenseTag, with reliable operation up to 2.4 m even without matching components, highlighting the benefit of impedance standardization. Benchmarking of differential RSSI and phase revealed dramatic reductions in variability: standard deviation dropped from ~1 dB to <0.1 dB for RSSI and from ~0.18° to <0.02° for phase. These gains directly translate to more reliable sensor readouts in multipath-rich, dynamic environments. Further experiments with known resistive, capacitive, and inductive components validated TuneTag’s ability to accurately sense diverse impedance changes, with measured results aligning closely with simulations. Together, these evaluations confirm TuneTag’s robustness, scalability, and suitability for real-world battery-free sensing",
+          "image": "/images/wcsng-publications/zensetag/tunetag-eval.jpg"
+        }
+      ],
+      "citation": [
+        {
+          "text": "I. Bansal, N. Bhat, H. Govindarajan, A. Gupta and D. Bharadia, \"TuneTag: Impedance-Matched RFID Tag for Long-Range and Reliable Battery-Free Sensing\", in IEEE Journal of Radio Frequency Identification, doi: 10.1109/JRFID.2025.3614590.",
+          "bibtex": "<pre xml:space=\"preserve\"> @ARTICLE{11182597, author={Bansal, Ishan and Bhat, Nagarjun and Govindarajan, Harine and Gupta, Agrim and Bharadia, Dinesh}, journal={IEEE Journal of Radio Frequency Identification}, title={TuneTag: Impedance-Matched RFID Tag for Long-Range and Reliable Battery-Free Sensing}, year={2025}, volume={}, number={}, pages={1-1}, keywords={Sensors;Antennas;Impedance;Accuracy;Transmission line measurements;Reliability;Phase measurement;Hardware;Signal processing algorithms;Real-time systems;Impedance Matching;Passive Sensing Range;Sensing Accuracy;Real-time sensing}, doi={10.1109/JRFID.2025.3614590}} </pre>"
+        }
+      ],
+      "miscs": [
+        {
+          "content_type": "Digital Library",
+          "content_url": "https://doi.org/10.1109/jrfid.2025.3614590"
+        }
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2025-12-12-prism": {
+      "source_post": "2025-12-12-prism.md",
+      "title": "Log Pruning for Efficient Q&A in 5G Networks",
+      "short_title": "PRISM",
+      "conference": "ACM Open-AI RAN 2025 Workshop",
+      "conference_site": "https://wcsng.ucsd.edu/open-ai-ran-2025/",
+      "paper": "/files/prism.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/prism/prism_cover.png",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "networking",
+          "label": "Networking"
+        },
+        {
+          "slug": "systems",
+          "label": "Systems"
+        },
+        {
+          "slug": "llm",
+          "label": "LLM"
+        },
+        {
+          "slug": "rag",
+          "label": "RAG"
+        }
+      ],
+      "authors": "Ali Mamaghani, Qingyuan Zheng, Ushasi Ghosh, Vicram Rajagopalan, Srinivas Shakkottai, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ali Mamaghani",
+          "url": "https://www.linkedin.com/in/ali-mamaghani/",
+          "email": "amamaghani@ucsd.edu"
+        },
+        {
+          "name": "Qingyuan Zheng",
+          "email": "qiz066@ucsd.edu"
+        },
+        {
+          "name": "Ushasi Ghosh",
+          "url": "https://ushasigh.github.io/",
+          "email": "ughosh@ucsd.edu"
+        },
+        {
+          "name": "Vicram Rajagopalan",
+          "email": "vicram@tamu.edu"
+        },
+        {
+          "name": "Srinivas Shakkottai",
+          "email": "sshakkot@tamu.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "Modern 5G networks generate gigabytes of DEBUG-level logs per minute across distributed components including CU, DU, RU, and 5GC. These logs are critical for debugging, root cause analysis, and performance monitoring—but are far too large and heterogeneous for direct use with Large Language Models (LLMs). Traditional Retrieval-Augmented Generation (RAG) pipelines struggle at this scale due to embedding overhead, vector search latency, and limited context windows."
+        },
+        {
+          "text": "We introduce PRISM, a log-aware real-time RAG architecture that enables efficient natural-language question answering over massive 5G log streams. PRISM exploits the structured and repetitive nature of logs by transforming raw entries into template-level representations using n-gram vectorization and dynamic-field masking. Instead of embedding every log line, PRISM builds a compact template library offline and performs high-speed correlation-based pruning online.",
+          "image": "/images/wcsng-publications/prism/prism.png",
+          "image_width": 800
+        },
+        {
+          "text": "At query time, PRISM retrieves top-k relevant templates using semantic search over augmented template embeddings. These templates are converted into a filter matrix that rapidly matches and selects only the most relevant log entries from the incoming stream. This matrix-based pruning bypasses expensive index lookups and dramatically reduces token count before LLM inference.",
+          "image": "/images/wcsng-publications/prism/arch.png",
+          "image_width": 800
+        },
+        {
+          "text": "We evaluate PRISM on a real-world O-RAN compliant 5G standalone testbed under split-8 and split-7.2 architectures. Across diverse multi-UE, mobility, congestion, and SNR-degradation scenarios, short experiments generate up to 2.8 GB of logs in under two minutes. Using a curated 5G log Q&A dataset, PRISM achieves up to 85% compression while improving answer accuracy and reducing generation latency by more than 3× compared to unpruned baselines."
+        },
+        {
+          "text": "Our results show that aggressive pruning can improve both speed and accuracy by eliminating noisy context that confuses LLM reasoning. PRISM enables real-time, scalable log interrogation and paves the way for intelligent 5G monitoring, cross-layer diagnosis, and automated network analytics.",
+          "image": "/images/wcsng-publications/prism/results.png",
+          "image_width": 800
+        }
+      ],
+      "citation": [
+        {
+          "text": "Ali Mamaghani, Qingyuan Zheng, Ushasi Ghosh, Vicram Rajagopalan, Srinivas Shakkottai, Dinesh Bharadia. \"Log Pruning for Efficient Q&A in 5G Networks.\" In Proceedings of the 2nd ACM Workshop on Open & AI RAN, ACM MobiCom 2025, Hong Kong, China, 2025."
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2026-01-22-arraylink": {
+      "source_post": "2026-01-22-arraylink.md",
+      "title": "Satellites are closer than you think: A near field MIMO approach for Ground stations",
+      "short_title": "ArrayLink",
+      "conference": "IEEE INFOCOM 2026 [Submitted: July 2025, Accepted: Dec 2025]",
+      "conference_site": "https://infocom2026.ieee-infocom.org/",
+      "paper": "/files/arraylink.pdf",
+      "github": "https://github.com/ucsdwcsng/ArrayLink",
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/arraylink/arraylink_cover.png",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "authors": "Rohith Reddy Vennam, Luke Wilson, Ish Kumar Jain, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Rohith Reddy Vennam",
+          "url": "https://acsweb.ucsd.edu/~rvennam/",
+          "email": "rvennam@ucsd.edu"
+        },
+        {
+          "name": "Luke Wilson",
+          "email": "l5wilson@ucsd.edu"
+        },
+        {
+          "name": "Ish Kumar Jain",
+          "url": "https://ishjain.github.io/",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "The rapid growth of low Earth orbit (LEO) satellite constellations has revolutionized broadband access, Earth observation, and direct-to-device connectivity. However, the expansion of ground station infrastructure has not kept pace, creating a critical bottleneck in satellite-to-ground backhaul capacity. Traditional parabolic dish antennas, though effective for geostationary (GEO) satellites, are ill-suited for dense, fast-moving LEO networks due to mechanical steering delays and their inability to track multiple satellites simultaneously. Phased array antennas offer electronically steerable beams and multi-satellite support. However, their integration into ground stations is limited by the high cost, hardware issues, and complexity of achieving sufficient antenna gain.",
+          "image": "/images/wcsng-publications/arraylink/arraylink_motivation.png",
+          "image_width": 800
+        },
+        {
+          "text": "We introduce ArrayLink, a distributed phased array architecture that coherently combines multiple small, commercially available panels to achieve high-gain beamforming and unlock line-of-sight MIMO spatial multiplexing with minimal additional capital expenditure. By spacing 16 32x32 panels across a kilometer‐scale aperture, ArrayLink enters the radiative near-field, focusing energy in both angle and range while supporting up to four simultaneous spatial streams on a single feeder link. Through rigorous theoretical analysis, detailed 2D beam pattern simulations and real-world hardware experiments, we show that ArrayLink (i) achieves dish-class gain exceeding that of a 1.47 m reflector, (ii) maintains four parallel streams at ranges of hundreds of kilometers (falling to two beyond 2000 km), and (iii) exhibits tight agreement across theory, simulation, and experiment with minimal variance. These findings pave the way for a practical and scalable approach to boosting satellite backhaul capacity."
+        }
+      ],
+      "citation": [
+        {
+          "text": "Rohith Reddy Vennam, Luke Wilson, Ish Kumar Jain, Dinesh Bharadia. \"Satellites are Closer Than You Think: A Near-Field MIMO Approach for Ground Stations.\" In IEEE INFOCOM 2026-IEEE Conference on Computer Communications, IEEE, 2026."
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    },
+    "2026-02-12-tiny-twin": {
+      "source_post": "2026-2-12-Tiny-Twin.md",
+      "title": "Tiny-Twin: A CPU-Native Full-stack Digital Twin for NextG Cellular Networks",
+      "short_title": "Tiny-Twin",
+      "conference": "IEEE DySPAN 2026",
+      "conference_site": "https://dyspan2026.ieee-dyspan.org/",
+      "paper": "/files/TinyTwin_DySpan.pdf",
+      "github": null,
+      "dataset": null,
+      "slides": null,
+      "extra": null,
+      "cover": "/images/wcsng-publications/tinytwin/tinytwin_intro_tt.png",
+      "display_cover": false,
+      "tags": [
+        {
+          "slug": "networking",
+          "label": "Networking"
+        },
+        {
+          "slug": "systems",
+          "label": "Systems"
+        }
+      ],
+      "authors": "Ali Mamaghani, Ushasi Ghosh, Ish Kumar Jain, Srinivas Shakkottai, Dinesh Bharadia",
+      "author_list": [
+        {
+          "name": "Ali Mamaghani",
+          "url": "https://www.linkedin.com/in/ali-mamaghani/",
+          "email": "amamaghani@ucsd.edu"
+        },
+        {
+          "name": "Ushasi Ghosh",
+          "url": "https://ushasigh.github.io/",
+          "email": "ughosh@ucsd.edu"
+        },
+        {
+          "name": "Ish Kumar Jain",
+          "email": "ikjain@ucsd.edu"
+        },
+        {
+          "name": "Srinivas Shakkottai",
+          "email": "sshakkot@tamu.edu"
+        },
+        {
+          "name": "Dinesh Bharadia",
+          "url": "https://dineshb-ucsd.github.io/",
+          "email": "dineshb@ucsd.edu"
+        }
+      ],
+      "description": [
+        {
+          "text": "NextG cellular networks continue to grow in architectural complexity, particularly with the rise of flexible functional splits—techniques that partition the protocol stack between centralized units (CUs), distributed units (DUs), and remote radio units (RUs). These systems span heterogeneous deployments including millimeter-wave, sub-6 GHz, and satellite links, each with distinct characteristics and performance requirements. Developing, testing, and debugging such intricate systems is challenging and requires high-fidelity digital twins that can accurately emulate network behavior at scale. However, existing simulation solutions have fundamental limitations: many rely on specialized hardware accelerators that are expensive and unavailable to most researchers, while others provide only limited fidelity or cannot model the full protocol stack. This gap between simulation accessibility and fidelity has become a significant bottleneck for nextG network innovation and testing.",
+          "image": "/images/wcsng-publications/tinytwin/fig3.png",
+          "image_width": 800
+        },
+        {
+          "text": "Tiny-Twin addresses these challenges head-on by providing a CPU-native, full-stack digital twin platform purpose-built for NextG cellular networks. Our key innovation is enabling accurate, full-stack simulation of complete network protocols—from physical layer through MAC and RLC to higher layers—while running efficiently on standard computing hardware without specialized accelerators. Tiny-Twin supports multiple functional splits (including split-7.2 and split-8), diverse network topologies, and heterogeneous deployment scenarios. The system is architected to handle realistic traffic patterns, mobility events, and channel conditions while maintaining simulation fidelity. Our extensive evaluation on a real-world O-RAN compliant testbed demonstrates that Tiny-Twin achieves near real-time simulation performance across diverse scenarios—including multi-user environments, high-speed mobility, congestion conditions, and degraded signal scenarios—while accurately predicting network behavior. This makes Tiny-Twin an accessible, practical tool for researchers, developers, and operators to rapidly prototype, validate, and optimize algorithms before deployment to live networks."
+        }
+      ],
+      "citation": [
+        {
+          "text": "Ali Mamaghani, Ushasi Ghosh, Ish Kumar Jain, Vicram Rajagopalan, Srinivas Shakkottai, Dinesh Bharadia. \"Tiny-Twin: A CPU-Native Full-stack Digital Twin for NextG Cellular Networks.\" In 2026 IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN)"
+        }
+      ],
+      "miscs": [
+
+      ],
+      "video": null,
+      "video2": null,
+      "video_str": null,
+      "banner": null,
+      "body_markdown": null,
+      "acceptance_rate": null,
+      "acceptance_note": null
+    }
+  },
+  "publication_tags": [
+    {
+      "slug": "communications",
+      "label": "Communications",
+      "count": 17
+    },
+    {
+      "slug": "backscatter",
+      "label": "Backscatter",
+      "count": 6
+    },
+    {
+      "slug": "spectrum-sensing",
+      "label": "Spectrum Sensing",
+      "count": 6
+    },
+    {
+      "slug": "security",
+      "label": "Security",
+      "count": 5
+    },
+    {
+      "slug": "vehicle",
+      "label": "Vehicle",
+      "count": 4
+    },
+    {
+      "slug": "wireless-sensing",
+      "label": "Wireless Sensing",
+      "count": 4
+    },
+    {
+      "slug": "networking",
+      "label": "Networking",
+      "count": 2
+    },
+    {
+      "slug": "systems",
+      "label": "Systems",
+      "count": 2
+    },
+    {
+      "slug": "llm",
+      "label": "LLM",
+      "count": 1
+    },
+    {
+      "slug": "rag",
+      "label": "RAG",
+      "count": 1
+    }
+  ],
+  "resources": {
+    "wiros": {
+      "source_post": "2023-03-01-wiros.md",
+      "cover": "/images/wcsng-publications/pubpic/wiros.jpg",
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "conference": "IPSN Demo 2023",
+      "short_title": "WiROS"
+    },
+    "uloc": {
+      "source_post": "2021-09-14-uloc.md",
+      "cover": "/images/wcsng-publications/pubpic/uloc-overview.jpg",
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "conference": "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT) 2021",
+      "short_title": "ULoc"
+    },
+    "signet": {
+      "source_post": "2019-06-16-signet.md",
+      "cover": "/images/wcsng-publications/pubpic/signet.png",
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "conference": "CVPR 2019",
+      "short_title": "SIGNet"
+    },
+    "shenron": {
+      "source_post": "2023-12-05-shenron.md",
+      "cover": "/images/wcsng-publications/pubpic/shenron.jpg",
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "conference": "RAL 2023",
+      "short_title": "Shenron"
+    },
+    "dpa": {
+      "source_post": "2023-01-26-dpa.md",
+      "cover": "/images/wcsng-publications/pubpic/dpa.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "Infocom 2023 [Submitted: July 2022, Accepted: Dec 2022, Presented: May 2023], Mobihoc 2025",
+      "short_title": "mmFlexible"
+    },
+    "mmreliable": {
+      "source_post": "2021-08-24-mmreliable.md",
+      "cover": "/images/wcsng-publications/pubpic/mmreliable.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "Sigcomm 2021",
+      "short_title": "mmReliable"
+    },
+    "edgeric": {
+      "source_post": "2024-04-17-edgeric.md",
+      "cover": "/images/wcsng-publications/pubpic/edgeric_intro.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "NSDI 2024",
+      "short_title": "EdgeRIC"
+    },
+    "mmsubarray": {
+      "source_post": "2024-08-01-mmsubarray.md",
+      "cover": "/images/wcsng-publications/mmsubarray/mmsubarray_cover.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "Small Satellite Conference 2024",
+      "short_title": "mmSubArray"
+    },
+    "phoenix": {
+      "source_post": null,
+      "cover": null,
+      "tags": [
+        {
+          "slug": "nextg-wireless-systems",
+          "label": "NextG Wireless Systems"
+        }
+      ],
+      "conference": null,
+      "short_title": null
+    },
+    "perfetto-trace-analysis": {
+      "source_post": null,
+      "cover": null,
+      "tags": [
+        {
+          "slug": "nextg-wireless-systems",
+          "label": "NextG Wireless Systems"
+        }
+      ],
+      "conference": null,
+      "short_title": null
+    },
+    "sensync": {
+      "source_post": "2025-03-26-sensync.md",
+      "cover": "/images/wcsng-publications/zensetag/sensync-overview.jpg",
+      "tags": [
+        {
+          "slug": "backscatter",
+          "label": "Backscatter"
+        }
+      ],
+      "conference": "IEEE RFID 2025",
+      "short_title": "SenSync"
+    },
+    "beamarmor": {
+      "source_post": "2024-03-01-beamarmor.md",
+      "cover": "/images/wcsng-publications/pubpic/beamarmor.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "Hotmobile 2024 [Live Demo at Milcom'23 and Hotmobile'24]",
+      "short_title": "BeamArmor"
+    },
+    "sweepsense": {
+      "source_post": "2019-02-26-sweepsense.md",
+      "cover": "/images/wcsng-publications/pubpic/sweepsense.png",
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "NSDI 2019",
+      "short_title": "SweepSense"
+    },
+    "sparsdr": {
+      "source_post": "2019-06-12-sparsdr.md",
+      "cover": "/images/wcsng-publications/pubpic/sparSDR.png",
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        }
+      ],
+      "conference": "Mobisys 2019",
+      "short_title": "SparSDR"
+    },
+    "rfsynth": {
+      "source_post": "2024-05-15-rfsynth.md",
+      "cover": "/images/wcsng-publications/pubpic/rfsynth.png",
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "IEEE DySPAN 2024",
+      "short_title": "RFSynth"
+    },
+    "bsma": {
+      "source_post": "2022-10-14-bsma.md",
+      "cover": "/images/wcsng-publications/pubpic/bsma.png",
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "MobiCom 2022",
+      "short_title": "BSMA"
+    },
+    "crescendo": {
+      "source_post": "2023-10-29-crescendo.md",
+      "cover": "/images/wcsng-publications/pubpic/crescendo.png",
+      "tags": [
+        {
+          "slug": "spectrum-sensing",
+          "label": "Spectrum Sensing"
+        },
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "MobiCom 2023",
+      "short_title": "Crescendo"
+    },
+    "dloc": {
+      "source_post": "2020-09-21-dloc.md",
+      "cover": "/images/wcsng-publications/pubpic/dloc.png",
+      "tags": [
+        {
+          "slug": "wireless-sensing",
+          "label": "Wireless Sensing"
+        }
+      ],
+      "conference": "Mobicom 2020",
+      "short_title": "DLoc"
+    },
+    "mmobile": {
+      "source_post": "2020-09-25-mmobile.md",
+      "cover": "/images/wcsng-publications/pubpic/mMobile.png",
+      "tags": [
+        {
+          "slug": "communications",
+          "label": "Communications"
+        }
+      ],
+      "conference": "mmNets 2020",
+      "short_title": "mMobile"
+    },
+    "greenmo": {
+      "source_post": null,
+      "cover": null,
+      "tags": [
+        {
+          "slug": "nextg-wireless-systems",
+          "label": "NextG Wireless Systems"
+        }
+      ],
+      "conference": null,
+      "short_title": null
+    },
+    "pointillism": {
+      "source_post": "2020-11-17-pointillism.md",
+      "cover": "/images/wcsng-publications/pubpic/pointillism2.png",
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "conference": "Sensys 2020",
+      "short_title": "Pointillism"
+    },
+    "c-shenron": {
+      "source_post": "2025-06-19-c-shenron.md",
+      "cover": "/images/wcsng-publications/c-shenron/c-shenron-integration.png",
+      "tags": [
+        {
+          "slug": "vehicle",
+          "label": "Vehicle"
+        }
+      ],
+      "conference": "IEEE Vehicular Technology Conference (VTC) 2025",
+      "short_title": "C-Shenron"
+    }
+  },
+  "resource_tags": [
+    {
+      "slug": "communications",
+      "label": "Communications",
+      "count": 10
+    },
+    {
+      "slug": "spectrum-sensing",
+      "label": "Spectrum Sensing",
+      "count": 5
+    },
+    {
+      "slug": "vehicle",
+      "label": "Vehicle",
+      "count": 4
+    },
+    {
+      "slug": "nextg-wireless-systems",
+      "label": "NextG Wireless Systems",
+      "count": 3
+    },
+    {
+      "slug": "wireless-sensing",
+      "label": "Wireless Sensing",
+      "count": 3
+    },
+    {
+      "slug": "backscatter",
+      "label": "Backscatter",
+      "count": 1
+    }
+  ],
+  "unmatched": {
+    "publications": [
+      "2011-01-01-Relay-and-power-allocation-schemes-for-OFDM-based-cognitive-radio-systems",
+      "2011-09-01-Practical-real-time-full-duplex-wireless",
+      "2013-01-01-QualComp-a-new-lossy-compressor-for-quality-scores-based-on-rate-distortion-theory",
+      "2013-08-01-Full-duplex-radios",
+      "2014-04-01-Full-duplex-MIMO-radios",
+      "2014-08-01-Fastforward-Fast-and-constructive-full-duplex-relays",
+      "2015-04-01-Wideo-Fine-grained-device-free-motion-tracing-using-RF-backscatter",
+      "2015-08-01-Backfi-High-throughput-wifi-backscatter",
+      "2015-08-01-Spotfi-Decimeter-level-localization-using-wifi",
+      "2016-08-01-Numfabric-Fast-and-flexible-bandwidth-allocation-in-datacenters",
+      "2016-11-01-Hitchhike-Practical-backscatter-using-commodity-wifi",
+      "2017-04-01-Enabling-high-quality-untethered-virtual-reality",
+      "2017-11-01-Freerider-Backscatter-communication-using-commodity-radios",
+      "2018-12-01-BLoc-CSI-based-accurate-localization-for-BLE-tags",
+      "2019-04-01-Sweepsense-Sensing-5-ghz-in-5-milliseconds-with-low-cost-radios",
+      "2019-06-01-Capttery-Scalable-battery-like-room-level-wireless-power",
+      "2019-06-01-Signet-Semantic-instance-aided-unsupervised-3d-geometry-perception",
+      "2019-06-01-Sparsdr-Sparsity-proportional-backhaul-and-compute-for-sdrs",
+      "2020-04-01-LocAP-Autonomous-Millimeter-Accurate-Mapping-of-WiFi-Infrastructure",
+      "2020-07-01-S3-Net-Semantic-Aware-Self-supervised-Depth-Estimation-with-Monocular-Videos-and-Synthetic-Data",
+      "2020-09-01-A-low-power-backscatter-modulation-system-communicating-across-tens-of-meters-with-standards-compliant-wi-fi-transceivers",
+      "2020-09-01-Deep-learning-based-wireless-localization-for-indoor-navigation",
+      "2020-09-01-ScatterMIMO-Enabling-virtual-MIMO-with-smart-surfaces",
+      "2020-11-01-DroneScale-drone-load-estimation-via-remote-passive-RF-sensing",
+      "2020-11-01-HarvestNet-Mining-Valuable-Training-Data-from-High-Volume-Robot-Sensory-Streams",
+      "2020-11-01-Pointillism-accurate-3D-bounding-box-estimation-with-multi-radars",
+      "2021-01-01-Sampling-Training-Data-for-Continual-Learning-Between-Robots-and-the-Cloud",
+      "2021-01-01-Towards-a-wireless-force-sensor-based-on-wave-backscattering-for-medical-applications",
+      "2021-01-01-Two-beams-are-better-than-one-towards-reliable-and-high-throughput-mmWave-links",
+      "2021-04-01-SyncScatter-Enabling-WiFi-like-synchronization-and-range-for-WiFi-backscatter-Communication",
+      "2021-04-01-WiForce-Wireless-Sensing-and-Localization-of-Contact-Forces-on-a-Space-Continuum",
+      "2021-09-01-SSLIDE-Sound-Source-Localization-for-Indoors-Based-on-Deep-Learning",
+      "2021-09-01-ULoc-Low-Power-Scalable-and-cm-Accurate-UWB-Tag-Localization-and-Tracking-for-Indoor-Applications",
+      "2021-09-01-ZLeaks-Passive-Inference-Attacks-on-Zigbee-based-Smart-Homes",
+      "2021-10-01-Evaluating-Physical-Layer-BLE-Location-Tracking-Attacks-on-Mobile-Devices"
+    ],
+    "resources": [
+      "greenmo",
+      "perfetto-trace-analysis",
+      "phoenix"
+    ]
+  }
+}

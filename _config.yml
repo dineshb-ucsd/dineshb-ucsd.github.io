@@ -17,7 +17,7 @@ repository               : "dineshb-ucsd/dineshb-ucsd.github.io"
 external_redirect:
   hosts:
     - "dineshb-ucsd.github.io"
-  url: "http://web.eng.ucsd.edu"
+  url: "https://web.eng.ucsd.edu"
   baseurl: "/~dineshb"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
@@ -235,10 +235,11 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
+      layout: publication_detail
+      author_profile: false
+      share: false
+      comments: false
+      related: false
   # _research
   # - scope:
   #     path: ""

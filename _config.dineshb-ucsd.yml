@@ -1,0 +1,7 @@
+url: "https://dineshb.ucsd.edu"
+baseurl: ""
+external_redirect:
+  hosts:
+    - "dineshb-ucsd.github.io"
+  url: "https://dineshb.ucsd.edu"
+  baseurl: ""

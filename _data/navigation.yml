@@ -3,6 +3,9 @@ main:
   - title: "Research"
     url: /research/
 
+  - title: "Team"
+    url: /team/
+
   - title: "Publications"
     url: /publications/
 
@@ -11,9 +14,6 @@ main:
 
   - title: "Open Source"
     url: /software/
-
-  - title: "CV"
-    url: /cv/
 
 teaching_courses:
   - title: "Course pages"

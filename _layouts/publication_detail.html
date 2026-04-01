@@ -1,0 +1,223 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% assign publication_key = page.path | split: '/' | last | remove: '.md' %}
+{% assign publication_meta = site.data.wcsng_catalog.publications[publication_key] %}
+{% assign publication_title = publication_meta.title | default: page.title %}
+{% assign publication_short_title = publication_meta.short_title %}
+{% assign publication_conference = publication_meta.conference | default: page.venue %}
+{% assign publication_year = page.date | date: "%Y" %}
+{% assign publication_tags = publication_meta.tags %}
+{% assign publication_authors = publication_meta.authors %}
+{% assign publication_author_list = publication_meta.author_list %}
+{% assign publication_description = publication_meta.description %}
+{% assign publication_citations = publication_meta.citation %}
+{% assign publication_miscs = publication_meta.miscs %}
+{% assign publication_extra = publication_meta.extra %}
+{% assign publication_banner = publication_meta.banner %}
+{% assign publication_body = publication_meta.body_markdown %}
+{% assign publication_cover = publication_meta.cover %}
+{% assign publication_show_cover = false %}
+{% if publication_cover and publication_meta.display_cover != false %}
+  {% assign publication_show_cover = true %}
+{% endif %}
+{% assign paper_href_raw = publication_meta.paper | default: page.paperurl %}
+{% assign github_href_raw = publication_meta.github | default: page.github %}
+{% assign dataset_href_raw = publication_meta.dataset | default: page.dataset %}
+{% assign slides_href_raw = publication_meta.slides | default: page.slides %}
+{% assign venue_href_raw = publication_meta.conference_site | default: page.link %}
+{% assign video_href = publication_meta.video %}
+{% assign video_href_secondary = publication_meta.video2 %}
+{% capture paper_href %}{% include resolve-site-or-wcsng-href.html href=paper_href_raw %}{% endcapture %}
+{% capture github_href %}{% include resolve-site-or-wcsng-href.html href=github_href_raw %}{% endcapture %}
+{% capture dataset_href %}{% include resolve-site-or-wcsng-href.html href=dataset_href_raw %}{% endcapture %}
+{% capture slides_href %}{% include resolve-site-or-wcsng-href.html href=slides_href_raw %}{% endcapture %}
+{% capture venue_href %}{% include resolve-site-or-wcsng-href.html href=venue_href_raw %}{% endcapture %}
+{% assign paper_href = paper_href | strip %}
+{% assign github_href = github_href | strip %}
+{% assign dataset_href = dataset_href | strip %}
+{% assign slides_href = slides_href | strip %}
+{% assign venue_href = venue_href | strip %}
+{% assign acceptance_rate = publication_meta.acceptance_rate %}
+{% assign acceptance_note = publication_meta.acceptance_note %}
+{% assign rendered_page_content = content | strip_html | strip %}
+
+<div id="main" role="main">
+  <article class="page page--feature publication-page" itemscope itemtype="https://schema.org/ScholarlyArticle">
+    <meta itemprop="headline" content="{{ publication_title | escape_once }}">
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+
+    <section class="page__content feature-shell publication-shell" itemprop="articleBody">
+      <div class="publication-detail">
+        <section class="publication-detail__hero{% unless publication_show_cover %} publication-detail__hero--compact{% endunless %}">
+          <div class="publication-detail__copy">
+            <p class="feature-eyebrow">Publication</p>
+            <h1>{{ publication_title }}</h1>
+
+            {% if publication_author_list and publication_author_list.size > 0 %}
+              <p class="publication-detail__authors">
+                {% for author in publication_author_list %}
+                  {% if author.url %}
+                    <a href="{{ author.url }}">{{ author.name }}</a>
+                  {% else %}
+                    <span>{{ author.name }}</span>
+                  {% endif %}
+                  {% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+              </p>
+            {% elsif publication_authors %}
+              <p class="publication-detail__authors">{{ publication_authors }}</p>
+            {% endif %}
+
+            <p class="publication-detail__meta">
+              {% if publication_conference %}<span>{{ publication_conference }}</span>{% endif %}
+              {% if publication_year %}<span>{{ publication_year }}</span>{% endif %}
+              {% if acceptance_rate %}<span>Acceptance rate: {{ acceptance_rate }}</span>{% endif %}
+              {% if acceptance_note and acceptance_rate == nil %}<span>{{ acceptance_note }}</span>{% endif %}
+            </p>
+
+            {% if publication_tags and publication_tags.size > 0 %}
+              <div class="catalog-tag-list">
+                {% for tag in publication_tags %}
+                  <span class="catalog-tag">{{ tag.label }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if publication_extra %}
+              <p class="publication-detail__note">{{ publication_extra }}</p>
+            {% endif %}
+
+            <div class="publication-detail__actions">
+              {% if paper_href != "" %}
+                <a class="publication-detail__action" href="{{ paper_href }}">Paper</a>
+              {% endif %}
+              {% if github_href != "" %}
+                <a class="publication-detail__action" href="{{ github_href }}">Code</a>
+              {% endif %}
+              {% if dataset_href != "" %}
+                <a class="publication-detail__action" href="{{ dataset_href }}">Dataset</a>
+              {% endif %}
+              {% if slides_href != "" %}
+                <a class="publication-detail__action" href="{{ slides_href }}">Slides</a>
+              {% endif %}
+              {% if venue_href != "" %}
+                <a class="publication-detail__action" href="{{ venue_href }}">Venue</a>
+              {% endif %}
+              {% for misc in publication_miscs %}
+                {% capture misc_href %}{% include resolve-site-or-wcsng-href.html href=misc.content_url %}{% endcapture %}
+                {% assign misc_href = misc_href | strip %}
+                {% if misc_href != "" %}
+                  <a class="publication-detail__action" href="{{ misc_href }}">{{ misc.content_type }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          {% if publication_show_cover %}
+            <div class="publication-detail__media">
+              <img src="{{ base_path }}{{ publication_cover }}" alt="{% if publication_short_title %}{{ publication_short_title }}{% else %}{{ publication_title }}{% endif %} visual">
+            </div>
+          {% endif %}
+        </section>
+
+        {% if publication_banner %}
+          <section class="publication-callout">
+            <p>{{ publication_banner }}</p>
+          </section>
+        {% endif %}
+
+        {% if publication_description and publication_description.size > 0 %}
+          {% for block in publication_description %}
+            <section class="publication-section">
+              <div class="publication-section__header">
+                {% if block.title %}
+                  <p class="feature-eyebrow">Section {{ forloop.index }}</p>
+                  <h2>{{ block.title }}</h2>
+                {% elsif forloop.first %}
+                  <p class="feature-eyebrow">Overview</p>
+                  <h2>Abstract and highlights</h2>
+                {% endif %}
+              </div>
+
+              {% if block.text %}
+                <div class="publication-section__content">
+                  {{ block.text | markdownify }}
+                </div>
+              {% endif %}
+
+              {% if block.image %}
+                <div class="publication-section__media">
+                  <img src="{{ base_path }}{{ block.image }}" alt="{% if block.alt %}{{ block.alt }}{% elsif block.title %}{{ block.title }} figure{% else %}{{ publication_title }} figure{% endif %}" {% if block.image_width %}style="max-width: {{ block.image_width }}px"{% endif %}>
+                </div>
+              {% endif %}
+            </section>
+          {% endfor %}
+        {% elsif publication_body %}
+          <section class="publication-section">
+            <div class="publication-section__header">
+              <p class="feature-eyebrow">Overview</p>
+              <h2>Abstract</h2>
+            </div>
+            <div class="publication-section__content">
+              {{ publication_body | markdownify }}
+            </div>
+          </section>
+        {% elsif rendered_page_content != "" %}
+          <section class="publication-section">
+            <div class="publication-section__header">
+              <p class="feature-eyebrow">Overview</p>
+              <h2>Abstract</h2>
+            </div>
+            <div class="publication-section__content">
+              {{ content }}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if video_href or video_href_secondary %}
+          <section class="publication-section">
+            <div class="publication-section__header">
+              <p class="feature-eyebrow">Media</p>
+              <h2>Video</h2>
+            </div>
+            <div class="publication-video-grid">
+              {% if video_href %}
+                <div class="publication-video-frame">
+                  <iframe src="{{ video_href }}" title="{{ publication_title }} video" allowfullscreen loading="lazy"></iframe>
+                </div>
+              {% endif %}
+              {% if video_href_secondary %}
+                <div class="publication-video-frame">
+                  <iframe src="{{ video_href_secondary }}" title="{{ publication_title }} secondary video" allowfullscreen loading="lazy"></iframe>
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        {% endif %}
+
+        {% if publication_citations and publication_citations.size > 0 or page.citation %}
+          <section class="publication-section">
+            <div class="publication-section__header">
+              <p class="feature-eyebrow">Citation</p>
+              <h2>Reference</h2>
+            </div>
+            <div class="publication-section__content">
+              <div class="publication-citation-list">
+                {% if publication_citations and publication_citations.size > 0 %}
+                  {% for citation in publication_citations %}
+                    <p>{{ citation.text }}</p>
+                  {% endfor %}
+                {% elsif page.citation %}
+                  <p>{{ page.citation }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </section>
+        {% endif %}
+      </div>
+    </section>
+  </article>
+</div>

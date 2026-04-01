@@ -5,6 +5,10 @@
 {% if site.url %}
   {% assign seo_url = site.url | append: seo_url %}
 {% endif %}
+{% assign seo_base_path = site.baseurl | default: "" %}
+{% if site.url %}
+  {% assign seo_base_path = site.url | append: seo_base_path %}
+{% endif %}
 
 {% if page.title %}
   {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
@@ -60,11 +64,11 @@
 
   {% if page.header.og_image %}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{% if page.header.og_image contains "://" %}{{ page.header.og_image }}{% else %}{{ page.header.og_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.header.og_image contains "://" %}{{ page.header.og_image }}{% else %}{{ page.header.og_image | prepend: "/images/" | prepend: seo_base_path }}{% endif %}">
   {% else %}
     <meta name="twitter:card" content="summary">
     {% if site.og_image %}
-      <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
+      <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: seo_base_path }}">
     {% endif %}
   {% endif %}
 
@@ -84,9 +88,9 @@
 {% endif %}
 
 {% if page.header.og_image %}
-  <meta property="og:image" content="{% if page.header.og_image contains "://" %}{{ page.header.og_image }}{% else %}{{ page.header.og_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+  <meta property="og:image" content="{% if page.header.og_image contains "://" %}{{ page.header.og_image }}{% else %}{{ page.header.og_image | prepend: "/images/" | prepend: seo_base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
-  <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+  <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: seo_base_path }}{% endif %}">
 {% endif %}
 
 {% if page.date %}
@@ -104,10 +108,10 @@
 {% if site.og_image %}
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "Organization",
       "url": {{ seo_url | jsonify }},
-      "logo": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}
+      "logo": {{ site.og_image | prepend: "/images/" | prepend: seo_base_path | jsonify }}
     }
   </script>
 {% endif %}
@@ -115,7 +119,7 @@
 {% if site.social %}
   <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
+      "@context" : "https://schema.org",
       "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
       "name" : "{{ site.social.name | default: site.name }}",
       "url" : {{ seo_url | jsonify }},

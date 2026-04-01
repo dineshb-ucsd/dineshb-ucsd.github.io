@@ -1,6 +1,7 @@
 _site/
 _site_dev/
 _site_ucsd/
+_site_dineshb_ucsd/
 images/posts/*.tex
 images/posts/*.pdf
 images/posts/*.sty

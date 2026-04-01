@@ -119,7 +119,7 @@ author_profile: false
 
       <div class="home-link-cluster">
         <a class="home-text-link" href="{{ wcsng.links.home }}">Visit WCSNG</a>
-        <a class="home-text-link" href="{{ wcsng.links.team }}">Meet the team</a>
+        <a class="home-text-link" href="{{ base_path }}/team/">Meet the team</a>
         <a class="home-text-link" href="{{ base_path }}/software/">Open source projects</a>
         <a class="home-text-link" href="{{ wcsng.links.join_us }}">Join the group</a>
       </div>

@@ -13,11 +13,11 @@ A list of the main public pages on the site. For search engines, the XML sitemap
 
 - [Home]({{ base_path }}/)
 - [Research]({{ base_path }}/research/)
+- [Team]({{ base_path }}/team/)
 - [Publications]({{ base_path }}/publications/)
 - [Teaching]({{ base_path }}/teaching/)
 - [Open Source & Data]({{ base_path }}/software/)
 - [News]({{ base_path }}/news/)
-- [CV]({{ base_path }}/cv/)
 
 ## Teaching pages
 

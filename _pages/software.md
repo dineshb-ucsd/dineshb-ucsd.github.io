@@ -8,134 +8,171 @@ author_profile: false
 {% include base_path %}
 {% assign resources = site.data.wcsng_resources %}
 {% assign research_areas = site.data.wcsng_research.areas %}
-{% assign software_count = resources.software | size %}
-{% assign dataset_count = resources.datasets | size %}
+{% assign resource_catalog = site.data.wcsng_catalog.resources %}
+{% assign resource_tags = site.data.wcsng_catalog.resource_tags %}
 
 <div class="feature-page">
-  <section class="feature-hero feature-hero--soft">
-    <div class="feature-hero__copy">
-      <p class="feature-eyebrow">Open Source</p>
-      <h1>Software, datasets, and artifacts from the WCSNG ecosystem.</h1>
-      <p class="feature-lede">
-        WCSNG has curated and created open-source datasets and tools that enable reproducible research and lower
-        the barrier to entry for researchers in communication, computing, sensing, and autonomous systems.
+  <section class="feature-section">
+    <div class="feature-section__header">
+      <p class="feature-eyebrow">Browse</p>
+      <h2>Filter by resource type or topic</h2>
+      <p>
+        The cards are still organized under the main research areas, but the filters let you quickly slice the page
+        into software-only, data-only, or tag-specific views.
       </p>
-      <p class="feature-lede">
-        This page pulls together the public releases that are most useful to students, collaborators, and
-        researchers who want working systems, representative datasets, and concrete starting points rather than
-        paper titles alone.
-      </p>
-      <div class="feature-link-row">
-        <a class="feature-button feature-button--primary" href="{{ resources.links.github_org }}">GitHub organization</a>
-        <a class="feature-button feature-button--secondary" href="{{ resources.links.group_page }}">Group code page</a>
-      </div>
     </div>
 
-    <aside class="feature-hero__panel">
-      <p class="feature-eyebrow">Inventory</p>
-      <h2>Public releases organized by the same research areas used across the site</h2>
-      <div class="feature-mini-stats">
-        <div>
-          <strong>{{ software_count }}</strong>
-          <span>software systems</span>
+    <div class="catalog-surface" data-catalog>
+      <div class="catalog-controls">
+        <div class="catalog-filter-group">
+          <p class="catalog-filter-group__label">Type</p>
+          <div class="catalog-filter-group__buttons">
+            <button type="button" class="catalog-filter-button is-active" data-filter-group="kind" data-filter-value="all">All releases</button>
+            <button type="button" class="catalog-filter-button" data-filter-group="kind" data-filter-value="software">Software</button>
+            <button type="button" class="catalog-filter-button" data-filter-group="kind" data-filter-value="dataset">Datasets</button>
+          </div>
         </div>
-        <div>
-          <strong>{{ dataset_count }}</strong>
-          <span>datasets and artifacts</span>
+
+        <div class="catalog-filter-group">
+          <p class="catalog-filter-group__label">Topic</p>
+          <div class="catalog-filter-group__buttons">
+            <button type="button" class="catalog-filter-button is-active" data-filter-group="tag" data-filter-value="all">All topics</button>
+            {% for tag in resource_tags %}
+              <button type="button" class="catalog-filter-button" data-filter-group="tag" data-filter-value="{{ tag.slug }}">{{ tag.label }}<span>{{ tag.count }}</span></button>
+            {% endfor %}
+          </div>
         </div>
+
+        <p class="catalog-status" data-catalog-count></p>
       </div>
-      <div class="feature-link-row feature-link-row--compact">
+
+      <div class="resource-area-stack">
         {% for area in research_areas %}
-          <a class="feature-chip" href="#{{ area.slug }}">{{ area.title }}</a>
+          {% assign area_software = resources.software | where: "area", area.title %}
+          {% assign area_datasets = resources.datasets | where: "area", area.title %}
+          {% assign area_total = area_software.size | plus: area_datasets.size %}
+          {% if area_total > 0 %}
+            <section id="{{ area.slug }}" class="resource-area-block" data-catalog-section>
+              <div class="resource-area-block__header">
+                <p class="resource-card__meta">{{ area.title }}</p>
+                <h3>{{ area.title }}</h3>
+                <p class="resource-area-block__summary">{{ area.summary }}</p>
+              </div>
+
+              <div class="catalog-list catalog-list--resource">
+                {% for item in area_software %}
+                  {% assign resource_meta = resource_catalog[item.slug] %}
+                  {% assign item_tags = area.slug %}
+                  {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}
+                    {% assign item_tags = resource_meta.tags | map: "slug" | join: " " %}
+                  {% endif %}
+                  {% capture resolved_item_github %}{% include resolve-site-or-wcsng-href.html href=item.github %}{% endcapture %}
+                  {% capture resolved_item_paper %}{% include resolve-site-or-wcsng-href.html href=item.paper %}{% endcapture %}
+                  {% assign resolved_item_github = resolved_item_github | strip %}
+                  {% assign resolved_item_paper = resolved_item_paper | strip %}
+                  <article id="{{ item.slug }}" class="catalog-card catalog-card--resource" data-catalog-item data-catalog-kind="software" data-catalog-tag="{{ item_tags }}">
+                    <div class="catalog-card__media">
+                      {% if resource_meta and resource_meta.cover %}
+                        <img src="{{ base_path }}{{ resource_meta.cover }}" alt="{{ item.title }} project image">
+                      {% else %}
+                        <div class="catalog-card__placeholder"><span>Software</span></div>
+                      {% endif %}
+                    </div>
+
+                    <div class="catalog-card__body">
+                      <p class="catalog-card__meta">
+                        <span>Software</span>
+                        <span>{{ item.year }}</span>
+                        <span>{{ item.area }}</span>
+                        {% if resource_meta and resource_meta.conference %}<span>{{ resource_meta.conference }}</span>{% endif %}
+                      </p>
+                      <h3>{{ item.title }}</h3>
+                      <p class="catalog-card__copy">{{ item.summary }}</p>
+
+                      <div class="catalog-tag-list">
+                        {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}
+                          {% for tag in resource_meta.tags %}
+                            <span class="catalog-tag">{{ tag.label }}</span>
+                          {% endfor %}
+                        {% else %}
+                          <span class="catalog-tag">{{ item.area }}</span>
+                        {% endif %}
+                      </div>
+
+                      <div class="catalog-card__links">
+                        {% if resolved_item_github != "" %}
+                          <a class="catalog-link" href="{{ resolved_item_github }}">GitHub</a>
+                        {% endif %}
+                        {% if resolved_item_paper != "" %}
+                          <a class="catalog-link" href="{{ resolved_item_paper }}">Paper</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </article>
+                {% endfor %}
+
+                {% for item in area_datasets %}
+                  {% assign resource_meta = resource_catalog[item.slug] %}
+                  {% assign item_tags = area.slug %}
+                  {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}
+                    {% assign item_tags = resource_meta.tags | map: "slug" | join: " " %}
+                  {% endif %}
+                  {% capture resolved_item_dataset %}{% include resolve-site-or-wcsng-href.html href=item.dataset %}{% endcapture %}
+                  {% capture resolved_item_github %}{% include resolve-site-or-wcsng-href.html href=item.github %}{% endcapture %}
+                  {% capture resolved_item_paper %}{% include resolve-site-or-wcsng-href.html href=item.paper %}{% endcapture %}
+                  {% assign resolved_item_dataset = resolved_item_dataset | strip %}
+                  {% assign resolved_item_github = resolved_item_github | strip %}
+                  {% assign resolved_item_paper = resolved_item_paper | strip %}
+                  <article id="{{ item.slug }}" class="catalog-card catalog-card--resource" data-catalog-item data-catalog-kind="dataset" data-catalog-tag="{{ item_tags }}">
+                    <div class="catalog-card__media">
+                      {% if resource_meta and resource_meta.cover %}
+                        <img src="{{ base_path }}{{ resource_meta.cover }}" alt="{{ item.title }} dataset image">
+                      {% else %}
+                        <div class="catalog-card__placeholder"><span>Dataset</span></div>
+                      {% endif %}
+                    </div>
+
+                    <div class="catalog-card__body">
+                      <p class="catalog-card__meta">
+                        <span>Dataset</span>
+                        <span>{{ item.year }}</span>
+                        <span>{{ item.area }}</span>
+                        {% if resource_meta and resource_meta.conference %}<span>{{ resource_meta.conference }}</span>{% endif %}
+                      </p>
+                      <h3>{{ item.title }}</h3>
+                      <p class="catalog-card__copy">{{ item.summary }}</p>
+
+                      <div class="catalog-tag-list">
+                        {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}
+                          {% for tag in resource_meta.tags %}
+                            <span class="catalog-tag">{{ tag.label }}</span>
+                          {% endfor %}
+                        {% else %}
+                          <span class="catalog-tag">{{ item.area }}</span>
+                        {% endif %}
+                      </div>
+
+                      <div class="catalog-card__links">
+                        {% if resolved_item_dataset != "" %}
+                          <a class="catalog-link" href="{{ resolved_item_dataset }}">Dataset</a>
+                        {% endif %}
+                        {% if resolved_item_github != "" %}
+                          <a class="catalog-link" href="{{ resolved_item_github }}">Code</a>
+                        {% endif %}
+                        {% if resolved_item_paper != "" %}
+                          <a class="catalog-link" href="{{ resolved_item_paper }}">Paper</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </article>
+                {% endfor %}
+              </div>
+            </section>
+          {% endif %}
         {% endfor %}
       </div>
-    </aside>
-  </section>
-
-  <section class="feature-section">
-    <div class="feature-section__header">
-      <p class="feature-eyebrow">Software</p>
-      <h2>Open systems and toolchains</h2>
-      <p>
-        These repositories expose working systems, sensing pipelines, simulation environments, and evaluation
-        toolchains that make the research reproducible and reusable.
-      </p>
-    </div>
-    <div class="resource-area-stack">
-      {% for area in research_areas %}
-        {% assign area_software = resources.software | where: "area", area.title %}
-        {% if area_software.size > 0 %}
-          <section id="{{ area.slug }}" class="resource-area-block">
-            <div class="resource-area-block__header">
-              <p class="resource-card__meta">Software | {{ area.title }}</p>
-              <h3>{{ area.title }}</h3>
-              <p class="resource-area-block__summary">{{ area.summary }}</p>
-            </div>
-            <div class="resource-grid">
-              {% for item in area_software %}
-                <article id="{{ item.slug }}" class="resource-card">
-                  <p class="resource-card__meta">{{ item.year }} | {{ item.area }}</p>
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.summary }}</p>
-                  <div class="feature-link-row">
-                    {% if item.github %}
-                      <a class="feature-text-link" href="{{ item.github }}" aria-label="Open the GitHub repository for {{ item.title }}">GitHub</a>
-                    {% endif %}
-                    {% if item.paper %}
-                      <a class="feature-text-link" href="{{ item.paper }}" aria-label="Read the paper for {{ item.title }}">Paper</a>
-                    {% endif %}
-                  </div>
-                </article>
-              {% endfor %}
-            </div>
-          </section>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="feature-section">
-    <div class="feature-section__header">
-      <p class="feature-eyebrow">Data</p>
-      <h2>Datasets and research artifacts</h2>
-      <p>
-        These releases make it easier to benchmark localization, mmWave reliability, autonomous radar perception,
-        and sustainable wireless architectures without rebuilding every pipeline from scratch.
-      </p>
-    </div>
-    <div class="resource-area-stack">
-      {% for area in research_areas %}
-        {% assign area_datasets = resources.datasets | where: "area", area.title %}
-        {% if area_datasets.size > 0 %}
-          <section id="{{ area.slug }}-data" class="resource-area-block">
-            <div class="resource-area-block__header">
-              <p class="resource-card__meta">Data | {{ area.title }}</p>
-              <h3>{{ area.title }}</h3>
-              <p class="resource-area-block__summary">{{ area.summary }}</p>
-            </div>
-            <div class="resource-grid">
-              {% for item in area_datasets %}
-                <article id="{{ item.slug }}" class="resource-card">
-                  <p class="resource-card__meta">{{ item.year }} | {{ item.area }}</p>
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.summary }}</p>
-                  <div class="feature-link-row">
-                    {% if item.dataset %}
-                      <a class="feature-text-link" href="{{ item.dataset }}" aria-label="Open the dataset for {{ item.title }}">Dataset</a>
-                    {% endif %}
-                    {% if item.github %}
-                      <a class="feature-text-link" href="{{ item.github }}" aria-label="Open the code for {{ item.title }}">Code</a>
-                    {% endif %}
-                    {% if item.paper %}
-                      <a class="feature-text-link" href="{{ item.paper }}" aria-label="Read the paper for {{ item.title }}">Paper</a>
-                    {% endif %}
-                  </div>
-                </article>
-              {% endfor %}
-            </div>
-          </section>
-        {% endif %}
-      {% endfor %}
     </div>
   </section>
 </div>
+
+{% include catalog-filters-script.html %}

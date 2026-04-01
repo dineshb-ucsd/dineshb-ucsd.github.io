@@ -1,4 +1,1 @@
 {% assign base_path = site.baseurl | default: "" %}
-{% if site.url %}
-  {% assign base_path = site.url | append: base_path %}
-{% endif %}
