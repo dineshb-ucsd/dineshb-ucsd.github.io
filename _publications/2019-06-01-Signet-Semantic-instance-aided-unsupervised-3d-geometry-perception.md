@@ -1,7 +1,7 @@
 ---
 title: "Signet: Semantic instance aided unsupervised 3d geometry perception"
 collection: publications
-permalink: /publication/2019-06-01-Signet-Semantic-instance-aided-unsupervised-3d-geometry-perception
+permalink: /publication/2019-06-01-Signet-Semantic-instance-aided-unsupervised-3d-geometry-perception/
 excerpt: '26 cites: https://scholar.google.com/scholar?oi=bibs\&amp;hl=en\&amp;cites=9357944003335228407'
 date: 2019-06-01
 venue: 'IEEE/CVF CVPR 2019'

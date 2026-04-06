@@ -12,8 +12,8 @@ author_profile: false
 <div class="feature-page">
   <section class="feature-section feature-section--intro">
     <div class="feature-section__header feature-section__header--compact">
-      <p class="feature-eyebrow">Research</p>
-      <h1>Research</h1>
+      <p class="feature-eyebrow">Overview</p>
+      <h1>Focus Areas</h1>
       <p>{{ research.intro.lede }}</p>
       <div class="feature-link-row">
         <a class="feature-text-link" href="{{ base_path }}/publications/">{{ publication_count }} publications</a>
@@ -24,15 +24,6 @@ author_profile: false
   </section>
 
   <section class="feature-section">
-    <div class="feature-section__header">
-      <p class="feature-eyebrow">Research Map</p>
-      <h2>Current focus areas</h2>
-      <p>
-        Each area below summarizes the direction of the work, the current system-level thrusts, and the
-        most relevant code or dataset releases to explore next.
-      </p>
-    </div>
-
     <div class="feature-card-grid">
       {% for area in research.areas %}
         <a class="feature-card" href="{{ base_path }}{{ area.url }}">
@@ -85,13 +76,6 @@ author_profile: false
                   <img src="{{ base_path }}{{ area.image }}" alt="{{ area.image_alt | default: area.title }}">
                 </div>
               {% endif %}
-
-              <h4>Researchers</h4>
-              <div class="feature-pill-list">
-                {% for person in area.people %}
-                  <span class="feature-pill">{{ person }}</span>
-                {% endfor %}
-              </div>
 
               <h4>Representative resources</h4>
               <div class="feature-link-row">

@@ -40,6 +40,11 @@ h6,
   letter-spacing: -0.02em;
 }
 
+.page__title {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  margin-bottom: 0.5em;
+}
+
 a {
   color: var(--page-accent-strong);
 }
@@ -245,7 +250,7 @@ a:focus {
   border: 1px solid var(--page-border);
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: var(--page-shadow-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .home-profile__image {
@@ -1249,9 +1254,9 @@ a:focus {
 }
 
 .catalog-card__media {
-  flex: 0 0 168px;
-  max-width: 168px;
-  aspect-ratio: 4 / 3;
+  flex: 0 0 130px;
+  max-width: 130px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 18px;
   background:
@@ -1259,10 +1264,21 @@ a:focus {
     #eef2f5;
 }
 
+.catalog-card--resource .catalog-card__media {
+  flex: 0 0 220px;
+  max-width: 220px;
+  aspect-ratio: 16 / 9;
+}
+
+.catalog-card--resource .catalog-card__media img {
+  object-fit: contain;
+}
+
 .catalog-card__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -1276,6 +1292,7 @@ a:focus {
 
 .catalog-card--publication .catalog-card__media img {
   object-fit: contain;
+  object-position: center;
 }
 
 .catalog-card__placeholder {
@@ -1588,15 +1605,19 @@ a:focus {
 }
 
 .team-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .team-grid--lead {
-  grid-template-columns: minmax(0, 360px);
+  grid-template-columns: minmax(0, 240px);
+}
+
+.team-card--lead .team-card__media {
+  aspect-ratio: 1 / 1;
 }
 
 .team-grid--compact {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .team-card,
@@ -1654,6 +1675,11 @@ a:focus {
 .team-card__body h3 a:hover,
 .team-card__body h3 a:focus {
   color: var(--page-accent-strong);
+}
+
+.team-card--lead .team-card__body p:not(.team-card__meta) {
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .team-card__body p:last-child,
@@ -2009,6 +2035,7 @@ a:focus {
 
 .course-sidebar .nav__list a {
   color: var(--page-ink);
+  font-size: 1.15rem;
   border-radius: 12px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }

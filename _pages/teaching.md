@@ -21,7 +21,16 @@ lede: "My teaching pairs theory with direct systems work. I focus on strong fund
       <p class="course-page__body-eyebrow">Current course</p>
       <h3>ECE 157A: Wireless Communications Laboratory</h3>
       <p>{{ site.data.teaching.ece_157a.summary }}</p>
+      <p><strong>Lectures:</strong> Tuesdays, 5:00 PM - 8:00 PM</p>
       <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-157a/">View the ECE 157A course page</a></p>
+    </article>
+
+    <article class="teaching-overview-card">
+      <p class="course-page__body-eyebrow">Current course</p>
+      <h3>ECE 157B: Wireless Sensing Laboratory</h3>
+      <p>{{ site.data.teaching.ece_157b.summary }}</p>
+      <p><strong>Lectures:</strong> Mondays, 5:00 PM - 8:00 PM</p>
+      <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-157b/">View the ECE 157B course page</a></p>
     </article>
   </div>
 </section>
@@ -40,13 +49,6 @@ lede: "My teaching pairs theory with direct systems work. I focus on strong fund
       <h3>ECE 257B: Principles of Wireless Communication</h3>
       <p>{{ site.data.teaching.ece_257b.summary }}</p>
       <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-257b/">View the ECE 257B course page</a></p>
-    </article>
-
-    <article class="teaching-overview-card">
-      <p class="course-page__body-eyebrow">Laboratory archive</p>
-      <h3>ECE 157B: Wireless Sensing Laboratory</h3>
-      <p>{{ site.data.teaching.ece_157b.summary }}</p>
-      <p><a class="course-page__inline-link" href="{{ base_path }}/teaching/ece-157b/">View the ECE 157B course page</a></p>
     </article>
   </div>
 </section>

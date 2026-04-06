@@ -14,12 +14,7 @@ author_profile: false
 <div class="feature-page">
   <section class="feature-section">
     <div class="feature-section__header">
-      <p class="feature-eyebrow">Browse</p>
-      <h2>Filter by resource type or topic</h2>
-      <p>
-        The cards are still organized under the main research areas, but the filters let you quickly slice the page
-        into software-only, data-only, or tag-specific views.
-      </p>
+      <h2>Browse by type and topic</h2>
     </div>
 
     <div class="catalog-surface" data-catalog>

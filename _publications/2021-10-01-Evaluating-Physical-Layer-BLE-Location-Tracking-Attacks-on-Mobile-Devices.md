@@ -1,7 +1,7 @@
 ---
 title: "Evaluating Physical-Layer BLE Location Tracking Attacks on Mobile Devices"
 collection: publications
-permalink: /publication/2021-10-01-Evaluating-Physical-Layer-BLE-Location-Tracking-Attacks-on-Mobile-Devices
+permalink: /publication/2021-10-01-Evaluating-Physical-Layer-BLE-Location-Tracking-Attacks-on-Mobile-Devices/
 date: 2021-10-01
 venue: 'IEEE Symposium on Security and Privacy 2022 -- Acceptance rate 14.7% (36 papers accepted out of 244 submitted)'
 paperurl: '/files/papers/sp-22.pdf'

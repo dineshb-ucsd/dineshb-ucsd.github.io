@@ -1,7 +1,7 @@
 ---
 title: 'Satellites are closer than you think: A near field MIMO approach for Ground stations'
 collection: publications
-permalink: "/publication/2026-01-22-arraylink"
+permalink: "/publication/2026-01-22-arraylink/"
 date: '2026-01-22'
 venue: 'IEEE INFOCOM 2026 [Submitted: July 2025, Accepted: Dec 2025]'
 paperurl: "/files/arraylink.pdf"

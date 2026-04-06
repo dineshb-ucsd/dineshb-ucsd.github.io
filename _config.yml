@@ -11,14 +11,14 @@ title                    : "Dinesh Bharadia"
 title_separator          : "-"
 name                     : &name "Dinesh Bharadia"
 description              : &description "Associate Professor at UC San Diego working on wireless communication, sensing, networking, and autonomous perception systems."
-url                      : https://dineshb-ucsd.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://dineshb.ucsd.edu # the canonical hostname & protocol for your site
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "dineshb-ucsd/dineshb-ucsd.github.io"
 external_redirect:
   hosts:
     - "dineshb-ucsd.github.io"
-  url: "https://web.eng.ucsd.edu"
-  baseurl: "/~dineshb"
+  url: "https://dineshb.ucsd.edu"
+  baseurl: ""
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160

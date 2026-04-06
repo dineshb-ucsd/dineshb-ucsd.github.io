@@ -1,7 +1,7 @@
 ---
 title: "Practical, real-time, full duplex wireless"
 collection: publications
-permalink: /publication/2011-09-01-Practical-real-time-full-duplex-wireless
+permalink: /publication/2011-09-01-Practical-real-time-full-duplex-wireless/
 excerpt: '1654 cites: https://scholar.google.com/scholar?oi=bibs\&amp;hl=en\&amp;cites=6988250277139539361'
 date: 2011-09-01
 venue: 'Mobicom 2011'

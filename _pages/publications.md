@@ -12,15 +12,6 @@ author_profile: false
 
 <div class="feature-page">
   <section class="feature-section">
-    <div class="feature-section__header">
-      <p class="feature-eyebrow">Browse</p>
-      <h2>Filter by topical tag</h2>
-      <p>
-        These tags come from the WCSNG publication taxonomy and make the archive easier to scan by theme instead of
-        only by year.
-      </p>
-    </div>
-
     <div class="catalog-surface" data-catalog>
       <div class="catalog-controls">
         <div class="catalog-filter-group">
@@ -95,7 +86,6 @@ author_profile: false
                 <img src="{{ base_path }}{{ cover_href }}" alt="{% if short_title %}{{ short_title }}{% else %}{{ post.title }}{% endif %} cover image">
               {% else %}
                 <div class="catalog-card__placeholder">
-                  <span>{{ post_year }}</span>
                 </div>
               {% endif %}
             </div>
@@ -103,7 +93,6 @@ author_profile: false
             <div class="catalog-card__body">
               <div class="catalog-card__meta-line">
                 <p class="catalog-card__meta">
-                  <span>{{ post_year }}</span>
                   {% if venue_label %}<span>{{ venue_label }}</span>{% endif %}
                   {% if acceptance_rate %}<span>Acceptance rate: {{ acceptance_rate }}</span>{% endif %}
                   {% if acceptance_note and acceptance_rate == nil %}<span>{{ acceptance_note }}</span>{% endif %}

@@ -1,7 +1,7 @@
 ---
 title: "ZLeaks: Passive Inference Attacks on Zigbee based Smart Homes"
 collection: publications
-permalink: /publication/2021-01-01-ZLeaks-Passive-Inference-Attacks-on-Zigbee-based-Smart-Homes
+permalink: /publication/2021-01-01-ZLeaks-Passive-Inference-Attacks-on-Zigbee-based-Smart-Homes/
 date: 2021-01-01
 venue: 'CoRR'
 paperurl: 'https://arxiv.org/abs/2107.10830'

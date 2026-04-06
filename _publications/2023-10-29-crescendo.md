@@ -1,7 +1,7 @@
 ---
 title: 'Crescendo: Towards Wideband, Real-Time, High-Fidelity Spectrum Sensing Systems'
 collection: publications
-permalink: "/publication/2023-10-29-crescendo"
+permalink: "/publication/2023-10-29-crescendo/"
 date: '2023-10-29'
 venue: MobiCom 2023
 paperurl: https://dl.acm.org/doi/abs/10.1145/3570361.3613294

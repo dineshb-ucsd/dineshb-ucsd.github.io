@@ -1,7 +1,7 @@
 ---
 title: "LocAP: Autonomous Millimeter Accurate Mapping of WiFi Infrastructure"
 collection: publications
-permalink: /publication/2020-04-01-LocAP-Autonomous-Millimeter-Accurate-Mapping-of-WiFi-Infrastructure
+permalink: /publication/2020-04-01-LocAP-Autonomous-Millimeter-Accurate-Mapping-of-WiFi-Infrastructure/
 excerpt: '7 cites: https://scholar.google.com/scholar?oi=bibs\&amp;hl=en\&amp;cites=966029656364373257'
 date: 2020-04-01
 venue: 'NSDI 2020 -- Acceptance rate 17.5% (48 papers accepted out of 275 submitted)'

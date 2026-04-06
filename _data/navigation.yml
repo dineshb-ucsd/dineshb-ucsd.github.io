@@ -16,7 +16,7 @@ main:
     url: /software/
 
 teaching_courses:
-  - title: "Course pages"
+  - title: ""
     children:
       - title: "ECE 157A"
         url: /teaching/ece-157a/
@@ -24,6 +24,8 @@ teaching_courses:
         url: /teaching/ece-257b/
       - title: "ECE 157B"
         url: /teaching/ece-157b/
+      - title: "ECE 101"
+        url: /teaching/ece-101/
 
 teaching_ece_157a:
   - title: "Course pages"

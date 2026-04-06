@@ -1,7 +1,7 @@
 ---
 title: "SIGNet: Semantic Instance Aided Unsupervised 3D Geometry Perception"
 collection: publications
-permalink: /publication/2018-01-01-SIGNet-Semantic-Instance-Aided-Unsupervised-3D-Geometry-Perception
+permalink: /publication/2018-01-01-SIGNet-Semantic-Instance-Aided-Unsupervised-3D-Geometry-Perception/
 date: 2018-01-01
 venue: 'CoRR'
 paperurl: 'http://arxiv.org/abs/1812.05642'

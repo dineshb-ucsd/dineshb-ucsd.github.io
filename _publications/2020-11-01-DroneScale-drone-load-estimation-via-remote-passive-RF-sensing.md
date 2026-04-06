@@ -1,7 +1,7 @@
 ---
 title: "DroneScale: drone load estimation via remote passive RF sensing"
 collection: publications
-permalink: /publication/2020-11-01-DroneScale-drone-load-estimation-via-remote-passive-RF-sensing
+permalink: /publication/2020-11-01-DroneScale-drone-load-estimation-via-remote-passive-RF-sensing/
 excerpt: '1 cites: https://scholar.google.com/scholar?oi=bibs\&amp;hl=en\&amp;cites=12285452767937590149'
 date: 2020-11-01
 venue: 'Sensys 2020 -- Acceptance rate 20% (43 papers accepted out of 213 submitted'

@@ -1,7 +1,7 @@
 ---
 title: 'mmSubArray: Enabling Joint Satellite-Terrestrial Networks in Millimeter-wave Band'
 collection: publications
-permalink: "/publication/2024-08-01-mmsubarray"
+permalink: "/publication/2024-08-01-mmsubarray/"
 date: '2024-08-01'
 venue: Small Satellite Conference 2024
 paperurl: "/files/mmsubarray.pdf"

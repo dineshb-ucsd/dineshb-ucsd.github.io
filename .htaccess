@@ -1,10 +1,19 @@
 RewriteEngine On
 
+# Redirect the legacy UCSD personal-web host to the canonical domain.
+RewriteCond %{HTTP_HOST} ^web\.eng\.ucsd\.edu$ [NC]
+RewriteRule ^(.*)$ https://dineshb.ucsd.edu/$1 [R=301,L]
+
 # Preserve legacy entry points with server-side redirects instead of generated redirect pages.
 RewriteRule ^about/?$ / [R=301,L]
 RewriteRule ^about\.html$ / [R=301,L]
 RewriteRule ^resume/?$ /cv/ [R=301,L]
 RewriteRule ^resume\.html$ /cv/ [R=301,L]
+
+# Serve flat generated HTML files through clean extensionless routes.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
 
 # Retire legacy template and archive surfaces that are no longer part of the public site.
 RewriteRule ^posts(/.*)?$ - [G,L]

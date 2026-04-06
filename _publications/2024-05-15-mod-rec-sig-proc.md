@@ -1,7 +1,7 @@
 ---
 title: 'Fourier Meets Gardner : Robust Blind Waveform Characterization'
 collection: publications
-permalink: "/publication/2024-05-15-mod-rec-sig-proc"
+permalink: "/publication/2024-05-15-mod-rec-sig-proc/"
 date: '2024-05-15'
 venue: IEEE DySPAN 2024
 paperurl: "/files/FourierMeetsGardner.pdf"

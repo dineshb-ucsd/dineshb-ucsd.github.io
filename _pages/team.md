@@ -17,11 +17,6 @@ author_profile: false
 
 <div class="feature-page">
   <section class="feature-section">
-    <div class="feature-section__header">
-      <p class="feature-eyebrow">Leadership</p>
-      <h2>Principal investigator</h2>
-    </div>
-
     <div class="team-grid team-grid--lead">
       {% for member in current_people %}
         {% if member.role == "Principal Investigator" %}
