@@ -173,15 +173,16 @@ a:focus {
 
 .home-lede {
   max-width: 42rem;
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   color: var(--page-ink);
-  font-size: 1.18rem;
-  line-height: 1.65;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
 }
 
 .home-lede--secondary {
   color: var(--page-ink-muted);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
 }
 
 .home-lede a {

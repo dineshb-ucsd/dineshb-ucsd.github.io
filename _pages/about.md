@@ -17,12 +17,6 @@ author_profile: false
   <div class="home-hero__content">
     <h1 class="sr-only">Dinesh Bharadia</h1>
     <p class="home-eyebrow">UC San Diego | Electrical and Computer Engineering | CSE affiliate</p>
-    <div class="home-intro-meta">
-      <p>Associate Professor, Electrical and Computer Engineering</p>
-      <p>Affiliate Faculty, Computer Science and Engineering</p>
-      <p>{{ profile.office.address }}</p>
-      <p>Office hours: {{ profile.office.hours }}</p>
-    </div>
     <p class="home-lede">
       I am Associate Professor in the ECE department with an affiliate appointment with the CSE department at UC San Diego.
       Our group <a href="https://wcsng.ucsd.edu">WCSNG</a> designs systems for wireless communication, computing,
@@ -42,6 +36,12 @@ author_profile: false
       <a class="home-link-chip" href="{{ base_path }}/research/">Research areas</a>
       <a class="home-link-chip" href="{{ base_path }}/publications/">Publications</a>
       <a class="home-link-chip" href="{{ base_path }}/software/">Datasets &amp; tools</a>
+    </div>
+    <div class="home-intro-meta">
+      <p>Associate Professor, Electrical and Computer Engineering</p>
+      <p>Affiliate Faculty, Computer Science and Engineering</p>
+      <p>{{ profile.office.address }}</p>
+      <p>Office hours: {{ profile.office.hours }}</p>
     </div>
   </div>
 

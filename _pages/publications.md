@@ -73,7 +73,6 @@ author_profile: false
             {% unless forloop.first %}</div></section>{% endunless %}
             <section class="catalog-year-group" data-catalog-section>
               <div class="catalog-year-group__header">
-                <p class="feature-eyebrow">{{ post_year }}</p>
                 <h2>{{ post_year }}</h2>
               </div>
               <div class="catalog-list catalog-list--publication">
