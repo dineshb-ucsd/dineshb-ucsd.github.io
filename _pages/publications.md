@@ -102,7 +102,7 @@ author_profile: false
               <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
 
               {% if post.citation %}
-                <p class="catalog-card__copy">{{ post.citation | strip | truncate: 260 }}</p>
+                <p class="catalog-card__copy">{{ post.citation | strip | truncate: 120 }}</p>
               {% endif %}
 
               {% if meta and meta.tags and meta.tags.size > 0 %}

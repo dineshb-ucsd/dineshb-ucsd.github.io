@@ -82,7 +82,7 @@ author_profile: false
                         {% if resource_meta and resource_meta.conference %}<span>{{ resource_meta.conference }}</span>{% endif %}
                       </p>
                       <h3>{{ item.title }}</h3>
-                      <p class="catalog-card__copy">{{ item.summary }}</p>
+                      <p class="catalog-card__copy">{{ item.summary | truncate: 120 }}</p>
 
                       <div class="catalog-tag-list">
                         {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}
@@ -135,7 +135,7 @@ author_profile: false
                         {% if resource_meta and resource_meta.conference %}<span>{{ resource_meta.conference }}</span>{% endif %}
                       </p>
                       <h3>{{ item.title }}</h3>
-                      <p class="catalog-card__copy">{{ item.summary }}</p>
+                      <p class="catalog-card__copy">{{ item.summary | truncate: 120 }}</p>
 
                       <div class="catalog-tag-list">
                         {% if resource_meta and resource_meta.tags and resource_meta.tags.size > 0 %}

@@ -1245,8 +1245,9 @@ a:focus {
 
 .catalog-card {
   display: flex;
-  gap: 1rem;
-  padding: 1.1rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem;
   border: 1px solid var(--page-border);
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.8);
@@ -1254,11 +1255,13 @@ a:focus {
 }
 
 .catalog-card__media {
-  flex: 0 0 240px;
-  max-width: 240px;
-  aspect-ratio: 16 / 9;
+  flex: 0 0 320px;
+  max-width: 320px;
   overflow: hidden;
   border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background:
     radial-gradient(circle at top left, rgba(156, 106, 27, 0.14), transparent 36%),
     #eef2f5;
@@ -1294,7 +1297,7 @@ a:focus {
 .catalog-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.15rem;
   min-width: 0;
   flex: 1;
 }
